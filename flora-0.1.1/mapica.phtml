@@ -176,7 +176,7 @@ header("Content-type: text/html; charset=$defCharset");
         <?php echo UiElement::pmFooter() ?>
     </div>
 
-    <div class="ui-layout-west" id="uiLayouttWest">
+    <div class="ui-layout-west" id="uiLayoutWest">
         <!-- Legend/TOC -->
         <?php echo UiElement::tocContainer($_SESSION['userAgent']) ?>
             
@@ -192,7 +192,7 @@ header("Content-type: text/html; charset=$defCharset");
         <?php echo UiElement::zoomSlider() ?>
         
         <!-- Search Container -->
-        <?php echo UiElement::searchContainer("inline") ?>
+        <?php echo UiElement::searchContainer("block") ?>
            
         <!-- Scale -->
         <?php echo UiElement::scaleForm() ?>

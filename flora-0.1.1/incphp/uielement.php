@@ -59,7 +59,7 @@ class UiElement
    /**
     * Toolbar
     */
-    public static function toolBar($buttons, $toolbarTheme="default", $toolBarOrientation="v", $toolbarImgType="gif", $cellspacing="4")
+    public static function toolBar($buttons, $toolbarTheme="tuneado", $toolBarOrientation="v", $toolbarImgType="png", $cellspacing="4")
     {
         $html  = "<div id=\"toolBar\" class=\"pm-toolframe\">";
         $html .= "<table class=\"pm-toolbar\" border=\"0\" cellspacing=\"$cellspacing\" cellpadding=\"0\">\n";
@@ -203,6 +203,29 @@ class UiElement
         $html .= "</form>";
         $html .= "</div>";
         
+		// Desplegable
+		// <div id="flechitaTipoDeBusqueda"></div>
+// <div id="inputTipoDeBusqueda" name="inputTipoDeBusqueda" style="-moz-user-select: none;">Dirección</div>
+// <div id="tipoDeBusquedaListado">
+// <ul id="ulTipoDeBusquedaListado">
+// <li>
+// <div id="TipoDeBusqueda1" value="1">Dirección</div>
+// </li>
+// <li>
+// <div id="TipoDeBusqueda2" value="2">Dirección exacta</div>
+// </li>
+// <li>
+// <div id="TipoDeBusqueda3" value="3">Polígono y Parcela</div>
+// </li>
+// <li>
+// <li>
+// <li>
+// <li>
+// </ul>
+// </div>
+// </div>
+		
+		
         return $html;
     }
     

@@ -1,0 +1,1 @@
+Crear enlaces símbolico o sustituir ruta a esta carpeta por donde se hayn las capas

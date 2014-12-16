@@ -8,7 +8,8 @@ if (isset($_REQUEST['config'])) {
         $startFile = "map.phtml?config=$config";
     }
 } else {
-    $startFile = "map_default.phtml";
+    //$startFile = "map_default.phtml";
+	$startFile = "mapica.phtml";
 }
 
 header("Location: $startFile");

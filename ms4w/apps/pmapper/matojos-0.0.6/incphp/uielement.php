@@ -59,7 +59,7 @@ class UiElement
    /**
     * Toolbar
     */
-    public static function toolBar($buttons, $toolbarTheme="default", $toolBarOrientation="v", $toolbarImgType="gif", $cellspacing="4")
+    public static function toolBar($buttons, $toolbarTheme="tuneado", $toolBarOrientation="v", $toolbarImgType="png", $cellspacing="4")
     {
         $html  = "<div id=\"toolBar\" class=\"pm-toolframe\">";
         $html .= "<table class=\"pm-toolbar\" border=\"0\" cellspacing=\"$cellspacing\" cellpadding=\"0\">\n";
@@ -203,6 +203,29 @@ class UiElement
         $html .= "</form>";
         $html .= "</div>";
         
+		// Desplegable
+		// <div id="flechitaTipoDeBusqueda"></div>
+// <div id="inputTipoDeBusqueda" name="inputTipoDeBusqueda" style="-moz-user-select: none;">Dirección</div>
+// <div id="tipoDeBusquedaListado">
+// <ul id="ulTipoDeBusquedaListado">
+// <li>
+// <div id="TipoDeBusqueda1" value="1">Dirección</div>
+// </li>
+// <li>
+// <div id="TipoDeBusqueda2" value="2">Dirección exacta</div>
+// </li>
+// <li>
+// <div id="TipoDeBusqueda3" value="3">Polígono y Parcela</div>
+// </li>
+// <li>
+// <li>
+// <li>
+// <li>
+// </ul>
+// </div>
+// </div>
+		
+		
         return $html;
     }
     
@@ -262,17 +285,18 @@ class UiElement
     */
     public static function pmHeader()
     {
-        $pmLogoUrl = array_key_exists('pmLogoUrl', $_SESSION) ? $_SESSION['pmLogoUrl'] : "http://www.pmapper.net";
-        $pmLogoTitle = array_key_exists('pmLogoTitle', $_SESSION) ? $_SESSION['pmLogoTitle'] : "p.mapper homepage";
-        $pmLogoSrc = array_key_exists('pmLogoSrc', $_SESSION) ? $_SESSION['pmLogoSrc'] : "images/logos/logo-black.png";
-        $pmVersion = array_key_exists('version', $_SESSION) ? ", v" . $_SESSION['version'] : "";
-        $pmHeading = array_key_exists('pmHeading', $_SESSION) ? $_SESSION['pmHeading'] : "<a href=\"http://mapserver.gis.umn.edu\" id=\"mshref_1\" title=\"UMN MapServer homepage\" onclick=\"this.target = '_new';\">MapServer</a>&nbsp; 
+        $pmLogoUrl = array_key_exists('pmLogoUrl', $_SESSION) ? $_SESSION['pmLogoUrl'] : "http://www.motril.es";
+        $pmLogoTitle = array_key_exists('pmLogoTitle', $_SESSION) ? $_SESSION['pmLogoTitle'] : "Ayuntamiento de Motril";
+        $pmLogoSrc = array_key_exists('pmLogoSrc', $_SESSION) ? $_SESSION['pmLogoSrc'] : "images/logos/Ayuntamiento_mini.png";
+        $pmVersion = array_key_exists('version', $_SESSION) ? ", v" . $_SESSION['version'] : "0.0.1";
+        /*$pmHeading = array_key_exists('pmHeading', $_SESSION) ? $_SESSION['pmHeading'] : "<a href=\"http://mapserver.gis.umn.edu\" id=\"mshref_1\" title=\"UMN MapServer homepage\" onclick=\"this.target = '_new';\">MapServer</a>&nbsp; 
                             <a href=\"http://www.dmsolutions.ca\" id=\"dmsol_href\" title=\"DM Solutions homepage\" onclick=\"this.target = '_new';\">PHP/MapScript</a>&nbsp; 
-                            Framework$pmVersion";
+                            Framework$pmVersion";*/
+		$pmHeading = array_key_exists('pmHeading', $_SESSION) ? $_SESSION['pmHeading'] : "Matojos - SIG del área de Agricultura, parques y jardines";
         
         $html = "<div class=\"pm-header\"><div><a href=\"$pmLogoUrl\" 
                     title=\"$pmLogoTitle\" onclick=\"this.target = '_blank';\">
-                    <img class=\"pm-logo-img\" src=\"$pmLogoSrc\" alt=\"logo\" /></a>    
+                    <img class=\"pm-logo-img\" src=\"$pmLogoSrc\" alt=\"logo\" height=\"24\" /></a>    
                     </div>
                     <div class=\"HEADING1\">$pmHeading</div>
                 </div>
@@ -285,19 +309,31 @@ class UiElement
     */
     public static function pmFooter()
     {
-        $html = "<div class=\"pm-footer\">
-                <div style=\"float:right;\">
-                    <a href=\"http://validator.w3.org/check?uri=referer\"><img
-                        src=\"images/logos/valid-xhtml10-small-blue.png\"
-                        alt=\"XHTML 1.0 Strict\"  /></a>
-                </div>
-                <div style=\"float:right;\"><a href=\"http://mapserver.gis.umn.edu\" id=\"mapserver_href_2\" onclick=\"this.target = '_blank';\">
-                    <img src=\"images/logos/mapserver-small.png\" title=\"UMN MapServer homepage\" alt=\"MapServer\" /></a>
-                </div>
-                <div style=\"float:right;\"><a href=\"http://www.pmapper.net\"  title=\"p.mapper homepage\" onclick=\"this.target = '_blank';\">
-                    <img src=\"images/logos/pmapper.png\" title=\"p.mapper\" alt=\"p.mapper\" /></a></div>
-            </div>
-        ";
+        // $html = "<div class=\"pm-footer\">
+                // <div style=\"float:right;\">
+                    // <a href=\"http://validator.w3.org/check?uri=referer\"><img
+                        // src=\"images/logos/valid-xhtml10-small-blue.png\"
+                        // alt=\"XHTML 1.0 Strict\"  /></a>
+                // </div>
+                // <div style=\"float:right;\"><a href=\"http://mapserver.gis.umn.edu\" id=\"mapserver_href_2\" onclick=\"this.target = '_blank';\">
+                    // <img src=\"images/logos/mapserver-small.png\" title=\"UMN MapServer homepage\" alt=\"MapServer\" /></a>
+                // </div>
+                // <div style=\"float:right;\"><a href=\"http://www.pmapper.net\"  title=\"p.mapper homepage\" onclick=\"this.target = '_blank';\">
+                    // <img src=\"images/logos/pmapper.png\" title=\"p.mapper\" alt=\"p.mapper\" /></a></div>
+            // </div>
+        // ";
+		//Servicio de Información Geográfica de parques, jardines y flora del municipio de Motril - Área de Agricultura, Parques y Jardines
+		$html = "<div class=\"pm-footer\">
+					<div style=\"float:right; position:relative; \">
+						<a href=\"http://labellotasoft.co.uk\">
+							<img src=\"images/logos/logo_con_nombre.png\" height=\"34px\" width=\"94px\" alt=\"La Bellota Soft Ltd.\"  />
+						</a>
+					</div>
+					<div style=\"float:right; position:relative; \">
+						Matojos 0.0.1©  2014 - Servicio de Información Geográfica de parques, jardines y flora del municipio de Motril
+					</div>
+				</div>
+		";
         return $html;
     }
     

@@ -1,7 +1,7 @@
 <pmapper>
     <ini>
         <pmapper>
-            <pmTitle>p.mapper - A MapServer PHP/MapScript Framework</pmTitle>
+            <pmTitle>Parques y Jardines de Motril</pmTitle>
             <debugLevel>3</debugLevel>
             <plugins>export</plugins>
             <plugins>scalebar</plugins>
@@ -15,7 +15,7 @@
             <pm_search_configfile>inline</pm_search_configfile>
         </config>
         <map>
-            <mapFile>pmapper_demo.map</mapFile>
+            <mapFile>er_planico_loco.map</mapFile>
             <tplMapFile>common/template.map</tplMapFile>
             <categories>
                 <category name="cat_admin">
@@ -77,7 +77,7 @@
 			<legendKeyimageRewrite>0</legendKeyimageRewrite>
         </ui>
         <locale>
-            <defaultLanguage>en</defaultLanguage>
+            <defaultLanguage>es</defaultLanguage>
             <defaultCharset>UTF-8</defaultCharset>
             <map2unicode>1</map2unicode>
         </locale>
@@ -93,7 +93,7 @@
         </download>
         <php>
             <pearDbClass>MDB2</pearDbClass>
-            <defaultTimeZone>Europe/Vienna</defaultTimeZone>
+            <defaultTimeZone>Europe/Madrid</defaultTimeZone>
         </php>
         <pluginsConfig>
             <export>

@@ -277,7 +277,7 @@ if (isset($_REQUEST['language'])) {
 } elseif (isset($_SERVER['PM_DEFAULT_LANGUAGE'])) {
     $gLanguage = trim($_SERVER['PM_DEFAULT_LANGUAGE']);
 } else {
-    $gLanguage = "en";   // default language
+    $gLanguage = "es";   // default language
 }
 
 

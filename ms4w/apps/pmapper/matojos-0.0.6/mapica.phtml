@@ -3,7 +3,7 @@
  * Archivo: mapica.phtml
  * Contenido: Página principal de la publicación web del SIG de flora.
  * Autor: Óscar El Becario Eterno.
- * Versión: 0.1 (Preludio Alfalfa) - 08/12/2014
+ * Versión: 0.0.8 (Preludio Alfalfa) - 18/12/2014
  * Descripción: Archivo de texto plano precioso y encantador con código PHP
  * para generar la página web que muestre el mapa de flora, así como ir
  * actualizando dicha web en base a las capas seleccionadas, opciones y
@@ -37,6 +37,7 @@ require_once("incphp/legend.php");
 include_once("incphp/init/init.php");
 include_once("incphp/uielement.php");
 
+// Directiva de PHP para que se muestre en la codificación definida
 header("Content-type: text/html; charset=$defCharset");
 
 ?>
@@ -48,20 +49,20 @@ header("Content-type: text/html; charset=$defCharset");
  <meta name="description" content="SIG de flora de Motril" />
  <meta name="author" content="Óscar El Becario Eterno" />
  <meta name="keywords" content="Motril, flora, parques, jardines, plantas, árboles, matas, matojos" />
-
- <title><?php echo $_SESSION['pmTitle'] ?></title>
  
+ <title><?php echo $_SESSION['pmTitle'] ?></title>
+  
   <?php 
-    
-    // Load all JS files from 'javascript' and 'config' directory
-    echo $jsReference; 
-    
-    echo $jsConfigReference;
-    
-    echo $jsCustomReference;
-
-    // Reference all global JS variables
-    include("incphp/js/js_init.php"); 
+   
+   // Cargar todos los archivos ".js" de los directorios 'javascript' y 'config'
+   echo $jsReference; 
+   
+   echo $jsConfigReference;
+   
+   echo $jsCustomReference;
+   
+   // Reference all global JS variables
+   include("incphp/js/js_init.php"); 
   ?>
  
  <link rel="shortcut icon" href="images/Escudo_Azul_Motril_peque.ico" type="image/x-icon" />
@@ -80,9 +81,9 @@ header("Content-type: text/html; charset=$defCharset");
  
  <style type="text/css">
  <!--
-   .ui-layout-east {border: 1px solid #999999; background-color:#e9e9e9;}
+   /*.ui-layout-east {border: 1px solid #999999; background-color:#e9e9e9;}
    .ui-layout-center {border: 1px solid #999999;}
-   .ui-layout-root {border: 1px solid #000000;}
+   .ui-layout-root {border: 1px solid #000000;}*/
  }
  -->
  </style>
@@ -105,15 +106,17 @@ header("Content-type: text/html; charset=$defCharset");
             var rootElem = $('#uiLayoutRoot'); 
             var rootH = rootElem.height();
             var rootW = rootElem.width();
-            var northH = $('#uiLayoutNorth').outerHeight({margin:true, border:true});
-            var southH = $('#uiLayoutSouth').outerHeight({margin:true});
+            var northH = $('#uiLayoutNorth').outerHeight({margin:false, border:false});
+            var southH = $('#uiLayoutSouth').outerHeight({margin:false});
             var mH = rootH - northH - southH;
             
-            $('#uiLayoutCenter').css({position:'absolute'})
-                                .height(mH)
-                                .width(rootW - $('#uiLayoutWest').outerWidth({margin:true}) - $('#uiLayoutEast').outerWidth({margin:true}) - 3)
-                                .top(northH)
-                                .left($('#uiLayoutWest').outerWidth({margin:true}));
+            $('#uiLayoutCenter').css({position:'absolute', height:'100%'})
+                                //.height(mH)
+                                .width(rootW - $('#uiLayoutWest').outerWidth({margin:false}) - $('#uiLayoutEast').outerWidth({margin:false}))
+                                //.top(northH)
+								.top(0)
+                                //.left($('#uiLayoutWest').outerWidth({margin:false}));
+								.left($('#uiLayoutWest').width());
             $('#uiLayoutEast').height(mH).top(northH);
             $('#toc, #toclegend').height(mH - $('#refmap').height() - $('#toc').itop() - 8);
                                 
@@ -130,21 +133,24 @@ header("Content-type: text/html; charset=$defCharset");
 	$(document).ready(function () {
         var mrgH = 6;
         var mrgV = 6;
-		var lcW = 220;
+		var lcW = 250;
         var barH = 32;
-        $('#uiLayoutRoot').css({position:'absolute',  top:10, bottom:10, left:10, right:10});
+        //$('#uiLayoutRoot').css({position:'absolute',  top:10, bottom:10, left:10, right:10});
+		$('#uiLayoutRoot').css({position:'absolute', top:0, bottom:0, left:0, right:0});
         /*
 		$('#uiLayoutWest').css({position:'absolute', width:0, 'margin-right':mrgH});
         $('#uiLayoutEast').css({position:'absolute', right:0, width:240, height:'100%', 'margin-left':mrgH, 'margin-right':mrgH, 'z-index':99});
 		*/
 		$('#uiLayoutEast').css({position:'absolute', width:0});
-        $('#uiLayoutWest').css({position:'absolute', left:0, width:lcW, height:'100%', 'margin-right':mrgH});
-        $('#uiLayoutNorth').css({position:'absolute', top:0, height:40, width:'100%', 'margin-bottom':mrgV});
-        $('#uiLayoutSouth').css({position:'absolute', bottom:0, height:35, width:'100%', 'margin-top':mrgV+2});
+        $('#uiLayoutWest').css({position:'absolute', left:0, width:lcW, height:'100%', 'margin-right':0});
+        //$('#uiLayoutNorth').css({position:'absolute', top:0, height:40, width:'100%', 'margin-bottom':mrgV});
+		$('#uiLayoutNorth').css({position:'absolute', top:0, height:0});
+        //$('#uiLayoutSouth').css({position:'absolute', bottom:0, height:35, width:'100%', 'margin-top':mrgV+2});
+		$('#uiLayoutSouth').css({position:'absolute', bottom:0, height:0});
         
         /** Some components to be added to UI */
         $('#uiLayoutCenter').pmToolBar(PM.buttonsDefault);  // ToolBar, REQUIRED
-        $('#uiLayoutNorth').pmToolLinks(PM.linksDefault);   // Tool links
+        //$('#uiLayoutNorth').pmToolLinks(PM.linksDefault);   // Tool links
         $('#uiLayoutCenter').appendElement('div').addClass('map-top-bar');  // Top bar over map
         
         PM.Layout.resizeContainers();
@@ -164,24 +170,26 @@ header("Content-type: text/html; charset=$defCharset");
 <div class="ui-layout-root" id="uiLayoutRoot" >
 
     <div class="ui-layout-north" id="uiLayoutNorth">
-        <?php echo UiElement::pmHeader() ?>
+        
     </div>
 
     <div class="ui-layout-east" id="uiLayoutEast">
-        <div id="legend"></div>
+        <!-- <div id="legend"></div> -->
     </div>
 
     <div class="ui-layout-south" id="uiLayoutSouth">
-        <?php echo UiElement::displayCoordinates() ?>
-        <?php echo UiElement::pmFooter() ?>
+
     </div>
 
     <div class="ui-layout-west" id="uiLayoutWest">
+        <!-- Headerc
+        <?php echo UiElement::pmHeader() ?>
+        
         <!-- Legend/TOC -->
         <?php echo UiElement::tocContainer($_SESSION['userAgent']) ?>
             
         <!-- Reference Map -->
-        <?php echo UiElement::refMap($refH, $refW, $refImg, $refH, $refW) ?>
+        <?php /* echo UiElement::refMap($refH, $refW, $refImg, $refH, $refW) */?>
     </div>
 
     <div class="ui-layout-center" id="uiLayoutCenter">
@@ -193,9 +201,18 @@ header("Content-type: text/html; charset=$defCharset");
         
         <!-- Search Container -->
         <?php echo UiElement::searchContainer("block") ?>
-           
+        
+        <!-- Tools Button -->
+        <?php echo UiElement::toolsButton("block") ?>
+        
         <!-- Scale -->
         <?php echo UiElement::scaleForm() ?>
+		
+		<!-- Coordinates -->
+		<?php echo UiElement::displayCoordinates() ?>
+		
+		<!-- Footer -->
+        <?php echo UiElement::pmFooter() ?>
         
     </div>
 

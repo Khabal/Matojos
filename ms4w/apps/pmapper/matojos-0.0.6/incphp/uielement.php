@@ -288,17 +288,26 @@ class UiElement
         $pmLogoUrl = array_key_exists('pmLogoUrl', $_SESSION) ? $_SESSION['pmLogoUrl'] : "http://www.motril.es";
         $pmLogoTitle = array_key_exists('pmLogoTitle', $_SESSION) ? $_SESSION['pmLogoTitle'] : "Ayuntamiento de Motril";
         $pmLogoSrc = array_key_exists('pmLogoSrc', $_SESSION) ? $_SESSION['pmLogoSrc'] : "images/logos/Ayuntamiento_mini.png";
-        $pmVersion = array_key_exists('version', $_SESSION) ? ", v" . $_SESSION['version'] : "0.0.8";
+        $pmVersion = array_key_exists('version', $_SESSION) ? ", v" . $_SESSION['version'] : "0.0.9";
         /*$pmHeading = array_key_exists('pmHeading', $_SESSION) ? $_SESSION['pmHeading'] : "<a href=\"http://mapserver.gis.umn.edu\" id=\"mshref_1\" title=\"UMN MapServer homepage\" onclick=\"this.target = '_new';\">MapServer</a>&nbsp; 
                             <a href=\"http://www.dmsolutions.ca\" id=\"dmsol_href\" title=\"DM Solutions homepage\" onclick=\"this.target = '_new';\">PHP/MapScript</a>&nbsp; 
                             Framework$pmVersion";*/
-		$pmHeading = array_key_exists('pmHeading', $_SESSION) ? $_SESSION['pmHeading'] : "Matojos - SIG del área de Agricultura, parques y jardines";
+		$pmHeading = array_key_exists('pmHeading', $_SESSION) ? $_SESSION['pmHeading'] : "Matojos";
+		$pmSubHeading = array_key_exists('pmSubHeading', $_SESSION) ? $_SESSION['pmSubHeading'] : "SIG del área de Agricultura, parques y jardines";
         
-        $html = "<div class=\"pm-header\"><div><a href=\"$pmLogoUrl\" 
-                    title=\"$pmLogoTitle\" onclick=\"this.target = '_blank';\">
-                    <img class=\"pm-logo-img\" src=\"$pmLogoSrc\" alt=\"logo\" height=\"24\" /></a>    
+        $html = "<div class=\"pm-header\">
+					<div class=\"HEADING1\">$pmHeading
+					<a id=\"textoClosePanelLateral\" href=\"javascript:CerrarPanelLateral();\">
+<span id=\"iconClosePanelLateral\" title=\"Ocultar panel\"></span>
+</a>
+					
+					</div>
+					<div>
+						<a href=\"$pmLogoUrl\" title=\"$pmLogoTitle\" onclick=\"this.target = '_blank';\">
+						<img class=\"pm-logo-img\" src=\"$pmLogoSrc\" alt=\"logo\" height=\"24\" /></a>    
                     </div>
-                    <div class=\"HEADING1\">$pmHeading</div>
+                    
+					<div class=\"HEADING2\">$pmHeading</div>
                 </div>
         ";
         return $html;

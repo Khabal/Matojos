@@ -1,43 +1,29 @@
 <?php
-
 /******************************************************************************
- *
- * Purpose: create User Interface HTML elelemnts 
- * Author:  Armin Burger
- *
- ******************************************************************************
- *
- * Copyright (c) 2003-2008 Armin Burger
- *
- * This file is part of p.mapper.
- *
- * p.mapper is free software; you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation; either version 2 of the License, or
- * (at your option) any later version. See the COPYING file.
- *
- * p.mapper is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with p.mapper; if not, write to the Free Software
- * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
+ * Archivo: uielement.php
+ * Contenido: Clase UiElement con funciones para escritura de código HTML para
+ * mostrar la página web del SIG de flora que actúa como interfaz gráfica.
+ * Autor: Óscar El Becario Eterno.
+ * Versión: 0.0.10 (Preludio Alfalfa) - 22/12/2014
+ * Descripción: Archivo de texto plano precioso y encantador de código PHP
+ * para generar los elementos de la página web que muestre el mapa de flora,
+ * como cabecera, pie, menú, leyenda, además de ir actualizando dichos
+ * elementos en base a las capas seleccionadas, opciones y demás interacciones.
+ * 
+ * Notas: Nada a desastacar... por ahora. Todas las cañerías en orden.
  *
  ******************************************************************************/
- 
+
+
 /**
  * UI elements to be inserted into main doc
  */
-class UiElement
-{
+class UiElement{
 
    /**
     * Map zone
     */
-    public static function mapZone()
-    {
+    public static function mapZone(){
         $html = "<div id=\"map\" class=\"baselayout\">
                 <!-- MAIN MAP -->
                 <div id=\"mapimgLayer\">
@@ -49,7 +35,7 @@ class UiElement
                 <div id=\"helpMessage\"></div>
                 <div id=\"scalebar\"></div>
                 <div id=\"iqueryContainer\"></div>
-                <div id=\"loading\"><img id=\"loadingimg\" src=\"images/loading.gif\" alt=\"loading\" /></div>
+                <div id=\"loading\"><img id=\"loadingimg\" src=\"images/cargando.gif\" alt=\"Cargando\" /></div>
             </div>
         ";
         return $html;
@@ -59,8 +45,7 @@ class UiElement
    /**
     * Toolbar
     */
-    public static function toolBar($buttons, $toolbarTheme="tuneado", $toolBarOrientation="v", $toolbarImgType="png", $cellspacing="4")
-    {
+    public static function toolBar($buttons, $toolbarTheme="tuneado", $toolBarOrientation="v", $toolbarImgType="png", $cellspacing="4"){
         $html  = "<div id=\"toolBar\" class=\"pm-toolframe\">";
         $html .= "<table class=\"pm-toolbar\" border=\"0\" cellspacing=\"$cellspacing\" cellpadding=\"0\">\n";
         $html .= ($toolBarOrientation == "v" ? "" : "<tr>");
@@ -80,8 +65,8 @@ class UiElement
                 } 
 
             } else {
-                $html .= "<td class=\"pm-toolbar-td\" id=\"tb_$b\"  " . 
-                        //($ba[1] == "0" ?  "onmousedown=\"setTbTDButton('$b');domouseclick('$b')\"" : "onmousedown=\"TbDownUp('$b','d')\" onmouseup=\"TbDownUp('$b','u')\"") .
+			//($ba[1] == "0" ?  "onmousedown=\"setTbTDButton('$b');domouseclick('$b')\"" : "onmousedown=\"TbDownUp('$b','d')\" onmouseup=\"TbDownUp('$b','u')\"") .
+                $html .= "<td class=\"pm-toolbar-td\" id=\"tb_$b\"  " .                         
                         ($ba[1] == "0" ?  "onmousedown=\"setTbTDButton('$b');\"" : "onmousedown=\"TbDownUp('$b','d')\" onmouseup=\"TbDownUp('$b','u')\"") .
                         " onclick=\"" . ($ba[1] == "0" ? "domouseclick('$b')" : "$ba[1]()") .  "\">" .
                         "<img id=\"img_$b\"  src=\"images/buttons/$toolbarTheme/$b"."_off.$toolbarImgType\" title=\"$ba[0]\" alt=\"$ba[0]\"  /></td>" ;
@@ -286,28 +271,46 @@ class UiElement
     public static function pmHeader()
     {
         $pmLogoUrl = array_key_exists('pmLogoUrl', $_SESSION) ? $_SESSION['pmLogoUrl'] : "http://www.motril.es";
-        $pmLogoTitle = array_key_exists('pmLogoTitle', $_SESSION) ? $_SESSION['pmLogoTitle'] : "Ayuntamiento de Motril";
-        $pmLogoSrc = array_key_exists('pmLogoSrc', $_SESSION) ? $_SESSION['pmLogoSrc'] : "images/logos/Ayuntamiento_mini.png";
-        $pmVersion = array_key_exists('version', $_SESSION) ? ", v" . $_SESSION['version'] : "0.0.9";
+        $pmLogoTitle = array_key_exists('pmLogoTitle', $_SESSION) ? $_SESSION['pmLogoTitle'] : "Matoojos";
+        $pmLogoSrc = array_key_exists('pmLogoSrc', $_SESSION) ? $_SESSION['pmLogoSrc'] : "images/logos/matojos_logo.png";
+        $pmVersion = array_key_exists('version', $_SESSION) ? ", v" . $_SESSION['version'] : "0.0.10";
         /*$pmHeading = array_key_exists('pmHeading', $_SESSION) ? $_SESSION['pmHeading'] : "<a href=\"http://mapserver.gis.umn.edu\" id=\"mshref_1\" title=\"UMN MapServer homepage\" onclick=\"this.target = '_new';\">MapServer</a>&nbsp; 
                             <a href=\"http://www.dmsolutions.ca\" id=\"dmsol_href\" title=\"DM Solutions homepage\" onclick=\"this.target = '_new';\">PHP/MapScript</a>&nbsp; 
                             Framework$pmVersion";*/
 		$pmHeading = array_key_exists('pmHeading', $_SESSION) ? $_SESSION['pmHeading'] : "Matojos";
 		$pmSubHeading = array_key_exists('pmSubHeading', $_SESSION) ? $_SESSION['pmSubHeading'] : "SIG del área de Agricultura, parques y jardines";
         
-        $html = "<div class=\"pm-header\">
-					<div class=\"HEADING1\">$pmHeading
-					<a id=\"textoClosePanelLateral\" href=\"javascript:CerrarPanelLateral();\">
+		/*
+		<a id=\"textoClosePanelLateral\" href=\"javascript:CerrarPanelLateral();\">
 <span id=\"iconClosePanelLateral\" title=\"Ocultar panel\"></span>
 </a>
+menudown.gif*/
+        /*$html = "<div class=\"pm-header\">
+					<div class=\"HEADING1\">$pmHeading
+					
 					
 					</div>
-					<div>
+					<div id=\"img-logo-principal\">
 						<a href=\"$pmLogoUrl\" title=\"$pmLogoTitle\" onclick=\"this.target = '_blank';\">
-						<img class=\"pm-logo-img\" src=\"$pmLogoSrc\" alt=\"logo\" height=\"24\" /></a>    
+						<img class=\"pm-logo-img\" src=\"$pmLogoSrc\" alt=\"logo\" height=\"60\" width=\"200\" /></a>    
                     </div>
                     
 					<div class=\"HEADING2\">$pmHeading</div>
+                </div>
+        ";*/
+		
+		$html = "<div class=\"pm-header\">
+					
+					<div id=\"img-logo-principal\">
+						<a href=\"$pmLogoUrl\" title=\"$pmLogoTitle\" onclick=\"this.target = '_blank';\">
+						<img class=\"pm-logo-img\" src=\"$pmLogoSrc\" alt=\"logo\" height=\"60\" width=\"200\" /></a>    
+                    </div>
+					<div id=\"img-logo-secundario\">
+						<a href=\"$pmLogoUrl\" title=\"$pmLogoTitle\" onclick=\"this.target = '_blank';\">
+						<img class=\"pm-logo-img\" src=\"images/logos/Agricultura.png\" alt=\"logo\" height=\"30\" width=\"100\" /></a>    
+                    </div>
+                    
+					
                 </div>
         ";
         return $html;
@@ -338,7 +341,7 @@ class UiElement
 							<img src=\"images/logos/logo_con_nombre.png\" height=\"34px\" width=\"94px\" alt=\"La Bellota Soft Ltd.\"  />
 						</a>
 					</div>
-					<div style=\"float:right; position:relative; \">
+					<div style=\"float:right; position:relative; bottom:0px;\">
 						Matojos 0.0.1©  2014 - Servicio de Información Geográfica de parques, jardines y flora del municipio de Motril
 					</div>
 				</div>

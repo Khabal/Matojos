@@ -19,3 +19,39 @@
 #showcoords {color:#000000}
 .pm-map-link, .pm-selectbox, #helpMessage {top: 5px; right:5px}
 div.jqmdTC { background-color:#d4d4d4; color:#000000;}
+#img-logo-principal{position: absolute;
+top:0;
+left:0;
+right:0;
+bottom:0;
+margin: auto;
+height: 60px;
+width: 200px;
+vertical-align: middle;}
+#img-logo-secundario{
+position: absolute;
+top:0;
+left:0;
+right:0;
+bottom:0;
+margin: auto;
+height: 30px;
+width: 100px;
+vertical-align: middle;
+}
+
+.pm-footer{
+	background-color: rgba(255, 255, 255, 0.8);
+ 
+
+    bottom: 0;
+    color: #000;
+   /* display: table-row;*/
+    font-size: 10px;
+	padding: 4px;
+    /*padding-left: 3px;*/
+    position: absolute;
+    right: 0;
+    z-index: 100;
+	overflow: hidden;
+}

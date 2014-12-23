@@ -79,6 +79,8 @@ header("Content-type: text/html; charset=$defCharset");
  <link rel="stylesheet" href="templates/ie6.css" type="text/css" />
  <![endif]--> 
  
+ <!--<script src="javascript/jquery-ui-1.11.2.custom/jquery-ui.js" type="text/javascript" />-->
+ 
  <style type="text/css">
  <!--
    /*.ui-layout-east {border: 1px solid #999999; background-color:#e9e9e9;}
@@ -96,6 +98,7 @@ header("Content-type: text/html; charset=$defCharset");
  
  	<script type="text/javascript">
 
+	
     $.extend(PM.Layout,
     {
         /**
@@ -151,7 +154,7 @@ header("Content-type: text/html; charset=$defCharset");
         /** Some components to be added to UI */
         $('#uiLayoutCenter').pmToolBar(PM.buttonsDefault);  // ToolBar, REQUIRED
         //$('#uiLayoutNorth').pmToolLinks(PM.linksDefault);   // Tool links
-        $('#uiLayoutCenter').appendElement('div').addClass('map-top-bar');  // Top bar over map
+        //$('#uiLayoutCenter').appendElement('div').addClass('map-top-bar');  // Top bar over map
         
         PM.Layout.resizeContainers();
         $(window).resize(function(){
@@ -162,6 +165,21 @@ header("Content-type: text/html; charset=$defCharset");
     
 	</script>
 
+	<script>
+	// Acordeones para tocar música de la güena mientras la cabra sube y baja la escalera
+	// Añadir tooltip para abrir cerrar, entre otros
+	/*$(function() {
+		var iconos_abrir_cerrar = {
+			header: "ui-icon-circle-arrow-e",
+			activeHeader: "ui-icon-circle-arrow-s"
+		};
+		$( "#toolBar" ).accordion({
+			icons: iconos_abrir_cerrar,
+			collapsible: true
+		});
+	});*/
+	</script>
+	
 </head>
 
 <body>

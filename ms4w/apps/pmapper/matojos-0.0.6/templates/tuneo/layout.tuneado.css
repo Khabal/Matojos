@@ -122,7 +122,7 @@
     z-index : 98;
     visibility: hidden;
     left:0px;
-    bottom:0px;
+    bottom:30px;
     width:220px;
     height:30px;
     background:#eeeeee;
@@ -245,7 +245,7 @@
 
 #toolBar {
     position: absolute;
-    right : 0px;
+    left : 0px;
     top : 0px;
     width:34px; 
     height:100%;
@@ -272,8 +272,8 @@
 
 #searchContainer {
     position:absolute; 
-    top:0px; 
-    left:4px; 
+    top:10px; 
+    left:30px; 
     width:auto;
     z-index: 99;
     padding:4px;    
@@ -365,8 +365,10 @@
 	position:absolute; 
 	z-index:99; 
 	overflow: visible;
-	left: 4px; 
-	top: 35px;
+	/*left: 4px; 
+	top: 35px;*/
+	right:15px;
+	bottom: 35px;
 	width: auto; 
 	padding: 1px 4px 1px 3px;
 	border: 1px inset #999999;

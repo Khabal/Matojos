@@ -9,7 +9,7 @@
 .pm-searchoptions, .pm-searchitem td {background-color:transparent; color:#000000;}
 .pm-searchoptions select, .pm-searchitem input, .pm-searchitem select { background-color:#ffffff; }
 #scalebar {right:0px; left:auto} 
-#sliderArea {left:15px; top:30px; background-color:#ffffff;}
+#sliderArea {left:45px; top:45px; background-color:#ffffff;}
 #scaleArea {top:6px; left:40px; background-color:#E9E9E9} 
 #toolLinkContainer {top:2px}
 #scaleSuggest {background-color:#ffffff; border: 1px solid #999999;}
@@ -41,17 +41,59 @@ vertical-align: middle;
 }
 
 .pm-footer{
-	background-color: rgba(255, 255, 255, 0.8);
- 
+	/*background-color: rgba(255, 255, 255, 0.8);*/
+ display: table-row;
 
     bottom: 0;
-    color: #000;
+    /*color: #000;*/
    /* display: table-row;*/
-    font-size: 10px;
-	padding: 4px;
+    /*font-size: 10px;*/
+	/*padding: 4px;*/
     /*padding-left: 3px;*/
     position: absolute;
     right: 0;
     z-index: 100;
+	/*overflow: hidden;*/
+}
+
+#mat-pie{
+	/*background-color: rgba(255, 255, 255, 0.8);*/
+ display: table-row;
+
+    bottom: 0;
+    /*color: #000;*/
+   /* display: table-row;*/
+    /*font-size: 10px;*/
+	/*padding: 4px;*/
+	padding: 0px;
+    /*padding-left: 3px;*/
+    position: absolute;
+    right: 0;
+    z-index: 100;
+	/*overflow: hidden;*/
+}
+
+.mat-pie-elemento{
+	/*font-family: verdana,arial,helvetica,sans-serif;
+	font-size: xx-small;*/
+
+}
+
+#labellota-logo img{
+	background-color: rgba(255, 255, 255, 0.75);
+	height:34px;
+	width:94px;
 	overflow: hidden;
+	white-space: nowrap;
+}
+
+#texto-pie{
+	background-color: rgba(255, 255, 255, 0.75);
+	color:#2F4F4F;
+	font-family: verdana,arial,helvetica,sans-serif;
+	font-size: xx-small;
+	display: table-row;
+	overflow: hidden;
+	white-space: nowrap;
+	padding: 1px;
 }

@@ -338,11 +338,15 @@
 /* Coordinates Display */
 #showcoords {
     visibility: visible;
-	float: left;
+	/*float: left;*/
+	left: 30px;
+	bottom:10px;
+	position: absolute;
     width: auto;
     height: 18px;
 	margin: 6px 10px;
     color:white;
+	z-index:99;
 }
 #xcoord {
 	float:left;

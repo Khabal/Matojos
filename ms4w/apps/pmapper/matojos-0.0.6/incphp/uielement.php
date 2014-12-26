@@ -209,6 +209,21 @@ class UiElement{
 // </ul>
 // </div>
 // </div>
+
+
+
+// <div id="divTopSearch" style="display: block; z-index: 0; position: absolute; left: 88px; top: 0px;">
+        // <form class="form" action="javascript:void(0);" onsubmit="SubmitBuscar(); return false;" id="formDireccion">
+            // <div id="dropdownTipoDeBusqueda">
+                // <div id="flechitaTipoDeBusqueda"></div>
+            // <div id="inputTipoDeBusqueda" name="inputTipoDeBusqueda" style="-moz-user-select: none;">Dirección</div><div id="tipoDeBusquedaListado"><ul id="ulTipoDeBusquedaListado"><li><div id="TipoDeBusqueda1" value="1">Dirección</div></li><li><div id="TipoDeBusqueda2" value="2">Dirección exacta</div></li><li><div id="TipoDeBusqueda3" value="3">Polígono y Parcela</div></li><li><div id="TipoDeBusqueda4" value="4">Referencia Catastral</div></li><li><div id="TipoDeBusqueda5" value="5">Coords. Geográficas</div></li><li><div id="TipoDeBusqueda6" value="6">Coordenadas UTM</div></li><li><div id="TipoDeBusqueda7" value="7">Ruta</div></li></ul></div></div>
+                    
+            // <div id="divTextboxBuscador"><input type="text" id="TextDireccion" name="TextDireccion" class="textBoxBuscador" classname="textBoxBuscador" placeholder="Introduce la dirección" value="Introduce la dirección" tabindex="1" autocomplete="off"><input type="text" id="TextReferencia" name="TextReferencia" class="textBoxBuscador" classname="textBoxBuscador" placeholder="Referencia catastral de la parcela" value="Referencia catastral de la parcela"><div id="divDireccionExacta"><select id="provincias2" name="provincias2" class="textBoxRoudedLeft" classname="textBoxRoudedLeft" style="width: 80px;"></select><select id="poblaciones2" name="poblaciones2" class="textBoxRoudedLeft" classname="textBoxRoudedLeft" style="width: 96px;"></select><select id="calles" name="calles" class="textBoxRoudedLeft" classname="textBoxRoudedLeft" style="width: 96px;"></select><input type="text" id="numero" name="numero" class="textBoxRoudedLeft" classname="textBoxRoudedLeft" placeholder="nº" style="width: 25px;" value="nº"></div><div id="divPoligonoYParcela"><select id="provincias" name="provincias" class="textBoxRoudedLeft" classname="textBoxRoudedLeft" style="width: 90px;"></select><select id="poblaciones" name="poblaciones" class="textBoxRoudedLeft" classname="textBoxRoudedLeft" style="width: 140px;"></select><input type="text" id="poligono" name="poligono" class="textBoxRoudedLeft" classname="textBoxRoudedLeft" placeholder="Pol." style="width: 30px;" value="Pol."><div class="separador"></div><input type="text" id="parcela" name="parcela" class="textBoxRoudedLeft" classname="textBoxRoudedLeft" placeholder="Parc." style="width: 30px;" value="Parc."></div><div id="divCoordenadasGeograficas"><input type="text" id="latitud" name="latitud" class="textBoxBuscador" classname="textBoxBuscador" placeholder="Latitud" style="width: 146px;" value="Latitud"><div class="separador"></div><input type="text" id="longitud" name="longitud" class="textBoxBuscador" classname="textBoxBuscador" placeholder="Longitud" style="width: 144px;" value="Longitud"></div><div id="DivCoordenadasUTM"><input type="text" id="CoordenadaX" name="CoordenadaX" class="textBoxBuscador" classname="textBoxBuscador" placeholder="Norte" style="width: 94px;" value="Norte"><div class="separador"></div><input type="text" id="CoordenadaY" name="CoordenadaY" class="textBoxBuscador" classname="textBoxBuscador" placeholder="Este" style="width: 94px;" value="Este"><div class="separador"></div><input type="text" id="Zona" name="Zona" class="textBoxBuscador" classname="textBoxBuscador" placeholder="Zona" style="width: 90px;" value="Zona"></div><div id="DivBusquedaRuta"><input type="text" id="DivBusquedaRutaDesde" name="DivBusquedaRutaDesde" class="textBoxBuscador" classname="textBoxBuscador" placeholder="Desde" style="width: 144px;" value="Desde"><div class="separador"></div><input type="text" id="DivBusquedaRutaHasta" name="DivBusquedaRutaHasta" class="textBoxBuscador" classname="textBoxBuscador" placeholder="Hasta" style="width: 144px;" value="Hasta"></div></div>
+            // <div id="divBuscarDireccion">
+                // <input type="submit" name="BuscarDireccion" value="" class="buttonBuscar" id="BuscarDireccion">
+            // </div>
+        // </form>
+    // </div>
 		
 		
         return $html;
@@ -348,7 +363,26 @@ menudown.gif*/
 		";
         return $html;
     }
-    
+	
+	/**
+	 * Pie de página
+	 */
+	public static function matPie() {
+		
+		$html = "<div id=\"mat-pie\" style=\"position:absolute; bottom:0px; right:0px;\">
+					<div class=\"mat-pie-elemento\" id=\"labellota-logo\" style=\"position:absolute; bottom:0px; right:0px;\">
+						<a href=\"http://labellotasoft.co.uk\">
+							<img src=\"images/logos/logo_con_nombre.png\" alt=\"La Bellota Soft Ltd.\"/>
+						</a>
+					</div>
+					<div class=\"mat-pie-elemento\" id=\"texto-pie\" style=\"position:absolute; bottom:0px; right:95px;\">
+						Matojos 0.0.12©  2014 - Servicio de Información Geográfica de parques, jardines y flora del municipio de Motril
+					</div>
+				</div>";
+		
+		return $html;
+	}
+	
    /**
     * Coordinates display
     */

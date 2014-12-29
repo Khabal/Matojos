@@ -188,6 +188,7 @@ class UiElement{
         $html .= "</form>";
         $html .= "</div>";
         
+		//Núcleos, prques, jardines, árboles...
 		// Desplegable
 		// <div id="flechitaTipoDeBusqueda"></div>
 // <div id="inputTipoDeBusqueda" name="inputTipoDeBusqueda" style="-moz-user-select: none;">Dirección</div>
@@ -210,7 +211,23 @@ class UiElement{
 // </div>
 // </div>
 
-
+        $html  = "<div id=\"searchContainer\">";
+        $html .= "<form id=\"searchForm\" action=\"blank.html\" onsubmit=\"PM.Query.submitSearch()\" onkeypress=\"return PM.Query.disableEnterKey(event)\">";
+        //$html .= "<table width=\"100%\" class=\"pm-searchcont pm-toolframe\" border=\"0\" cellspacing=\"0\" cellpadding=\"0\">";
+		$html .= "<div id=\"dropdownTipoDeBusqueda\">";
+        $html .= " <div id=\"flechitaTipoDeBusqueda\"></div>";
+        $html .= " <div id=\"inputTipoDeBusqueda\" name=\"inputTipoDeBusqueda\" style=\"-moz-user-select: none;\">Dirección</div><div id=\"tipoDeBusquedaListado\"><ul id=\"ulTipoDeBusquedaListado\"><li><div id=\"TipoDeBusqueda1\" value=\"1\">Dirección</div></li><li><div id=\"TipoDeBusqueda2\" value=\"2\">Dirección exacta</div></li></ul></div></div>";
+        //$html .= "<tr>";  
+        //$html .= "<td id=\"searchoptions\" class=\"pm-searchoptions\" style=\"padding:0px 8px\"></td>";  
+        //if ($style == "block") $html .= "</tr><tr>";    
+        //$html .= "<td id=\"searchitems\" class=\"pm_search_$style\"></td>";
+        //$html .= "</tr>";  
+        //$html .= "</table>";
+		$html .= "<div id=\"divBuscarDireccion\">";
+            $html .= "<input type=\"submit\" name=\"BuscarDireccion\" value=\"\" class=\"buttonBuscar\" id=\"BuscarDireccion\">";
+            $html .= "</div>";
+        $html .= "</form>";
+        $html .= "</div>";
 
 // <div id="divTopSearch" style="display: block; z-index: 0; position: absolute; left: 88px; top: 0px;">
         // <form class="form" action="javascript:void(0);" onsubmit="SubmitBuscar(); return false;" id="formDireccion">
@@ -234,7 +251,7 @@ class UiElement{
     */
     public static function scaleForm()
     {
-        $html = "<div id=\"scaleArea\" class=\"TOOLFRAME\">
+        $html = "<div id=\"scaleAreaX\" class=\"TOOLFRAME\">
                 <form id=\"scaleform\"  action=\"javascript:PM.Map.zoom2scale($('#scaleinput').val());javascript:PM.Form.scaleMouseOut(true)\">
                     <div id=\"scaleArea2\" class=\"rowdiv\" >
                         <div class=\"celldiv\">" . _p("Scale") . " 1:  </div>
@@ -255,6 +272,7 @@ class UiElement{
     */
     public static function zoomSlider()
     {
+	//Ajuste tamaño según dim pantalla, quitar recuadro envolvente
         $html = "<div id=\"sliderArea\" class=\"sliderAreaOut\" >
                 <div id=\"sliderTool\">
                     <div class=\"slider-top\"><img id=\"sl_imgplus\" src=\"images/zoomplus.gif\" alt=\"\" title=\"" . _p("Zoom in") . "\"  onclick=\"PM.Map.zoompoint(2, '');\"/></div>
@@ -376,8 +394,17 @@ menudown.gif*/
 						</a>
 					</div>
 					<div class=\"mat-pie-elemento\" id=\"texto-pie\" style=\"position:absolute; bottom:0px; right:95px;\">
-						Matojos 0.0.12©  2014 - Servicio de Información Geográfica de parques, jardines y flora del municipio de Motril
+						Matojos 0.0.12©  2014 - Servicio de Información Geográfica de parques, jardines y flora del municipio de Motril.
 					</div>
+				</div>";
+				
+		$html = "<div id=\"mat-pie\" style=\"position:absolute; bottom:0px; right:0px;\">
+					<p id=\"texto-pie\">
+						Matojos 0.0.12©  2014 - Servicio de Información Geográfica de parques, jardines y flora del municipio de Motril.
+					</p>
+					<a href=\"http://labellotasoft.co.uk\" id=\"labellota-logo\">
+						<img src=\"images/logos/logo_con_nombre.png\" alt=\"La Bellota Soft Ltd.\"/>
+					</a>
 				</div>";
 		
 		return $html;

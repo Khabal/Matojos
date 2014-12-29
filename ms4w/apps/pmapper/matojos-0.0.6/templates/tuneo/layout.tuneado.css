@@ -365,7 +365,7 @@
 
 
 /*** Styles for SCALE selection ***/
-#scaleArea {
+#scaleAreaX {
 	position:absolute; 
 	z-index:99; 
 	overflow: visible;

@@ -10,12 +10,18 @@
 .pm-searchoptions select, .pm-searchitem input, .pm-searchitem select { background-color:#ffffff; }
 #scalebar {right:0px; left:auto} 
 #sliderArea {left:45px; top:45px; background-color:#ffffff;}
-#scaleArea {top:6px; left:40px; background-color:#E9E9E9} 
+#scaleAreaX {
+position: absolute;
+bottom:60px;
+right:40px;
+background-color:#E9E9E9;
+z-index:99;
+} 
 #toolLinkContainer {top:2px}
 #scaleSuggest {background-color:#ffffff; border: 1px solid #999999;}
 .scale-link {background-color:#ffffff;}
 .scale-link-over {color: #000000; background-color: #d5ddf3;}
-#scaleArea{background-color:transparent; border:none; opacity:1.0;} 
+#scaleAreaX{background-color:transparent; border:none; opacity:1.0;} 
 #showcoords {color:#000000}
 .pm-map-link, .pm-selectbox, #helpMessage {top: 5px; right:5px}
 div.jqmdTC { background-color:#d4d4d4; color:#000000;}
@@ -79,12 +85,20 @@ vertical-align: middle;
 
 }
 
+#labellota-logo{
+margin:0px;
+padding:0px;
+}
+
 #labellota-logo img{
 	background-color: rgba(255, 255, 255, 0.75);
 	height:34px;
 	width:94px;
+	display: inline;
 	overflow: hidden;
-	white-space: nowrap;
+	/*white-space: nowrap;*/
+	vertical-align: sub;
+	border:0px;
 }
 
 #texto-pie{
@@ -92,8 +106,14 @@ vertical-align: middle;
 	color:#2F4F4F;
 	font-family: verdana,arial,helvetica,sans-serif;
 	font-size: xx-small;
-	display: table-row;
+	display: inline;
 	overflow: hidden;
 	white-space: nowrap;
 	padding: 1px;
+	vertical-align: sub;
+}
+
+#showcoords {
+background-color: rgba(0, 0, 0, 0.75);
+color: white;
 }

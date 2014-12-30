@@ -25,25 +25,33 @@ z-index:99;
 #showcoords {color:#000000}
 .pm-map-link, .pm-selectbox, #helpMessage {top: 5px; right:5px}
 div.jqmdTC { background-color:#d4d4d4; color:#000000;}
-#img-logo-principal{position: absolute;
+#img-logo-principal{
+/*position: absolute;
 top:0;
 left:0;
 right:0;
-bottom:0;
-margin: auto;
+bottom:0;*/
+/*position: relative;*/
+margin: 0 auto;
 height: 60px;
 width: 200px;
-vertical-align: middle;}
+/*display: inline;
+padding-right:50%;
+padding-left:50%;*/
+/*vertical-align: middle;*/
+}
 #img-logo-secundario{
-position: absolute;
+/*position: absolute;
 top:0;
 left:0;
 right:0;
-bottom:0;
-margin: auto;
+bottom:0;*/
+/*position: relative;*/
+margin: 0 auto;
 height: 30px;
 width: 100px;
-vertical-align: middle;
+/*display: inline;*/
+/*vertical-align: middle;*/
 }
 
 .pm-footer{
@@ -116,4 +124,35 @@ padding:0px;
 #showcoords {
 background-color: rgba(0, 0, 0, 0.75);
 color: white;
+}
+
+#cabecera{
+	vertical-align: middle;
+	padding:10px;
+	height:auto;
+}
+
+.titulico {
+
+}
+
+#leyenda{
+border:2px solid darkgray;
+height:auto;
+}
+
+#toc{
+position:relative;
+}
+
+.ocultar-panel{
+top:10px;
+left:260px;
+position: absolute;
+z-index:999;
+}
+
+.pm-toolbar-td img, .pm-toolbar-td-off img{
+height:24px;
+width:24px;
 }

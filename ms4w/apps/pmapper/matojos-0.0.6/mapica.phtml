@@ -134,6 +134,37 @@ header("Content-type: text/html; charset=$defCharset");
      * ======= ADAPT TO PAGE LAYOUT =======
      */
 	$(document).ready(function () {
+	/*Estilos barra botones*/
+	PM.botonesTuneados = {
+    toolbarid:'toolBar',
+    options: {orientation:'v',
+              css:{height:'440px'},
+              theme:'tuneado',
+              imagetype:'png'
+             }, 
+    buttons: [
+        {tool:'space1',        dimension: 15},
+        {tool:'home',          name:'Zoom To Full Extent', run:'PM.Map.zoomfullext'},
+        {tool:'back',          name:'Back', run:'PM.Map.goback'},
+        {tool:'fwd',           name:'Forward', run:'PM.Map.gofwd'},
+        {tool:'zoomselected',  name:'Zoom To Selected', run:'PM.Map.zoom2selected'},
+        {tool:'separator1',    dimension:1},
+        {tool:'zoomin',        name:'Zoom in'},
+        {tool:'zoomout',       name:'Zoom out'},
+        {tool:'pan',           name:'Pan'},
+        {tool:'separator2',    dimension:1},
+        {tool:'identify',      name:'Identify'},
+        {tool:'select',        name:'Select'},
+        {tool:'auto_identify', name:'Auto Identify'},
+        {tool:'separator3',    dimension: 1},
+        {tool:'measure',       name:'Measure'},
+        //{tool:'coordinates',       name:'Coordinates'},
+        {tool:'separator4',    dimension: 1},
+        {tool:'transparency',  name:'Transparency', run:'PM.Plugin.Transparency.openTransparencyDlg'},
+        {tool:'reload',        name:'Refresh Map', run:'PM.Map.clearInfo'}
+    ]
+};
+/**************************/	
         var mrgH = 6;
         var mrgV = 6;
 		var lcW = 250;
@@ -152,7 +183,7 @@ header("Content-type: text/html; charset=$defCharset");
 		$('#uiLayoutSouth').css({position:'absolute', bottom:0, height:0});
         
         /** Some components to be added to UI */
-        $('#uiLayoutCenter').pmToolBar(PM.buttonsDefault);  // ToolBar, REQUIRED
+        $('#uiLayoutCenter').pmToolBar(PM.botonesTuneados);  // ToolBar, REQUIRED
         //$('#uiLayoutNorth').pmToolLinks(PM.linksDefault);   // Tool links
         //$('#uiLayoutCenter').appendElement('div').addClass('map-top-bar');  // Top bar over map
         
@@ -201,7 +232,9 @@ header("Content-type: text/html; charset=$defCharset");
 
     <div class="ui-layout-west" id="uiLayoutWest">
         <!-- Header -->
-        <?php echo UiElement::pmHeader() ?>
+        <?php /*echo UiElement::pmHeader()*/
+		echo UiElement::matCabecera();
+		?>
         
         <!-- Legend/TOC -->
         <?php echo UiElement::tocContainer($_SESSION['userAgent']) ?>
@@ -233,6 +266,9 @@ header("Content-type: text/html; charset=$defCharset");
         <?php /*echo UiElement::pmFooter()*/
 		echo UiElement::matPie()
 		?>
+		
+		<!-- Mostrar/Ocultar panel izquierdo -->
+		<?php  echo UiElement::ocultarPanel() ?>
         
     </div>
 

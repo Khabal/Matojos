@@ -49,7 +49,10 @@ class UiElement{
         $html  = "<div id=\"toolBar\" class=\"pm-toolframe\">";
         $html .= "<table class=\"pm-toolbar\" border=\"0\" cellspacing=\"$cellspacing\" cellpadding=\"0\">\n";
         $html .= ($toolBarOrientation == "v" ? "" : "<tr>");
-
+		//XXX
+//$toolbarTheme="tuneado";
+//$toolbarImgType="png";
+//XXX
         foreach ($buttons as $b => $ba) {
             $html .= ($toolBarOrientation == "v" ? "<tr>" : "");
 
@@ -69,7 +72,7 @@ class UiElement{
                 $html .= "<td class=\"pm-toolbar-td\" id=\"tb_$b\"  " .                         
                         ($ba[1] == "0" ?  "onmousedown=\"setTbTDButton('$b');\"" : "onmousedown=\"TbDownUp('$b','d')\" onmouseup=\"TbDownUp('$b','u')\"") .
                         " onclick=\"" . ($ba[1] == "0" ? "domouseclick('$b')" : "$ba[1]()") .  "\">" .
-                        "<img id=\"img_$b\"  src=\"images/buttons/$toolbarTheme/$b"."_off.$toolbarImgType\" title=\"$ba[0]\" alt=\"$ba[0]\"  /></td>" ;
+                        "<img id=\"img_$b\"  src=\"images/buttons/$toolbarTheme/$b"."_off.$toolbarImgType\" title=\"$ba[0]\" alt=\"$ba[0]\" height=\"24px\" width=\"24px\" /></td>" ;
             }
 
             $html .= ($toolBarOrientation == "v" ? "</tr> \n" : "\n");
@@ -122,7 +125,9 @@ class UiElement{
     */
     public static function tocContainer($userAgent)
     {
-        $html = "<div id=\"tocContainer\">
+        //$html = "<div id=\"tocContainer\">
+		$html = "<div id=\"leyenda\">
+			<div>Mapas</div>
               <form id=\"layerform\" method=\"get\" action=\"\">    
                 <div id=\"toc\"       class=\"TOC\" style=\"" . ($userAgent == "mozilla" ? "height:100%" : "height:auto") ."; \"></div>
                 <div id=\"toclegend\" class=\"TOC\" style=\"" . ($userAgent == "mozilla" ? "height:100%" : "height:auto") . "; display:none;\"></div>
@@ -297,6 +302,17 @@ class UiElement{
         return $html;
     }*/
     
+	public static function ocultarPanel() {
+	/*menudown.gif*/
+		
+		$html = "<div class=\"ocultar-panel\">					
+					<a id=\"textoClosePanelLateral\" href=\"javascript:CerrarPanelLateral();\">
+					<span id=\"iconClosePanelLateral\" title=\"Ocultar panel\"></span>
+					</a>
+				</div>
+		";
+        return $html;
+	}
     
    /**
     * Header in ui-north
@@ -342,13 +358,48 @@ menudown.gif*/
 						<a href=\"$pmLogoUrl\" title=\"$pmLogoTitle\" onclick=\"this.target = '_blank';\">
 						<img class=\"pm-logo-img\" src=\"images/logos/Agricultura.png\" alt=\"logo\" height=\"30\" width=\"100\" /></a>    
                     </div>
-                    
+                    		<a id=\"textoClosePanelLateral\" href=\"javascript:CerrarPanelLateral();\">
+<span id=\"iconClosePanelLateral\" title=\"Ocultar panel\"></span>
+</a>
 					
                 </div>
         ";
         return $html;
     }
     
+	/**
+    * Cabecera
+    */
+    public static function matCabecera() {
+	        $pmLogoUrl = array_key_exists('pmLogoUrl', $_SESSION) ? $_SESSION['pmLogoUrl'] : "http://www.motril.es";
+        $pmLogoTitle = array_key_exists('pmLogoTitle', $_SESSION) ? $_SESSION['pmLogoTitle'] : "Matoojos";
+        $pmLogoSrc = array_key_exists('pmLogoSrc', $_SESSION) ? $_SESSION['pmLogoSrc'] : "images/logos/matojos_logo.png";
+        $pmVersion = array_key_exists('version', $_SESSION) ? ", v" . $_SESSION['version'] : "0.0.10";
+        /*$pmHeading = array_key_exists('pmHeading', $_SESSION) ? $_SESSION['pmHeading'] : "<a href=\"http://mapserver.gis.umn.edu\" id=\"mshref_1\" title=\"UMN MapServer homepage\" onclick=\"this.target = '_new';\">MapServer</a>&nbsp; 
+                            <a href=\"http://www.dmsolutions.ca\" id=\"dmsol_href\" title=\"DM Solutions homepage\" onclick=\"this.target = '_new';\">PHP/MapScript</a>&nbsp; 
+                            Framework$pmVersion";*/
+		$pmHeading = array_key_exists('pmHeading', $_SESSION) ? $_SESSION['pmHeading'] : "Matojos";
+		$pmSubHeading = array_key_exists('pmSubHeading', $_SESSION) ? $_SESSION['pmSubHeading'] : "SIG del área de Agricultura, parques y jardines";
+				
+		$html = "<div id=\"cabecera\">
+					
+					<div id=\"img-logo-principal\">
+						<a href=\"$pmLogoUrl\" title=\"$pmLogoTitle\" onclick=\"this.target = '_blank';\">
+						<img class=\"pm-logo-img\" src=\"$pmLogoSrc\" alt=\"logo\" height=\"60\" width=\"200\" /></a>    
+                    </div>
+					<div id=\"img-logo-secundario\">
+						<a href=\"$pmLogoUrl\" title=\"$pmLogoTitle\" onclick=\"this.target = '_blank';\">
+						<img class=\"pm-logo-img\" src=\"images/logos/Agricultura.png\" alt=\"logo\" height=\"30\" width=\"100\" /></a>    
+                    </div>
+
+					
+                </div>
+        ";
+        return $html;
+		//Mostar averca de al pulsar en logo de matojos
+		//Mostar ocultar panel
+	}
+	
    /**
     * Footer in ui-south
     */

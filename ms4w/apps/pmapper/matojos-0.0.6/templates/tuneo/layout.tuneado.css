@@ -59,25 +59,28 @@
 }
 
 .pm-header {
-    height:200px;
-    padding:6px 10px 4px 10px;
+    height:auto;
+    padding:10px 10px 10px 10px;
 }
 
+/*
 .pm-header, .pm-header a {
     text-align:left;
     font-size:14px;
     font-weight:bold;
     color:#ffffff;
 }
-
+*/
+/*
 .pm-header div{
     display:inline;
     padding-left:10px;
 }
-
+*/
+/*
 .pm-logo-img {
     vertical-align: middle;
-}
+}*/
 
 /*
  * INICIO ALTERACIÓN DEL CONTINUO TOCINO-VELOCIDAD

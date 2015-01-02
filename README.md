@@ -56,3 +56,7 @@ Versión 0.0.13 - 29/12/2014
 
 Versión 0.0.14 - 30/12/2014
 * Mejoras en la colocación de los elementos de la interfaz gráfica.
+
+Versión 0.1.0 - 02/01/2015
+* Fin de ciclo.
+* Mejoras en la colocación de los elementos de la interfaz gráfica.

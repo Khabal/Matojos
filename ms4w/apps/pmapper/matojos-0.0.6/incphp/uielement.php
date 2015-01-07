@@ -368,36 +368,45 @@ menudown.gif*/
     }
     
 	/**
-    * Cabecera
-    */
-    public static function matCabecera() {
-	        $pmLogoUrl = array_key_exists('pmLogoUrl', $_SESSION) ? $_SESSION['pmLogoUrl'] : "http://www.motril.es";
-        $pmLogoTitle = array_key_exists('pmLogoTitle', $_SESSION) ? $_SESSION['pmLogoTitle'] : "Matoojos";
-        $pmLogoSrc = array_key_exists('pmLogoSrc', $_SESSION) ? $_SESSION['pmLogoSrc'] : "images/logos/matojos_logo.png";
-        $pmVersion = array_key_exists('version', $_SESSION) ? ", v" . $_SESSION['version'] : "0.0.10";
-        /*$pmHeading = array_key_exists('pmHeading', $_SESSION) ? $_SESSION['pmHeading'] : "<a href=\"http://mapserver.gis.umn.edu\" id=\"mshref_1\" title=\"UMN MapServer homepage\" onclick=\"this.target = '_new';\">MapServer</a>&nbsp; 
-                            <a href=\"http://www.dmsolutions.ca\" id=\"dmsol_href\" title=\"DM Solutions homepage\" onclick=\"this.target = '_new';\">PHP/MapScript</a>&nbsp; 
-                            Framework$pmVersion";*/
-		$pmHeading = array_key_exists('pmHeading', $_SESSION) ? $_SESSION['pmHeading'] : "Matojos";
-		$pmSubHeading = array_key_exists('pmSubHeading', $_SESSION) ? $_SESSION['pmSubHeading'] : "SIG del área de Agricultura, parques y jardines";
-				
-		$html = "<div id=\"cabecera\">
-					
-					<div id=\"img-logo-principal\">
-						<a href=\"$pmLogoUrl\" title=\"$pmLogoTitle\" onclick=\"this.target = '_blank';\">
-						<img class=\"pm-logo-img\" src=\"$pmLogoSrc\" alt=\"logo\" height=\"60\" width=\"200\" /></a>    
-                    </div>
-					<div id=\"img-logo-secundario\">
-						<a href=\"$pmLogoUrl\" title=\"$pmLogoTitle\" onclick=\"this.target = '_blank';\">
-						<img class=\"pm-logo-img\" src=\"images/logos/Agricultura.png\" alt=\"logo\" height=\"30\" width=\"100\" /></a>    
-                    </div>
-
-					
-                </div>
-        ";
+	 * Panel lateral - Cabecera
+	 */
+	public static function PL_Cabecera() {
+		// Datos del logotipo principal
+		$LPAHref = "#";
+		$LPATitle = "Acerca de Matojos";
+		$LPAOnclick = "";
+		$LPImgSrc = "images/logos/matojos-logo.png";
+		$LPImgAlt = "Matojos";
+		
+		// Datos del logotipo secundario
+		$LSAHref = "http://www.motril.es";
+		$LSATitle = "Ayuntamiento de Motril";
+		$LSAOnclick = "this.target = '_blank';";
+		$LSImgSrc = "images/logos/agricultura.png";
+		$LSImgAlt = "Ayuntamiento de Motril - Área de Agricultura";
+		
+		// Datos del botón para ocultar el panel lateral
+		$BOPLAHref = "javascript:OcultarPanelLateral();";
+		$BOPLATitle = "Ocultar panel";
+		$BOPLAOnclick = "this.target = '_self';";
+		$BOPLImgSrc = "images/botones/flecha-patras.png";
+		$BOPLImgAlt = "Ocultar";
+		
+		// Código HTML
+		$html = "<div id=\"cabecera-panel-lateral\">
+					<a id=\"logo-principal\" href=\"$LPAHref\" title=\"$LPATitle\" onclick=\"$LPAOnclick\">
+						<img src=\"$LPImgSrc\" alt=\"$LPImgAlt\"/>
+					</a>
+					<a id=\"ocultar-panel-lateral\" href=\"$BOPLAHref\" title=\"$BOPLATitle\" onclick=\"$BOPLAOnclick\">
+						<img src=\"$BOPLImgSrc\" alt=\"$BOPLImgAlt\"/>
+					</a>
+					<a id=\"logo-secundario\" href=\"$LSAHref\" title=\"$LSATitle\" onclick=\"$LSAOnclick\">
+						<img src=\"$LSImgSrc\" alt=\"$LSImgAlt\"/>
+					</a>
+				</div>";
+		
+		// Devolver código HTML
         return $html;
-		//Mostar averca de al pulsar en logo de matojos
-		//Mostar ocultar panel
 	}
 	
    /**

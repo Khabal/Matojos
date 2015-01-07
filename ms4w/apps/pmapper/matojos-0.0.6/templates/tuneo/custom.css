@@ -25,34 +25,7 @@ z-index:99;
 #showcoords {color:#000000}
 .pm-map-link, .pm-selectbox, #helpMessage {top: 5px; right:5px}
 div.jqmdTC { background-color:#d4d4d4; color:#000000;}
-#img-logo-principal{
-/*position: absolute;
-top:0;
-left:0;
-right:0;
-bottom:0;*/
-/*position: relative;*/
-margin: 0 auto;
-height: 60px;
-width: 200px;
-/*display: inline;
-padding-right:50%;
-padding-left:50%;*/
-/*vertical-align: middle;*/
-}
-#img-logo-secundario{
-/*position: absolute;
-top:0;
-left:0;
-right:0;
-bottom:0;*/
-/*position: relative;*/
-margin: 0 auto;
-height: 30px;
-width: 100px;
-/*display: inline;*/
-/*vertical-align: middle;*/
-}
+
 
 .pm-footer{
 	/*background-color: rgba(255, 255, 255, 0.8);*/
@@ -126,11 +99,7 @@ background-color: rgba(0, 0, 0, 0.75);
 color: white;
 }
 
-#cabecera{
-	vertical-align: middle;
-	padding:10px;
-	height:auto;
-}
+
 
 .titulico {
 
@@ -145,11 +114,10 @@ height:auto;
 position:relative;
 }
 
-.ocultar-panel{
-top:10px;
-left:260px;
-position: absolute;
-z-index:999;
+
+
+.pm-logo-img{
+text-align:center;
 }
 
 .pm-toolbar-td img, .pm-toolbar-td-off img{
@@ -158,5 +126,58 @@ width:24px;
 }
 
 .pm-toolbar-td-off .pm-toolbar-td-on{
-	text-align:initial;
+	text-align:left;/*Borrar tras purgar default.css*/
 }
+
+/*ESTILOS PROPIOS*/
+/* A. PANEL LATERAL */
+/* A.1. CABECERA */
+#cabecera-panel-lateral {
+	height:auto;
+	margin:0 auto;
+	padding:0;
+	text-align:center;
+	width:100%;
+}
+
+#logo-principal{
+	display:block;
+	height:45px;
+	margin:10px auto 5px auto;
+	width:150px;
+}
+
+#logo-principal img{
+	border:medium none;
+	height:35px;
+	vertical-align:middle;
+	width:100px;
+}
+
+#logo-secundario {
+	display:block;
+	height:30px;
+	margin:5px auto 10px auto;
+	width:100px;
+}
+
+#logo-secundario img{
+	border:medium none;
+	height:35px;
+	vertical-align:middle;
+	width:90px;
+}
+
+#ocultar-panel-lateral{
+	position:absolute;
+	right:10px;
+	top:25px;
+}
+
+#ocultar-panel-lateral img{
+	height:16px;
+	vertical-align:middle;
+	width:16px;
+}
+
+/* A.2. LEYENDA */

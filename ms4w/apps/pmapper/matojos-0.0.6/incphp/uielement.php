@@ -118,7 +118,24 @@ class UiElement{
         
         return $html;  
     }
-    
+
+	/**
+	 * Panel lateral - Leyenda / Selector de capas
+	 */
+	public static function PL_Leyenda($userAgent) {
+		
+		// Código HTML
+		$html = "<div id=\"leyenda\">
+					<p class=\"leyenda-cabecera\">Leyenda / Selector de capas</p>
+					<form id=\"layerform\" method=\"get\" action=\"\">
+						<div id=\"toc\" class=\"TOC\" style=\"" . ($userAgent == "mozilla" ? "height:100%" : "height:auto") . ";\"></div>
+						<div id=\"toclegend\" class=\"TOC\" style=\"" . ($userAgent == "mozilla" ? "height:100%" : "height:auto") . "; display:none;\"></div>
+					</form>
+				</div>";
+		
+		// Devolver código HTML
+		return $html;
+    }
     
    /**
     * TOC and Legend container

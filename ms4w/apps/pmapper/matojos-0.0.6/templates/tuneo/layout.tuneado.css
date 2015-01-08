@@ -284,6 +284,8 @@
 
 #searchContainer div {
     display:inline;
+	background-color: white;
+	width: 175px;
 }
 
 

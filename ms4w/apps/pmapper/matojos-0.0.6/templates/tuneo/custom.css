@@ -27,72 +27,7 @@ z-index:99;
 div.jqmdTC { background-color:#d4d4d4; color:#000000;}
 
 
-.pm-footer{
-	/*background-color: rgba(255, 255, 255, 0.8);*/
- display: table-row;
 
-    bottom: 0;
-    /*color: #000;*/
-   /* display: table-row;*/
-    /*font-size: 10px;*/
-	/*padding: 4px;*/
-    /*padding-left: 3px;*/
-    position: absolute;
-    right: 0;
-    z-index: 100;
-	/*overflow: hidden;*/
-}
-
-#mat-pie{
-	/*background-color: rgba(255, 255, 255, 0.8);*/
- display: table-row;
-
-    bottom: 0;
-    /*color: #000;*/
-   /* display: table-row;*/
-    /*font-size: 10px;*/
-	/*padding: 4px;*/
-	padding: 0px;
-    /*padding-left: 3px;*/
-    position: absolute;
-    right: 0;
-    z-index: 100;
-	/*overflow: hidden;*/
-}
-
-.mat-pie-elemento{
-	/*font-family: verdana,arial,helvetica,sans-serif;
-	font-size: xx-small;*/
-
-}
-
-#labellota-logo{
-margin:0px;
-padding:0px;
-}
-
-#labellota-logo img{
-	background-color: rgba(255, 255, 255, 0.75);
-	height:34px;
-	width:94px;
-	display: inline;
-	overflow: hidden;
-	/*white-space: nowrap;*/
-	vertical-align: sub;
-	border:0px;
-}
-
-#texto-pie{
-	background-color: rgba(255, 255, 255, 0.75);
-	color:#2F4F4F;
-	font-family: verdana,arial,helvetica,sans-serif;
-	font-size: xx-small;
-	display: inline;
-	overflow: hidden;
-	white-space: nowrap;
-	padding: 1px;
-	vertical-align: sub;
-}
 
 #showcoords {
 background-color: rgba(0, 0, 0, 0.75);
@@ -129,7 +64,7 @@ width:24px;
 /*ESTILOS PROPIOS*/
 /* A. PANEL LATERAL */
 /* A.1. CABECERA */
-#cabecera-panel-lateral {
+#cabecera-panel-lateral{
 	height:auto;
 	margin:0 auto;
 	padding:0;
@@ -151,7 +86,7 @@ width:24px;
 	width:100px;
 }
 
-#logo-secundario {
+#logo-secundario{
 	display:block;
 	height:30px;
 	margin:5px auto 10px auto;
@@ -193,6 +128,60 @@ width:24px;
 	margin:0;
 	padding:10px;
 }
+
+/* B. PANEL CENTRAL */
+/* B.9. PIE */
+#pie-panel-central{
+	bottom:0;
+	margin:0;
+	padding:0;
+	position:absolute;
+	right:95px;
+	z-index:99;
+	/*overflow: hidden;*/
+}
+
+#pie-panel-central p{
+	background-color:rgba(255, 255, 255, 0.75);
+	color:#2F4F4F;
+	display:inline;
+	font-family:verdana, arial, helvetica, sans-serif;
+	font-size:xx-small;
+	margin:0;
+	overflow:hidden;
+	padding:1px;
+	vertical-align:sub;
+	white-space:nowrap;
+}
+
+/* B.10. LOGO DE LA BELLOTA SOFT */
+#labellota-logo{
+margin:0px;
+padding:0px;
+    bottom: 0;
+    /*color: #000;*/
+   /* display: table-row;*/
+    /*font-size: 10px;*/
+	/*padding: 4px;*/
+    /*padding-left: 3px;*/
+    position: absolute;
+    right: 0;
+    z-index: 100;
+}
+
+#labellota-logo img{
+	background-color: rgba(255, 255, 255, 0.75);
+	height:35px;
+	width:95px;
+	display: inline;
+	overflow: hidden;
+	/*white-space: nowrap;*/
+	vertical-align: sub;
+	/*border:0px;*/
+}
+
+
+
 
 /****/
 #divTopSearch {

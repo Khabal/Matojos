@@ -12,6 +12,8 @@
  * Notas: Nada a desastacar... por ahora. Todas las cañerías en orden.
  *
  ******************************************************************************/
+// Establecer versión de la aplicación
+$_SESSION['versionMatojos'] = "0.1.4";
 
 // Prevención (sólo eso) de vulnerabilidad de seguridad XSS (Secuencias de comandos en sitios cruzados)
 if(isset($_REQUEST['PM_INCPHP'])){
@@ -209,6 +211,11 @@ header("Content-type: text/html; charset=$defCharset");
 			collapsible: true
 		});
 	});*/
+	function OcultarPanelLateral() {
+		$('#uiLayoutWest').css({position:'absolute', left:0, width:0});
+		PM.Layout.resizeContainers();
+		//Mostar botón para remostrar panel
+	}
 	</script>
 	
 </head>
@@ -217,21 +224,15 @@ header("Content-type: text/html; charset=$defCharset");
 
 <!-- ======================= ADAPT START ======================== -->
 <div class="ui-layout-root" id="uiLayoutRoot" >
-
-    <div class="ui-layout-north" id="uiLayoutNorth">
-        
-    </div>
-
-    <div class="ui-layout-east" id="uiLayoutEast">
-        <!-- <div id="legend"></div> -->
-    </div>
-
-    <div class="ui-layout-south" id="uiLayoutSouth">
-
-    </div>
-
-    <div class="ui-layout-west" id="uiLayoutWest">
-        <!-- Header -->
+	
+	<div class="ui-layout-north" id="uiLayoutNorth"></div>
+	
+	<div class="ui-layout-east" id="uiLayoutEast"></div>
+	
+	<div class="ui-layout-south" id="uiLayoutSouth"></div>
+	
+	<div class="ui-layout-west" id="uiLayoutWest">
+		<!-- Header -->
         <?php /*echo UiElement::pmHeader()*/
 		echo UiElement::PL_Cabecera();
 		?>
@@ -239,11 +240,12 @@ header("Content-type: text/html; charset=$defCharset");
         <!-- Legend/TOC -->
         <?php echo UiElement::PL_Leyenda($_SESSION['userAgent']) ?>
             
+		<!-- <div id="legend"></div> -->
         <!-- Reference Map -->
         <?php /* echo UiElement::refMap($refH, $refW, $refImg, $refH, $refW) */?>
-    </div>
-
-    <div class="ui-layout-center" id="uiLayoutCenter">
+	</div>
+	
+	<div class="ui-layout-center" id="uiLayoutCenter">
         <!-- Map Zone -->
         <?php echo UiElement::mapZone() ?>
         
@@ -264,13 +266,17 @@ header("Content-type: text/html; charset=$defCharset");
 		
 		<!-- Footer -->
         <?php /*echo UiElement::pmFooter()*/
-		echo UiElement::matPie()
+		echo UiElement::PC_Pie()
+		?>
+		
+		<?php /*echo UiElement::pmFooter()*/
+		echo UiElement::PC_LogoLBSL()
 		?>
 		
 		<!-- Mostrar/Ocultar panel izquierdo -->
 		<?php  echo UiElement::ocultarPanel() ?>
         
-    </div>
+	</div>
 
 <!-- ======================= ADAPT END ======================== -->
 </div>

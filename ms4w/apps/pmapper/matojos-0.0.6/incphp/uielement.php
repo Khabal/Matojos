@@ -423,7 +423,7 @@ menudown.gif*/
 				</div>";
 		
 		// Devolver código HTML
-        return $html;
+		return $html;
 	}
 	
    /**
@@ -460,33 +460,47 @@ menudown.gif*/
     }
 	
 	/**
-	 * Pie de página
+	 * Panel central - Pie
 	 */
-	public static function matPie() {
+	public static function PC_Pie() {
 		
-		$html = "<div id=\"mat-pie\" style=\"position:absolute; bottom:0px; right:0px;\">
-					<div class=\"mat-pie-elemento\" id=\"labellota-logo\" style=\"position:absolute; bottom:0px; right:0px;\">
-						<a href=\"http://labellotasoft.co.uk\">
-							<img src=\"images/logos/logo_con_nombre.png\" alt=\"La Bellota Soft Ltd.\"/>
-						</a>
-					</div>
-					<div class=\"mat-pie-elemento\" id=\"texto-pie\" style=\"position:absolute; bottom:0px; right:95px;\">
-						Matojos 0.0.12©  2014 - Servicio de Información Geográfica de parques, jardines y flora del municipio de Motril.
-					</div>
-				</div>";
-				
-		$html = "<div id=\"mat-pie\" style=\"position:absolute; bottom:0px; right:0px;\">
-					<p id=\"texto-pie\">
-						Matojos 0.0.12©  2014 - Servicio de Información Geográfica de parques, jardines y flora del municipio de Motril.
+		// Datos de la versión actual
+		$version = array_key_exists('versionMatojos', $_SESSION) ? $_SESSION['versionMatojos'] : "0.1.4";
+		$ano_reventado = date("Y");
+		
+		// Código HTML
+		$html = "<div id=\"pie-panel-central\">
+					<p>
+						Matojos $version" . "© $ano_reventado - Servicio de Información Geográfica de parques, jardines y flora del municipio de Motril.
 					</p>
-					<a href=\"http://labellotasoft.co.uk\" id=\"labellota-logo\">
-						<img src=\"images/logos/logo_con_nombre.png\" alt=\"La Bellota Soft Ltd.\"/>
+				</div>";
+		
+		// Devolver código HTML
+		return $html;
+	}
+
+	/**
+	 * Panel central - Logotipo de LBSL.
+	 */
+	public static function PC_LogoLBSL() {
+		
+		// Datos del logotipo
+		$AHref = "http://labellotasoft.co.uk";
+		$ATitle = "La Bellota Soft Ltd.";
+		$AOnclick = "this.target = '_blank';";
+		$ImgSrc = "images/logos/logo_con_nombre.png";
+		$ImgAlt = "La Bellota Soft";
+		
+		// Código HTML
+		$html = "<div id=\"labellota-logo\">
+					<a href=\"$AHref\" title=\"$ATitle\" onclick=\"$AOnclick\">
+						<img src=\"$ImgSrc\" alt=\"$ImgAlt\"/>
 					</a>
 				</div>";
 		
+		// Devolver código HTML
 		return $html;
 	}
-	
    /**
     * Coordinates display
     */

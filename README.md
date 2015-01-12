@@ -60,3 +60,22 @@ Versión 0.0.14 - 30/12/2014
 Versión 0.1.0 - 02/01/2015
 * Fin de ciclo.
 * Mejoras en la colocación de los elementos de la interfaz gráfica.
+
+Versión 0.1.1 - 05/01/2015
+* Creación de nuevo logotipo.
+* Mejoras en la presentación de los elementos de la interfaz gráfica (cabecera).
+
+Versión 0.1.2 - 07/01/2015
+* Modificación del logotipo.
+* Mejoras en la presentación de los elementos de la interfaz gráfica (leyenda/selector de capas).
+
+Versión 0.1.3 - 08/01/2015
+* Mejoras en la presentación de los elementos de la interfaz gráfica (panel lateral).
+
+Versión 0.1.4 - 09/01/2015
+* Codificar elemento y funcionalidad (botón de ocultación de panel lateral).
+
+Versión 0.1.5 - 12/01/2015
+* Creación de nuevo logotipo.
+* Optimización menor en la presentación del logotipo del proyecto.
+* Mejoras en la presentación de los elementos de la interfaz gráfica (cabecera).

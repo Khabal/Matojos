@@ -465,7 +465,7 @@ menudown.gif*/
 	public static function PC_Pie() {
 		
 		// Datos de la versión actual
-		$version = array_key_exists('versionMatojos', $_SESSION) ? $_SESSION['versionMatojos'] : "0.1.4";
+		$version = array_key_exists('versionMatojos', $GLOBALS) ? $GLOBALS['versionMatojos'] : "1.0.0";
 		$ano_reventado = date("Y");
 		
 		// Código HTML

@@ -74,36 +74,36 @@ width:24px;
 
 #logo-principal{
 	display:block;
-	height:45px;
-	margin:10px auto 5px auto;
-	width:150px;
+	height:65px;
+	margin:20px auto 10px auto;
+	width:190px;
 }
 
 #logo-principal img{
 	border:medium none;
-	height:35px;
+	height:65px;
 	vertical-align:middle;
-	width:100px;
+	width:190px;
 }
 
 #logo-secundario{
 	display:block;
 	height:30px;
-	margin:5px auto 10px auto;
-	width:100px;
+	margin:15px auto 10px auto;
+	width:95px;
 }
 
 #logo-secundario img{
 	border:medium none;
-	height:35px;
+	height:30px;
 	vertical-align:middle;
-	width:90px;
+	width:95px;
 }
 
 #ocultar-panel-lateral{
 	position:absolute;
 	right:10px;
-	top:25px;
+	top:20px;
 }
 
 #ocultar-panel-lateral img{

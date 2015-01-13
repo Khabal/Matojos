@@ -54,7 +54,11 @@ header("Content-type: text/html; charset=$defCharset");
  <meta name="keywords" content="Motril, flora, parques, jardines, plantas, árboles, matas, matojos" />
  
  <title><?php echo $_SESSION['pmTitle'] ?></title>
-  
+ 
+ <!--<script src="javascript/src/jquery/jquery-1.5.1.min.js"></script>
+ <script src="javascript/src/optional/ui/jquery.layout.min.js"></script>
+ <script src="javascript/src/optional/ui/jquery-ui-1.8.4.custom.min.js"></script>-->
+ 
   <?php 
    
    // Cargar todos los archivos ".js" de los directorios 'javascript' y 'config'
@@ -70,7 +74,8 @@ header("Content-type: text/html; charset=$defCharset");
 
  <!--<script src="javascript/src/optional/ui/jquery-ui-1.8.4.custom.min.js"></script>
  <script src="javascript/src/optional/ui/jquery.layout.min.js"></script>-->
- <script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+ <!--<script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>-->
+
  
  <link rel="shortcut icon" href="images/Escudo_Azul_Motril_peque.ico" type="image/x-icon" />
  <link rel="stylesheet" href="templates/default.css" type="text/css" />
@@ -222,6 +227,77 @@ header("Content-type: text/html; charset=$defCharset");
 		//Mostar botón para remostrar panel
 	}
 	
+	function MostrarAcercaDe() {
+/*		var dlgOptions = {
+			width: 640,
+			height: 480,
+			left: 100,
+			top: 50,
+			resizeable: true,
+			newsize: true,
+			container: 'dialogxxx',
+			name: 'PopupWindow'
+};
+var popupUrl="";
+ 
+var dlg = PM.Dlg.createDnRDlg(
+    dlgOptions,
+    _p('Dialog title'),
+    popupUrl
+);*/
+
+var dlgOptions = {
+    width: 640, height: 480, left: 100, top: 50,
+    resizeable: true, newsize: true,
+    container: 'pmDlgContainer',
+	//container: 'dialogxxx',
+    name: 'PopupWindow'
+};
+var val=3; 
+var popupUrl = PM_PLUGIN_LOCATION + '/popup/popup.php?' + SID + '&key=' + val;
+var popupUrl='acercadlg.phtml?'+SID;
+var dlgObject = $('#' + dlgOptions.container + '_MSG');
+//var dlgObject = $('#dialogxxx');
+<?php print_r($dlgObject) ?>
+
+if (dlgObject.length < 1) {
+    var dlg = PM.Dlg.createDnRDlg(dlgOptions, _p('Me cago en tóh ya'), popupUrl);
+} else {
+    $.ajax({
+        url: popupUrl,
+        type: 'GET',
+        dataType: 'html',
+        success: function(response) {
+            dlgObject.html(response);
+            dlgObject.parent().parent().show();
+			//dlgObject.parent().show();
+			//dlgObject.show();
+        }
+    });
+}
+
+dlgObject.append( $( "#dialogxxx" ) );
+
+/*		PM.createDnRDlg();
+		
+	$( "#dialog" ).dialog({
+autoOpen: false,
+show: {
+effect: "blind",
+duration: 1000
+},
+hide: {
+effect: "explode",
+duration: 1000
+}
+});*/
+	}
+	
+	function kk() {
+	$( "#logo-principal" ).click(function() {
+$( "#dialog" ).dialog( "open" );
+});
+	}
 
 	</script>
 	
@@ -295,7 +371,7 @@ header("Content-type: text/html; charset=$defCharset");
 <?php echo UiElement::addUpdateEventForm()?>
 
 <script type="text/javascript">
-jQuery(function ($) {
+/*jQuery(function ($) {
 $( "#dialog" ).dialog({
 autoOpen: false,
 show: {
@@ -310,10 +386,14 @@ duration: 1000
 $( "#logo-principal" ).click(function() {
 $( "#dialog" ).dialog( "open" );
 });
-});
+});*/
 </script>
 
-<div id="dialog" title="Basic dialog">
+<div id="dialog" title="Basic dialog" style="visibility:hidden">
+<p>This is an animated dialog which is useful for displaying information. The dialog window can be moved, resized and closed with the 'x' icon.</p>
+</div>
+
+<div id="dialogxxx" title="Basic dialog" style="visibility:hidden">
 <p>This is an animated dialog which is useful for displaying information. The dialog window can be moved, resized and closed with the 'x' icon.</p>
 </div>
 

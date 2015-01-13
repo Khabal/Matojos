@@ -79,3 +79,7 @@ Versión 0.1.5 - 12/01/2015
 * Creación de nuevo logotipo.
 * Optimización menor en la presentación del logotipo del proyecto.
 * Mejoras en la presentación de los elementos de la interfaz gráfica (cabecera).
+
+Versión 0.1.6 - 13/01/2015
+* Correcciones en la presentación de diálogos.
+* Versión de prueba de diálogo "Acerca de".

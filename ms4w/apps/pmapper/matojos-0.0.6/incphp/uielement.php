@@ -389,9 +389,9 @@ menudown.gif*/
 	 */
 	public static function PL_Cabecera() {
 		// Datos del logotipo principal
-		$LPAHref = "#";
+		$LPAHref = "javascript:MostrarAcercaDe();";
 		$LPATitle = "Acerca de Matojos";
-		$LPAOnclick = "";
+		$LPAOnclick = "this.target = '_self';";
 		$LPImgSrc = "images/logos/matojos-logo.png";
 		$LPImgAlt = "Matojos";
 		

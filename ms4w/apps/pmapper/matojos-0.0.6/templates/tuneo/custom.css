@@ -179,7 +179,39 @@ padding:0px;
 	/*border:0px;*/
 }
 
+/* C. VENTANAS EMERGENTES */
+/* C.1. ACERCA DE */
+#acercade_MSG{
+	background-color:whitesmoke;
+	text-align:center;
+}
 
+#acercade_MSG a{
+	color:steelblue ;
+	font-weight:bold;
+	text-decoration:none;
+}
+
+#acercade_MSG img{
+	border:medium none;
+	height:65px;
+	margin:10px auto 5px auto;
+	vertical-align:middle;
+	width:190px;
+}
+
+#acercade_MSG p{
+	font-family:verdana, arial, helvetica, sans-serif;
+	font-size:normal;
+}
+
+.acercade_texto{
+	font-family:verdana, arial, helvetica, sans-serif;
+	font-size:normal;
+	margin-left:20px;
+	margin-right:20px;
+	text-align:justify;
+}
 
 
 /****/

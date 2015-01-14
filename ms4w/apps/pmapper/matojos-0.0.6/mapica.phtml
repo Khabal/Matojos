@@ -12,10 +12,6 @@
  * Notas: Nada a desastacar... por ahora. Todas las cañerías en orden.
  *
  ******************************************************************************/
-// Establecer versión de la aplicación
-global $versionMatojos;
-$versionMatojos = "0.1.5";
-
 // Prevención (sólo eso) de vulnerabilidad de seguridad XSS (Secuencias de comandos en sitios cruzados)
 if(isset($_REQUEST['PM_INCPHP'])){
 	exit();
@@ -228,75 +224,33 @@ header("Content-type: text/html; charset=$defCharset");
 	}
 	
 	function MostrarAcercaDe() {
-/*		var dlgOptions = {
+		var ADparametros = {
 			width: 640,
-			height: 480,
+			height: 240,
 			left: 100,
 			top: 50,
-			resizeable: true,
+			resizeable: false,
 			newsize: true,
-			container: 'dialogxxx',
-			name: 'PopupWindow'
-};
-var popupUrl="";
- 
-var dlg = PM.Dlg.createDnRDlg(
-    dlgOptions,
-    _p('Dialog title'),
-    popupUrl
-);*/
-
-var dlgOptions = {
-    width: 640, height: 480, left: 100, top: 50,
-    resizeable: true, newsize: true,
-    container: 'pmDlgContainer',
-	//container: 'dialogxxx',
-    name: 'PopupWindow'
-};
-var val=3; 
-var popupUrl = PM_PLUGIN_LOCATION + '/popup/popup.php?' + SID + '&key=' + val;
-var popupUrl='acercadlg.phtml?'+SID;
-var dlgObject = $('#' + dlgOptions.container + '_MSG');
-//var dlgObject = $('#dialogxxx');
-<?php print_r($dlgObject) ?>
-
-if (dlgObject.length < 1) {
-    var dlg = PM.Dlg.createDnRDlg(dlgOptions, _p('Me cago en tóh ya'), popupUrl);
-} else {
-    $.ajax({
-        url: popupUrl,
-        type: 'GET',
-        dataType: 'html',
-        success: function(response) {
-            dlgObject.html(response);
-            dlgObject.parent().parent().show();
-			//dlgObject.parent().show();
-			//dlgObject.show();
-        }
-    });
-}
-
-dlgObject.append( $( "#dialogxxx" ) );
-
-/*		PM.createDnRDlg();
+			container: 'acercade',
+			name: 'AcercaDe'
+		};
+		var ADdireccion = "acercadlg.phtml?" + SID;
+		var ADObjeto = $('#' + ADparametros.container + '_MSG');
 		
-	$( "#dialog" ).dialog({
-autoOpen: false,
-show: {
-effect: "blind",
-duration: 1000
-},
-hide: {
-effect: "explode",
-duration: 1000
-}
-});*/
-	}
-	
-	function kk() {
-	$( "#logo-principal" ).click(function() {
-$( "#dialog" ).dialog( "open" );
-});
+		if (ADObjeto.length < 1) {
+			var dlg = PM.Dlg.createDnRDlg(ADparametros, _p('Acerca de'), ADdireccion);
+		}
+		else {
+			$.ajax({
+				url: ADdireccion,
+				type: 'GET',
+				dataType: 'html',
+				success: function(response) {
+					ADObjeto.html(response);
+					ADObjeto.parent().parent().show();
+				}
+			});
+		}
 	}
 
 	</script>
@@ -371,33 +325,6 @@ $( "#dialog" ).dialog( "open" );
 <?php echo UiElement::addUpdateEventForm()?>
 
 <script type="text/javascript">
-/*jQuery(function ($) {
-$( "#dialog" ).dialog({
-autoOpen: false,
-show: {
-effect: "blind",
-duration: 1000
-},
-hide: {
-effect: "explode",
-duration: 1000
-}
-});
-$( "#logo-principal" ).click(function() {
-$( "#dialog" ).dialog( "open" );
-});
-});*/
-</script>
-
-<div id="dialog" title="Basic dialog" style="visibility:hidden">
-<p>This is an animated dialog which is useful for displaying information. The dialog window can be moved, resized and closed with the 'x' icon.</p>
-</div>
-
-<div id="dialogxxx" title="Basic dialog" style="visibility:hidden">
-<p>This is an animated dialog which is useful for displaying information. The dialog window can be moved, resized and closed with the 'x' icon.</p>
-</div>
-
-<script type="text/javascript">
     // use jQuery for intitialization 
     $(document).ready(function() {
         PM.Init.main();
@@ -413,8 +340,6 @@ $( "#dialog" ).dialog( "open" );
     jg_tmp = new jsGraphics('measureLayerTmp');
     
 </script>
-
-
 
 </body>
 </html>

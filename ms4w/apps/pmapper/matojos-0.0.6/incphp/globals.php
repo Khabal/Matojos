@@ -108,4 +108,16 @@ if (isset($_SESSION['clientDynamicLayers'])) {
 	}
 }
 
+/*
+ * INICIO ALTERACIÓN DEL CONTINUO TOCINO-VELOCIDAD
+ */
+
+// Establecer versión de la aplicación
+global $versionMatojos;
+$versionMatojos = "0.1.6";
+
+ /*
+ * FIN ALTERACIÓN DEL CONTINUO TOCINO-VELOCIDAD
+ */
+
 ?>

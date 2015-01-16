@@ -18,14 +18,14 @@
 #
 MAP
 EXTENT  449047 4061084 463941 4069419
- 
+
 UNITS meters
 #EXTENT -15 30 40 70
 #UNITS dd
 SIZE 600 500
 SHAPEPATH "../../data/shapefiles/"
-SYMBOLSET "../common/symbols/symbols-pmapper.sym"   
-FONTSET "../common/fonts/msfontset.txt" 
+SYMBOLSET "../common/symbols/symbols-pmapper.sym"
+FONTSET "../common/fonts/msfontset.txt"
 RESOLUTION 96
 IMAGETYPE png
 INTERLACE OFF
@@ -33,7 +33,7 @@ INTERLACE OFF
 PROJECTION
   # ETRS-LAEA
   #"init=epsg:3035"
-  "+proj=laea +lat_0=52 +lon_0=10 +x_0=4321000 +y_0=3210000 +ellps=GRS80 +units=m +no_defs  no_defs"
+  #"+proj=laea +lat_0=52 +lon_0=10 +x_0=4321000 +y_0=3210000 +ellps=GRS80 +units=m +no_defs  no_defs"
 END  
 
 
@@ -148,7 +148,8 @@ LAYER
   CONNECTIONTYPE WMS
   PROJECTION
     #"init=epsg:4326"
-    "+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs  no_defs"
+    #"+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs  no_defs"
+	#"+proj=utm +zone=32 +ellps=WGS84 +datum=WGS84 +units=m +no_defs"
   END
   METADATA
     "DESCRIPTION"         "JPL Global Mosaic (WMS)"
@@ -165,7 +166,10 @@ END
 	  TYPE polygon
 	  DATA "inicial.shp"
 	  STATUS on
-	
+	  PROJECTION
+		#"init=epsg:4326"
+		#"+proj=utm +zone=32 +ellps=WGS84 +datum=WGS84 +units=m +no_defs"
+		END
 	  CLASSITEM Fid_motril
 	  CLASS
 		NAME "1"

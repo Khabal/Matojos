@@ -841,8 +841,17 @@ $.extend(PM.ZoomBox,
         var py = isNaN(mpoint.y) ? '' : mpoint.y.roundTo(this.coordsDisplayRfactor);
         
         // Display in DIV  
-        PM.ZoomBox.xCoordCont.html('X: ' + px + this.coordsDisplayUnits);
-        PM.ZoomBox.yCoordCont.html('Y: ' + py + this.coordsDisplayUnits);
+        //PM.ZoomBox.xCoordCont.html('X: ' + px + this.coordsDisplayUnits);
+        //PM.ZoomBox.yCoordCont.html('Y: ' + py + this.coordsDisplayUnits);
+		var dirx, diry;
+		var gradox, minutox, segundox, gradoy, minutoy, segundoy;
+		if(px>0){dirx=" N";}else{dirx=" S";px*=-1;}
+		if(py>0){diry=" O";}else{diry=" E";py*=-1;}
+		//gradox=floor(px/3600);minutox=px%60;segundox=px%3600;
+		gradox=Math.floor(px/3600);minutox=px%60;segundox=px%3600;
+		gradoy=Math.floor(py/3600);minutoy=py%60;segundoy=py%3600;
+		PM.ZoomBox.xCoordCont.html(gradox + "º " + minutox + "' " + segundox + "''" + dirx);
+		PM.ZoomBox.yCoordCont.html(gradoy + "º " + minutoy + "' " + segundoy + "''" + diry);
     },
     
     

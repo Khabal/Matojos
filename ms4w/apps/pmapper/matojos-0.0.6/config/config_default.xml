@@ -6,7 +6,7 @@
             <plugins>export</plugins>
             <plugins>scalebar</plugins>
             <plugins>transparency</plugins>
-            
+            <plugins>proj4js</plugins>
         </pmapper>
         <config>
             <pm_config_location>default</pm_config_location>

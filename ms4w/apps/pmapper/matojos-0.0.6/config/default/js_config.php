@@ -130,6 +130,14 @@ PM.ZoomBox.coordsDisplayDstPrj = "EPSG:4326";
 PM.ZoomBox.coordsDisplayRfactor = 4;
 */
 
+//Proj4js.defs["EPSG:32632"]="+proj=utm +zone=32 +ellps=WGS84 +datum=WGS84 +units=m +no_defs ";
+Proj4js.defs["EPSG:32632"]="+proj=utm +zone=30S +ellps=WGS84 +datum=WGS84 +units=m +no_defs ";
+PM.ZoomBox.coordsDisplayReproject = true;
+PM.ZoomBox.coordsDisplaySrcPrj = "EPSG:32632";
+PM.ZoomBox.coordsDisplayDstPrj = "EPSG:4326";
+PM.ZoomBox.coordsDisplayRfactor = 4;
+
+
 
 /**
  * Definitions of context menus

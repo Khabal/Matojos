@@ -1,7 +1,7 @@
 Matojos
 ===============================================================================
 
-Versión 0.0.14 - 30/12/2014
+Versión 0.1.8 - 16/01/2015
 Sistema de Información Geográfica para parques, jardines y flora del municipio de Motril
 ===============================================================================
 
@@ -83,3 +83,9 @@ Versión 0.1.5 - 12/01/2015
 Versión 0.1.6 - 13/01/2015
 * Correcciones en la presentación de diálogos.
 * Versión de prueba de diálogo "Acerca de".
+
+Versión 0.1.8 - 16/01/2015
+* Página de diálogo "Acerca de" y javascript asociado.
+* Cambio en el sistema de coordenadas mostrado.
+* Mejoras en la presentación de las coordenadas.
+* Añadidos nuevos iconos y optimizado su tamaño.

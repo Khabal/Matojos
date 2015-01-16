@@ -22,17 +22,14 @@ z-index:99;
 .scale-link {background-color:#ffffff;}
 .scale-link-over {color: #000000; background-color: #d5ddf3;}
 #scaleAreaX{background-color:transparent; border:none; opacity:1.0;} 
-#showcoords {color:#000000}
+
 .pm-map-link, .pm-selectbox, #helpMessage {top: 5px; right:5px}
 div.jqmdTC { background-color:#d4d4d4; color:#000000;}
 
 
 
 
-#showcoords {
-background-color: rgba(0, 0, 0, 0.75);
-color: white;
-}
+
 
 
 
@@ -130,7 +127,27 @@ width:24px;
 }
 
 /* B. PANEL CENTRAL */
-/* B.9. PIE */
+/* B.1. CUADRO DE BÚSQUEDA */
+/* B.2. BOTÓN PARA MOSTRAR PANEL LATERAL */
+/* B.3. BOTONES DE DESPLAZAMIENTO */
+/* B.4. BARRA Y BOTONES PARA ACERCAR/ALEJAR */
+/* B.5. BARRA DE MENÚ */
+/* B.6. BOTÓN PARA OCULTAR/MOSTRAR BARRA DE MENÚ */
+/* B.7. COORDENADAS */
+#showcoords{
+	background-color:rgba(47, 79, 79, 0.75);
+	color:white;
+/*background-color: rgba(255, 255, 255, 0.75);
+    color: #2f4f4f;*/
+	font-family:verdana, arial, helvetica, sans-serif;
+	font-size:6.5pt;
+	height:16px;
+	margin:0;
+	width:170px;
+}
+/* B.8. FORMULARIO DE ESCALA */
+/* B.9. BARRA DE ESCALA */
+/* B.10. PIE */
 #pie-panel-central{
 	bottom:0;
 	margin:0;
@@ -153,7 +170,7 @@ width:24px;
 	white-space:nowrap;
 }
 
-/* B.10. LOGO DE LA BELLOTA SOFT */
+/* B.11. LOGO DE LA BELLOTA SOFT */
 #labellota-logo{
 margin:0px;
 padding:0px;

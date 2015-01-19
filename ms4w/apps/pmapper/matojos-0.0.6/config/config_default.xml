@@ -21,6 +21,9 @@
                 <category name="cat_admin">
                     <group>countries</group>
                     <group>cities10000eu</group>
+					<group>curvas</group>
+					<group>puntos</group>
+					<group>superficies</group>
                 </category>
                 <category name="cat_nature">
                     <group>rivers</group>
@@ -36,10 +39,16 @@
                 <group>dem</group>
                 <group>rivers</group>
                 <group>jpl_wms_global_mosaic</group>
+				<group>curvas</group>
+				<group>puntos</group>
+				<group>superficies</group>
             </allGroups>
             <defGroups>
                 <group>countries</group>
                 <group>cities10000eu</group>
+				<group>curvas</group>
+				<group>puntos</group>
+				<group>superficies</group>
             </defGroups>
             <layerAutoRefresh>1</layerAutoRefresh>
             <imgFormat>png8</imgFormat>

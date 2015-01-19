@@ -1,7 +1,7 @@
 <pmapper>
     <ini>
         <pmapper>
-            <pmTitle>p.mapper - A MapServer PHP/MapScript Framework</pmTitle>
+            <pmTitle>Mierda en lata</pmTitle>
             <debugLevel>3</debugLevel>
             <plugins>export</plugins>
             <plugins>scalebar</plugins>
@@ -36,10 +36,12 @@
                 <group>dem</group>
                 <group>rivers</group>
                 <group>jpl_wms_global_mosaic</group>
+				<group>curvas</group>
             </allGroups>
             <defGroups>
                 <group>countries</group>
                 <group>cities10000eu</group>
+				<group>curvas</group>
             </defGroups>
             <layerAutoRefresh>1</layerAutoRefresh>
             <imgFormat>png</imgFormat>

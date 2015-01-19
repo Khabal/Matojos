@@ -88,4 +88,7 @@ Versión 0.1.8 - 16/01/2015
 * Página de diálogo "Acerca de" y javascript asociado.
 * Cambio en el sistema de coordenadas mostrado.
 * Mejoras en la presentación de las coordenadas.
+
+Versión 0.1.9 - 19/01/2015
+* Mejoras en la presentación de las coordenadas.
 * Añadidos nuevos iconos y optimizado su tamaño.

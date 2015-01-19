@@ -143,8 +143,19 @@ width:24px;
 	font-size:6.5pt;
 	height:16px;
 	margin:0;
-	width:170px;
+	width:160px;
 }
+
+#xcoord {
+    float: left;
+    padding: 2px 8px 2px 4px;
+}
+
+#ycoord {
+    float: right;
+    padding: 2px 4px 2px 8px;
+}
+
 /* B.8. FORMULARIO DE ESCALA */
 /* B.9. BARRA DE ESCALA */
 /* B.10. PIE */

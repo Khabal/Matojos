@@ -195,6 +195,79 @@ END
 	END  # Layer
 
 
+	LAYER
+		NAME "curvas"
+		TYPE LINE
+		STATUS ON
+		DATA "../SHP/PRUEBA 2/GISJARD.gvsproj_curve.shp"
+		TEMPLATE void
+		PROJECTION
+			#"init=epsg:4326"
+			"+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs no_defs"
+		END
+		METADATA
+			"DESCRIPTION" "curvas"
+#    ## ADAPTED TO MULTILINGUAL SHAPEFILE
+#    "RESULT_FIELDS" "ISOCODE,@default:NAME_EN@de:NAME_DE@it:NAME_IT@fr:NAME_FR@br:NAME_BR@es:NAME_ES,@default:CAPITAL_EN@de:CAPITAL_DE@it:CAPITAL_IT@fr:CAPITAL_FR@br:CAPITAL_BR@es:CAPITAL_ES,AREA_KM2,POPULATION"
+#    "RESULT_HEADERS" "ISO Code,Name,Capital,Area,Population"
+			"ows_title" "curvas"
+		END  # Metadata 
+		CLASS
+			Name "curvas"
+			COLOR 200 254 199
+			OUTLINECOLOR 0 0 0
+		END  # Class
+	END
+
+	LAYER
+		NAME "puntos"
+		TYPE POINT
+		STATUS ON
+		DATA "../SHP/PRUEBA 2/GISJARD.gvsproj_point.shp"
+		TEMPLATE void
+		PROJECTION
+			#"init=epsg:4326"
+			"+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs no_defs"
+		END
+		METADATA
+			"DESCRIPTION" "puntos"
+#    ## ADAPTED TO MULTILINGUAL SHAPEFILE
+#    "RESULT_FIELDS" "ISOCODE,@default:NAME_EN@de:NAME_DE@it:NAME_IT@fr:NAME_FR@br:NAME_BR@es:NAME_ES,@default:CAPITAL_EN@de:CAPITAL_DE@it:CAPITAL_IT@fr:CAPITAL_FR@br:CAPITAL_BR@es:CAPITAL_ES,AREA_KM2,POPULATION"
+#    "RESULT_HEADERS" "ISO Code,Name,Capital,Area,Population"
+			"ows_title" "puntos"
+		END  # Metadata 
+		CLASS
+			Name "puntos"
+			COLOR 0 0 100
+			OUTLINECOLOR 0 0 100
+			SYMBOL 'circle' 
+			SIZE 8
+		END  # Class
+	END
+	
+	LAYER
+		NAME "superficies"
+		TYPE POLYGON
+		STATUS ON
+		DATA "../SHP/PRUEBA 2/GISJARD.gvsproj_surface.shp"
+		TEMPLATE void
+		PROJECTION
+			#"init=epsg:4326"
+			"+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs no_defs"
+		END
+		METADATA
+			"DESCRIPTION" "superficies"
+#    ## ADAPTED TO MULTILINGUAL SHAPEFILE
+#    "RESULT_FIELDS" "ISOCODE,@default:NAME_EN@de:NAME_DE@it:NAME_IT@fr:NAME_FR@br:NAME_BR@es:NAME_ES,@default:CAPITAL_EN@de:CAPITAL_DE@it:CAPITAL_IT@fr:CAPITAL_FR@br:CAPITAL_BR@es:CAPITAL_ES,AREA_KM2,POPULATION"
+#    "RESULT_HEADERS" "ISO Code,Name,Capital,Area,Population"
+			"ows_title" "superficies"
+		END  # Metadata 
+		CLASS
+			Name "superficies"
+			COLOR 0 100 0
+			OUTLINECOLOR 0 0 0
+		END  # Class
+	END
 ##
 ## LAYER DGM
 ##

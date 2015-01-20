@@ -137,6 +137,55 @@ PM.ZoomBox.coordsDisplaySrcPrj = "EPSG:32632";
 PM.ZoomBox.coordsDisplayDstPrj = "EPSG:4326";
 PM.ZoomBox.coordsDisplayRfactor = 4;
 
+/**
+ * Redefinición de la función por defecto para mostrar las coordenadas en el cuadro de coordenadas
+ */
+PM.ZoomBox.displayCoordinates = function() {
+	var mpoint = this.getGeoCoords(this.moveX, this.moveY);
+	
+	// Reproject coords if defined
+	if(this.coordsDisplayReproject) {
+		mpoint = this.transformCoordinates(this.coordsDisplaySrcPrj, this.coordsDisplayDstPrj, mpoint);
+	}
+	
+	// Round values (function 'roundN()' in 'measure.js')
+	var px = isNaN(mpoint.x) ? '' : mpoint.x.roundTo(this.coordsDisplayRfactor);
+	var py = isNaN(mpoint.y) ? '' : mpoint.y.roundTo(this.coordsDisplayRfactor);
+	
+	// Descomponer las coordenadas en grados, minutos y segundos
+	var dirx, gradox, minutox, segundox, diry, gradoy, minutoy, segundoy;
+	
+	if(px > 0) {
+		dirx = " E";
+	}
+	else {
+		dirx = " O";
+		px *= -1;
+	}
+	
+	if(py > 0) {
+		diry = " N";
+	}
+	else {
+		diry = " S";
+		py *= -1;
+	}
+	
+	gradox = Math.floor(px);
+	minutox = (px % 1) * 60;
+	segundox = Math.floor((minutox % 1) * 60);
+	minutox = Math.floor(minutox);
+	
+	gradoy = Math.floor(py);
+	minutoy = (py % 1) * 60;
+	segundoy = Math.floor((minutoy % 1) * 60);
+	minutoy = Math.floor(minutoy);
+	
+	// Display in DIV  
+	PM.ZoomBox.yCoordCont.html(gradox + "º " + minutox + "' " + segundox + "''" + dirx);
+	PM.ZoomBox.xCoordCont.html(gradoy + "º " + minutoy + "' " + segundoy + "''" + diry);
+};
+
 
 
 /**

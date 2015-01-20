@@ -199,7 +199,7 @@ END
 		NAME "curvas"
 		TYPE LINE
 		STATUS ON
-		DATA "../SHP/PRUEBA 2/GISJARD.gvsproj_curve.shp"
+		DATA "../SHP/PRUEBA 2/P1.gvsproj_curve.shp"
 		TEMPLATE void
 		PROJECTION
 			#"init=epsg:4326"
@@ -223,7 +223,7 @@ END
 		NAME "puntos"
 		TYPE POINT
 		STATUS ON
-		DATA "../SHP/PRUEBA 2/GISJARD.gvsproj_point.shp"
+		DATA "../SHP/PRUEBA 2/P1.gvsproj_point.shp"
 		TEMPLATE void
 		PROJECTION
 			#"init=epsg:4326"
@@ -249,7 +249,7 @@ END
 		NAME "superficies"
 		TYPE POLYGON
 		STATUS ON
-		DATA "../SHP/PRUEBA 2/GISJARD.gvsproj_surface.shp"
+		DATA "../SHP/PRUEBA 2/P1.gvsproj_surface.shp"
 		TEMPLATE void
 		PROJECTION
 			#"init=epsg:4326"

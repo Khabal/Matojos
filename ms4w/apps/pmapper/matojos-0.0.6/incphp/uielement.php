@@ -319,16 +319,27 @@ class UiElement{
         return $html;
     }*/
     
-	public static function ocultarPanel() {
+	/**
+	 * Panel central - Botón para mostrar panel lateral una vez que se haya ocultado
+	 */
+	public static function PC_MostrarPanelLateral() {
 	/*menudown.gif*/
+		// Datos del botón para mostrar el panel lateral
+		$BOPLAHref = "javascript:MostrarPanelLateral();";
+		$BOPLATitle = "Mostrar panel";
+		$BOPLAOnclick = "this.target = '_self';";
+		$BOPLImgSrc = "images/botones/flecha-palante.png";
+		$BOPLImgAlt = "Mostrar";
 		
-		$html = "<div class=\"ocultar-panel\">					
-					<a id=\"textoClosePanelLateral\" href=\"javascript:CerrarPanelLateral();\">
-					<span id=\"iconClosePanelLateral\" title=\"Ocultar panel\"></span>
+		// Código HTML
+		$html = "<div id=\"mostrar-panel\">
+					<a id=\"mostrar-panel-lateral\" href=\"$BOPLAHref\" title=\"$BOPLATitle\" onclick=\"$BOPLAOnclick\">
+						<img src=\"$BOPLImgSrc\" alt=\"$BOPLImgAlt\"/>
 					</a>
-				</div>
-		";
-        return $html;
+				</div>";
+		
+		// Devolver código HTML
+		return $html;
 	}
     
    /**

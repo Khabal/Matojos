@@ -142,11 +142,12 @@ header("Content-type: text/html; charset=$defCharset");
      * ======= ADAPT TO PAGE LAYOUT =======
      */
 	$(document).ready(function () {
+	
 	/*Estilos barra botones*/
 	PM.botonesTuneados = {
     toolbarid:'toolBar',
     options: {orientation:'v',
-              css:{height:'440px'},
+              css:{height:'540px'},
               theme:'tuneado',
               imagetype:'png'
              }, 
@@ -169,7 +170,12 @@ header("Content-type: text/html; charset=$defCharset");
         //{tool:'coordinates',       name:'Coordinates'},
         {tool:'separator4',    dimension: 1},
         {tool:'transparency',  name:'Transparency', run:'PM.Plugin.Transparency.openTransparencyDlg'},
-        {tool:'reload',        name:'Refresh Map', run:'PM.Map.clearInfo'}
+        {tool:'reload',        name:'Refresh Map', run:'PM.Map.clearInfo'},
+		{tool:'separator5',    dimension: 1},
+        {tool:'print', name:'Print', run:'PM.Dlg.openPrint'},
+        {tool:'download', name:'Download', run:'PM.Dlg.openDownload'},
+        {tool:'help', name:'Help', run:'PM.Dlg.openHelp', imgsrc:'home_off.png'}
+
     ]
 };
 /**************************/	
@@ -218,9 +224,17 @@ header("Content-type: text/html; charset=$defCharset");
 		});
 	});*/
 	function OcultarPanelLateral() {
-		$('#uiLayoutWest').css({position:'absolute', left:0, width:0});
+		$('#uiLayoutWest').css({width:0});
 		PM.Layout.resizeContainers();
 		//Mostar botón para remostrar panel
+		$('#mostrar-panel-lateral').css({visibility:'visible'});
+	}
+	
+	function MostrarPanelLateral() {
+		//Ocultar botón para remostrar panel
+		$('#mostrar-panel-lateral').css({visibility:'hidden'});
+		$('#uiLayoutWest').css({width:250});
+		PM.Layout.resizeContainers();
 	}
 	
 	function MostrarAcercaDe() {
@@ -311,7 +325,7 @@ header("Content-type: text/html; charset=$defCharset");
 		?>
 		
 		<!-- Mostrar/Ocultar panel izquierdo -->
-		<?php  echo UiElement::ocultarPanel() ?>
+		<?php  echo UiElement::PC_MostrarPanelLateral() ?>
         
 	</div>
 

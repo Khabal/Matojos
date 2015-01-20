@@ -39,9 +39,7 @@ div.jqmdTC { background-color:#d4d4d4; color:#000000;}
 
 
 
-#toc{
-position:relative;
-}
+
 
 
 
@@ -52,13 +50,28 @@ text-align:center;
 .pm-toolbar-td img, .pm-toolbar-td-off img{
 height:24px;
 width:24px;
+text-align:right;
 }
 
-.pm-toolbar-td-off .pm-toolbar-td-on{
-	text-align:left;/*Borrar tras purgar default.css*/
+.pm-toolbar-td-off, .pm-toolbar-td-on{
+	text-align:left;
+	/*Borrar tras purgar default.css*/
+}
+/*
+.pm-toolbar-td-off {
+	text-align:left;
 }
 
-/*ESTILOS PROPIOS*/
+.pm-toolbar-td-on{
+	text-align:left;
+}*/
+
+/* ESTILOS PROPIOS */
+/* Z. PANELES */
+/* Z.1. PANEL LATERAL */
+/* Z.2. PANEL CENTRAL */
+
+
 /* A. PANEL LATERAL */
 /* A.1. CABECERA */
 #cabecera-panel-lateral{
@@ -126,9 +139,27 @@ width:24px;
 	padding:10px;
 }
 
+#toc{
+	position:relative;
+}
+
 /* B. PANEL CENTRAL */
 /* B.1. CUADRO DE BÚSQUEDA */
 /* B.2. BOTÓN PARA MOSTRAR PANEL LATERAL */
+#mostrar-panel-lateral{
+	left:35px;
+	position:absolute;
+	top:5px;
+	visibility:hidden;
+	z-index:99;
+}
+
+#mostrar-panel-lateral img{
+	height:32px;
+	vertical-align:middle;
+	width:32px;
+}
+
 /* B.3. BOTONES DE DESPLAZAMIENTO */
 /* B.4. BARRA Y BOTONES PARA ACERCAR/ALEJAR */
 /* B.5. BARRA DE MENÚ */
@@ -136,24 +167,26 @@ width:24px;
 /* B.7. COORDENADAS */
 #showcoords{
 	background-color:rgba(47, 79, 79, 0.75);
+	bottom:10px;
 	color:white;
-/*background-color: rgba(255, 255, 255, 0.75);
-    color: #2f4f4f;*/
 	font-family:verdana, arial, helvetica, sans-serif;
-	font-size:6.5pt;
+	font-size:xx-small;
 	height:16px;
+	left:60px;
 	margin:0;
+	position:absolute;
 	width:160px;
+	z-index:99;
 }
 
-#xcoord {
-    float: left;
-    padding: 2px 8px 2px 4px;
+#xcoord{
+	float:left;
+	padding:2px 6px 2px 4px;
 }
 
-#ycoord {
-    float: right;
-    padding: 2px 4px 2px 8px;
+#ycoord{
+	float:right;
+	padding:2px 4px 2px 6px;
 }
 
 /* B.8. FORMULARIO DE ESCALA */

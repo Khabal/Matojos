@@ -23,6 +23,7 @@
                     <group>cities10000eu</group>
 					<group>curvas</group>
 					<group>puntos</group>
+					<group>arbustos</group>
 					<group>superficies</group>
                 </category>
                 <category name="cat_nature">
@@ -41,6 +42,7 @@
                 <group>jpl_wms_global_mosaic</group>
 				<group>curvas</group>
 				<group>puntos</group>
+				<group>arbustos</group>
 				<group>superficies</group>
             </allGroups>
             <defGroups>
@@ -48,6 +50,7 @@
                 <group>cities10000eu</group>
 				<group>curvas</group>
 				<group>puntos</group>
+				<group>arbustos</group>
 				<group>superficies</group>
             </defGroups>
             <layerAutoRefresh>1</layerAutoRefresh>

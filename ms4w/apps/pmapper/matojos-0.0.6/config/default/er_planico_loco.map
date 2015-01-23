@@ -220,6 +220,30 @@ END
 	END
 
 	LAYER
+		NAME "superficies"
+		TYPE POLYGON
+		STATUS ON
+		DATA "../SHP/PRUEBA 2/P1.gvsproj_surface.shp"
+		TEMPLATE void
+		PROJECTION
+			#"init=epsg:4326"
+			"+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs no_defs"
+		END
+		METADATA
+			"DESCRIPTION" "superficies"
+#    ## ADAPTED TO MULTILINGUAL SHAPEFILE
+#    "RESULT_FIELDS" "ISOCODE,@default:NAME_EN@de:NAME_DE@it:NAME_IT@fr:NAME_FR@br:NAME_BR@es:NAME_ES,@default:CAPITAL_EN@de:CAPITAL_DE@it:CAPITAL_IT@fr:CAPITAL_FR@br:CAPITAL_BR@es:CAPITAL_ES,AREA_KM2,POPULATION"
+#    "RESULT_HEADERS" "ISO Code,Name,Capital,Area,Population"
+			"ows_title" "superficies"
+		END  # Metadata 
+		CLASS
+			Name "superficies"
+			COLOR 0 100 0
+			OUTLINECOLOR 0 0 0
+		END  # Class
+	END
+	
+	LAYER
 		NAME "puntos"
 		TYPE POINT
 		STATUS ON
@@ -246,28 +270,32 @@ END
 	END
 	
 	LAYER
-		NAME "superficies"
-		TYPE POLYGON
+		NAME "arbustos"
+		TYPE POINT
 		STATUS ON
-		DATA "../SHP/PRUEBA 2/P1.gvsproj_surface.shp"
+		DATA "../SHP/PRUEBA 2/ARBUSTO.shp"
 		TEMPLATE void
 		PROJECTION
 			#"init=epsg:4326"
 			"+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs no_defs"
 		END
 		METADATA
-			"DESCRIPTION" "superficies"
+			"DESCRIPTION" "arbustos"
 #    ## ADAPTED TO MULTILINGUAL SHAPEFILE
 #    "RESULT_FIELDS" "ISOCODE,@default:NAME_EN@de:NAME_DE@it:NAME_IT@fr:NAME_FR@br:NAME_BR@es:NAME_ES,@default:CAPITAL_EN@de:CAPITAL_DE@it:CAPITAL_IT@fr:CAPITAL_FR@br:CAPITAL_BR@es:CAPITAL_ES,AREA_KM2,POPULATION"
 #    "RESULT_HEADERS" "ISO Code,Name,Capital,Area,Population"
-			"ows_title" "superficies"
+			"ows_title" "puntos"
 		END  # Metadata 
 		CLASS
-			Name "superficies"
-			COLOR 0 100 0
-			OUTLINECOLOR 0 0 0
+			Name "arbustos"
+			COLOR 100 0 0
+			OUTLINECOLOR 0 0 100
+			SYMBOL 'square' 
+			SIZE 8
 		END  # Class
 	END
+	
+
 ##
 ## LAYER DGM
 ##

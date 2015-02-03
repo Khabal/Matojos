@@ -97,7 +97,7 @@ PM.autoIdentifyFollowMouse = false;
 /**
  * Define if internal (default) cursors should be used for mouse cursors (default: false)
  */
-PM.useInternalCursors = false;
+PM.useInternalCursors = true;
 
 
 /**
@@ -117,6 +117,10 @@ PM.measureUnits = {distance:" [km]", area:" [km&sup2;]", factor:1000};
  */
 PM.measureObjects = {line: {color:"#FF0000", width:2}}; 
 
+/**
+ * Invert wheel zoom action to follow Google behaviour (default: false)
+ */
+PM.ZoomBox.wheelZoomGoogleStyle = true;
 
 /**
  * Sample for reprojecting ETRS89 LAEA dislay coordinates to lonlat WGS84 

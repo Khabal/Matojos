@@ -499,7 +499,7 @@ menudown.gif*/
 		$AHref = "http://labellotasoft.co.uk";
 		$ATitle = "La Bellota Soft Ltd.";
 		$AOnclick = "this.target = '_blank';";
-		$ImgSrc = "images/logos/logo_con_nombre.png";
+		$ImgSrc = "images/logos/lbsl-logo-con-nombre-color.png";
 		$ImgAlt = "La Bellota Soft";
 		
 		// Código HTML
@@ -512,6 +512,7 @@ menudown.gif*/
 		// Devolver código HTML
 		return $html;
 	}
+
    /**
     * Coordinates display
     */

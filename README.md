@@ -104,4 +104,13 @@ Versión 0.1.10 - 20/01/2015
 Versión 0.1.11 - 23/01/2015
 * Depuración y limpieza de llamadas a funcionalidades de la barra de herramientas.
 * Mejoras en la presentación de la barra de herramientas.
-* Cambios en la carga de las capas
+* Cambios en la carga de las capas.
+
+Versión 0.2.0 - 03/02/2015
+* Fin de ciclo.
+* Cambios en la presentación del logotipo de La Bellota Soft.
+* Cambios en el pie de la página.
+* Cambios en la carga de las capas.
+* Nuevos iconos para la barra de herramientas.
+* Depuración y limpieza de llamadas a funcionalidades de la barra de herramientas.
+* Mejoras en la presentación de la barra de herramientas.

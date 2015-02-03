@@ -197,7 +197,7 @@ text-align:right;
 	margin:0;
 	padding:0;
 	position:absolute;
-	right:95px;
+	right:85px;
 	z-index:99;
 }
 
@@ -216,28 +216,26 @@ text-align:right;
 
 /* B.11. LOGO DE LA BELLOTA SOFT */
 #labellota-logo{
-margin:0px;
-padding:0px;
-    bottom: 0;
-    /*color: #000;*/
-   /* display: table-row;*/
-    /*font-size: 10px;*/
-	/*padding: 4px;*/
-    /*padding-left: 3px;*/
-    position: absolute;
-    right: 0;
-    z-index: 100;
+	bottom:0;
+	margin:0;
+	padding:0;
+	position:absolute;
+	right:0;
+	z-index:99;
+}
+
+#labellota-logo a{
+	background-color: rgba(255, 255, 255, 0.75);
+	display:block;
+	height:25px;
+	width:85px;
 }
 
 #labellota-logo img{
-	background-color: rgba(255, 255, 255, 0.75);
-	height:35px;
-	width:95px;
-	display: inline;
-	overflow: hidden;
-	/*white-space: nowrap;*/
-	vertical-align: sub;
-	/*border:0px;*/
+	border:medium none;
+	height:25px;
+	width:85px;
+	vertical-align:sub;
 }
 
 /* C. VENTANAS EMERGENTES */

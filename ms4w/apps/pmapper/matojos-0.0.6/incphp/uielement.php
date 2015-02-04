@@ -84,6 +84,28 @@ class UiElement{
         return $html;
     }
     
+	/**
+	 * Panel central - Botón para mostrar/ocultar la barra de herrammientas
+	 */
+	public static function PC_MostrarBarraHerramientas() {
+		// Datos del botón para mostrar/ocultar la barra de herrammientas
+		$BOPLAHref = "javascript:MostrarOcultarHerramientas();";
+		$BOPLATitle = "Mostrar barra de herrammientas";
+		$BOPLAOnclick = "this.target = '_self';";
+		$BOPLImgSrc = "images/botones/barra-herramientas.png";
+		$BOPLImgAlt = "Mostrar";
+		
+		// Código HTML
+		$html = "<div id=\"mostrar-herrammientas\">
+					<a id=\"mostrar-barra-herrammientas\" href=\"$BOPLAHref\" title=\"$BOPLATitle\" onclick=\"$BOPLAOnclick\">
+						<img src=\"$BOPLImgSrc\" alt=\"$BOPLImgAlt\"/>
+					</a>
+				</div>";
+		
+		// Devolver código HTML
+		return $html;
+	}
+	
    /**
     * TOC and Legend container
     */

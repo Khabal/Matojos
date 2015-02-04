@@ -262,6 +262,42 @@ PM.buttonsDefault = {
     ]
 };
 
+// Estilo y elementos de la barra de herramientas
+PM.botonesTuneados = {
+	toolbarid:'toolBar',
+	options: {
+		orientation:'v',
+		css:{height:'560px'},
+		theme:'tuneado',
+		imagetype:'png'
+	},
+	buttons: [
+		{tool:'space1', dimension:5},
+		{tool:'home', name:'Zoom To Full Extent', run:'PM.Map.zoomfullext'},
+		{tool:'back', name:'Back', run:'PM.Map.goback'},
+		{tool:'fwd', name:'Forward', run:'PM.Map.gofwd'},
+		{tool:'zoomselected', name:'Zoom To Selected', run:'PM.Map.zoom2selected'},
+		{tool:'separator1', dimension:1},
+		{tool:'zoomin', name:'Zoom in'},
+		{tool:'zoomout', name:'Zoom out'},
+		{tool:'pan', name:'Pan'},
+		{tool:'separator2', dimension:1},
+		{tool:'identify', name:'Identify'},
+		{tool:'select', name:'Select'},
+		{tool:'auto_identify', name:'Auto Identify'},
+		{tool:'separator3', dimension:1},
+		{tool:'measure', name:'Measure'},
+		{tool:'separator4', dimension:1},
+		{tool:'transparency', name:'Transparency', run:'PM.Plugin.Transparency.openTransparencyDlg'},
+		{tool:'reload', name:'Refresh Map', run:'PM.Map.clearInfo'},
+		{tool:'separator5', dimension:1},
+		{tool:'link', name:'Link', run:'PM.UI.showMapLink'},
+		{tool:'print', name:'Print', run:'PM.Dlg.openPrint'},
+		{tool:'download', name:'Download', run:'PM.Dlg.openDownload'},
+		{tool:'help', name:'Help', run:'PM.Dlg.openHelp'}
+	]
+};
+
 /**
  * Tool link elements
  */

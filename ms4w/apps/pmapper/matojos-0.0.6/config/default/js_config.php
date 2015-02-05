@@ -298,6 +298,9 @@ PM.botonesTuneados = {
 	]
 };
 
+// Establece si por defecto se muestra la barra de herramientas o no
+PM.barraHerramientasOculta = true;
+
 /**
  * Tool link elements
  */

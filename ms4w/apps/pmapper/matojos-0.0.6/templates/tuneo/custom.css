@@ -9,7 +9,7 @@
 .pm-searchoptions, .pm-searchitem td {background-color:transparent; color:#000000;}
 .pm-searchoptions select, .pm-searchitem input, .pm-searchitem select { background-color:#ffffff; }
 #scalebar {right:0px; left:auto} 
-#sliderArea {left:45px; top:45px; background-color:#ffffff;}
+
 #scaleAreaX {
 position: absolute;
 bottom:60px;
@@ -162,8 +162,37 @@ text-align:right;
 
 /* B.3. BOTONES DE DESPLAZAMIENTO */
 /* B.4. BARRA Y BOTONES PARA ACERCAR/ALEJAR */
+#sliderArea {
+	position:absolute;
+	left:45px;
+	top:45px;
+	background-color:#ffffff;
+	height: 200px;
+
+	width: 25px;
+    z-index: 99;
+}
+
+#sliderTool{
+	text-align:center;
+	margin:0 auto;
+}
+
 /* B.5. BARRA DE MENÚ */
 /* B.6. BOTÓN PARA OCULTAR/MOSTRAR BARRA DE MENÚ */
+#mostrar-barra-herrammientas{
+	left:55px;
+	position:absolute;
+	top:265px;
+	z-index:99;
+}
+
+#mostrar-barra-herrammientas img{
+	height:16px;
+	vertical-align:middle;
+	width:16px;
+}
+
 /* B.7. COORDENADAS */
 #showcoords{
 	background-color:rgba(47, 79, 79, 0.75);
@@ -216,19 +245,13 @@ text-align:right;
 
 /* B.11. LOGO DE LA BELLOTA SOFT */
 #labellota-logo{
+	background-color:rgba(255, 255, 255, 0.75);
 	bottom:0;
 	margin:0;
 	padding:0;
 	position:absolute;
 	right:0;
 	z-index:99;
-}
-
-#labellota-logo a{
-	background-color: rgba(255, 255, 255, 0.75);
-	display:block;
-	height:25px;
-	width:85px;
 }
 
 #labellota-logo img{

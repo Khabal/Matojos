@@ -166,6 +166,8 @@ header("Content-type: text/html; charset=$defCharset");
         //$('#uiLayoutNorth').pmToolLinks(PM.linksDefault);   // Tool links
         //$('#uiLayoutCenter').appendElement('div').addClass('map-top-bar');  // Top bar over map
         
+		MostrarOcultarHerramientas();
+		
         PM.Layout.resizeContainers();
         $(window).resize(function(){
             PM.Layout.resizeContainers();
@@ -200,6 +202,22 @@ header("Content-type: text/html; charset=$defCharset");
 		$('#mostrar-panel-lateral').css({visibility:'hidden'});
 		$('#uiLayoutWest').css({width:250});
 		PM.Layout.resizeContainers();
+	}
+	
+	function MostrarOcultarHerramientas() {
+		//Cambiar texto del botón
+		if(PM.barraHerramientasOculta) {
+			$('#mostrar-barra-herrammientas').attr({title: 'Mostrar barra de herrammientas'});
+			$('#mostrar-barra-herrammientas > img').attr({alt: 'Mostrar'});
+			$('#toolBar').css({visibility:'hidden'});
+		}
+		else {
+			$('#mostrar-barra-herrammientas').attr({title: 'Ocultar barra de herrammientas'});
+			$('#mostrar-barra-herrammientas > img').attr({alt: 'Ocultar'});
+			$('#toolBar').css({visibility:'visible'});
+		}
+		//Cambiar valor para la visibilidad
+		PM.barraHerramientasOculta = !PM.barraHerramientasOculta;
 	}
 	
 	function MostrarAcercaDe() {

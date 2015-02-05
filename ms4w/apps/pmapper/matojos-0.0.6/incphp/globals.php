@@ -114,7 +114,7 @@ if (isset($_SESSION['clientDynamicLayers'])) {
 
 // Establecer versión de la aplicación
 global $versionMatojos;
-$versionMatojos = "0.1.6";
+$versionMatojos = "0.2.2";
 
  /*
  * FIN ALTERACIÓN DEL CONTINUO TOCINO-VELOCIDAD

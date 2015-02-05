@@ -21,10 +21,11 @@
                 <category name="cat_admin">
                     <group>countries</group>
                     <group>cities10000eu</group>
-					<group>curvas</group>
-					<group>puntos</group>
+					<group>arboles</group>
+					<group>palmeras</group>
 					<group>arbustos</group>
-					<group>superficies</group>
+					<group>jardines</group>
+					<group>zonas</group>
                 </category>
                 <category name="cat_nature">
                     <group>rivers</group>
@@ -40,18 +41,20 @@
                 <group>dem</group>
                 <group>rivers</group>
                 <group>jpl_wms_global_mosaic</group>
-				<group>curvas</group>
-				<group>puntos</group>
+				<group>arboles</group>
+				<group>palmeras</group>
 				<group>arbustos</group>
-				<group>superficies</group>
+				<group>jardines</group>
+				<group>zonas</group>
             </allGroups>
             <defGroups>
                 <group>countries</group>
                 <group>cities10000eu</group>
-				<group>curvas</group>
-				<group>puntos</group>
+				<group>arboles</group>
+				<group>palmeras</group>
 				<group>arbustos</group>
-				<group>superficies</group>
+				<group>jardines</group>
+				<group>zonas</group>
             </defGroups>
             <layerAutoRefresh>1</layerAutoRefresh>
             <imgFormat>png8</imgFormat>
@@ -63,7 +66,7 @@
             </altImgFormatLayers>
             -->
             <sliderMax>max</sliderMax>
-            <sliderMin>100000</sliderMin>
+            <sliderMin>250</sliderMin>
         </map>
         <query>
             <limitResult>300</limitResult>

@@ -319,9 +319,9 @@ class UiElement{
 	//Ajuste tamaño según dim pantalla, quitar recuadro envolvente
         $html = "<div id=\"sliderArea\" class=\"sliderAreaOut\" >
                 <div id=\"sliderTool\">
-                    <div class=\"slider-top\"><img id=\"sl_imgplus\" src=\"images/zoomplus.gif\" alt=\"\" title=\"" . _p("Zoom in") . "\"  onclick=\"PM.Map.zoompoint(2, '');\"/></div>
+                    <div class=\"slider-top\"><img id=\"sl_imgplus\" src=\"images/botones/arturo-mas.png\" alt=\"\" title=\"" . _p("Zoom in") . "\"  onclick=\"PM.Map.zoompoint(2, '');\"/></div>
                     <div id=\"zslider\"></div>
-                    <div class=\"slider-bottom\"><img id=\"sl_imgminus\" src=\"images/zoomminus.gif\" alt=\"\" title=\"" . _p("Zoom out") . "\"  onclick=\"PM.Map.zoompoint(-2, '');\"/></div>
+                    <div class=\"slider-bottom\"><img id=\"sl_imgminus\" src=\"images/botones/arturo-menos.png\" alt=\"\" title=\"" . _p("Zoom out") . "\"  onclick=\"PM.Map.zoompoint(-2, '');\"/></div>
                 </div>
             </div>
         ";

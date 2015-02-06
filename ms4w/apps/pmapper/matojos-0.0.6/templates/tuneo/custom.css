@@ -163,27 +163,46 @@ text-align:right;
 /* B.3. BOTONES DE DESPLAZAMIENTO */
 /* B.4. BARRA Y BOTONES PARA ACERCAR/ALEJAR */
 #sliderArea {
-	position:absolute;
+	background-color:transparent;
+	border:medium none;
+	height:225px;
 	left:45px;
-	top:45px;
-	background-color:#ffffff;
-	height: 200px;
-
-	width: 25px;
-    z-index: 99;
+	position:absolute;
+	top:115px;
+	width:20px;
+	z-index:99;
 }
 
 #sliderTool{
-	text-align:center;
 	margin:0 auto;
+	position:static;
+}
+
+#sliderTool div{
+	border-radius:4px;
+	margin:0 auto;
+}
+
+.slider-top{
+	border:medium none;
+	border-radius:4px;
+	height:16px;
+	width:16px;
+}
+
+.slider-bottom{
+	border:medium none;
+	border-radius:4px;
+	height:16px;
+	width:16px;
 }
 
 /* B.5. BARRA DE MENÚ */
 /* B.6. BOTÓN PARA OCULTAR/MOSTRAR BARRA DE MENÚ */
 #mostrar-barra-herrammientas{
-	left:55px;
+	left:45px;
 	position:absolute;
-	top:265px;
+	top:365px;
 	z-index:99;
 }
 

@@ -309,25 +309,24 @@ class UiElement{
         ";
         return $html;
     }
-    
-    
-   /**
-    * Slider for zooming
-    */
-    public static function zoomSlider()
-    {
+
+	/**
+	 * Slider for zooming
+	 */
+	public static function zoomSlider() {
 	//Ajuste tamaño según dim pantalla, quitar recuadro envolvente
-        $html = "<div id=\"sliderArea\" class=\"sliderAreaOut\" >
-                <div id=\"sliderTool\">
-                    <div class=\"slider-top\"><img id=\"sl_imgplus\" src=\"images/botones/arturo-mas.png\" alt=\"\" title=\"" . _p("Zoom in") . "\"  onclick=\"PM.Map.zoompoint(2, '');\"/></div>
-                    <div id=\"zslider\"></div>
-                    <div class=\"slider-bottom\"><img id=\"sl_imgminus\" src=\"images/botones/arturo-menos.png\" alt=\"\" title=\"" . _p("Zoom out") . "\"  onclick=\"PM.Map.zoompoint(-2, '');\"/></div>
-                </div>
-            </div>
-        ";
-        return $html;
-    }
-    
+		// Código HTML
+		$html = "<div id=\"sliderArea\" class=\"sliderAreaOut\">
+					<div id=\"sliderTool\">
+						<div class=\"slider-top\"><img id=\"sl_imgplus\" src=\"images/botones/mas.png\" alt=\"\" title=\"" . _p("Zoom in") . "\"  onclick=\"PM.Map.zoompoint(2, '');\"/></div>
+						<div id=\"zslider\"></div>
+						<div class=\"slider-bottom\"><img id=\"sl_imgminus\" src=\"images/botones/menos.png\" alt=\"\" title=\"" . _p("Zoom out") . "\"  onclick=\"PM.Map.zoompoint(-2, '');\"/></div>
+					</div>
+				</div>";
+		
+		// Devolver código HTML
+		return $html;
+	}
     
    /**
     * Dialog Container for dynwin

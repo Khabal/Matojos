@@ -333,6 +333,33 @@ PM.tocTabs = {
     ]
 };
 
+/*
+******************
+*/
 
+function createZSlider(sliderElemId) {
+    if (_$(sliderElemId)) {
+        myslider = new slider(
+        sliderElemId,	// id of DIV where slider is inserted
+        194,			//height of track
+        6,				//width of track
+        '666666',		//colour of track
+        0,				//thickness of track border
+        '#DCDCDC',		//colour of track border
+        2,				//thickness of runner (in the middle of the track)
+        '#666666',		//colour of runner
+        16,				//height of button
+        16,				//width of button
+        '#000000',		//colour of button
+        0,				//thickness of button border (shaded to give 3D effect)
+        '<img src="images/botones/subir-bajar.png" style="display:block; margin:auto;" alt="Indicador" />', //text of button (if any)
+        //'', //text of button (if any)
+        false,			//direction of travel (true = horizontal, false = vertical)
+        'sliderMove',	//the name of the function to execute as the slider moves
+        'sliderStop',	//the name of the function to execute when the slider stops
+        true			//the functions must have already been defined (or use null for none)
+        );
+    }
+}
 
 //</script>

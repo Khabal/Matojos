@@ -191,6 +191,7 @@ header("Content-type: text/html; charset=$defCharset");
 		});
 	});*/
 	function OcultarPanelLateral() {
+		//Ocultar panel lateral y redimensionar mapa
 		$('#uiLayoutWest').css({width:0});
 		PM.Layout.resizeContainers();
 		//Mostar botón para remostrar panel
@@ -200,6 +201,7 @@ header("Content-type: text/html; charset=$defCharset");
 	function MostrarPanelLateral() {
 		//Ocultar botón para remostrar panel
 		$('#mostrar-panel-lateral').css({visibility:'hidden'});
+		//Mostar panel lateral y redimensionar mapa
 		$('#uiLayoutWest').css({width:250});
 		PM.Layout.resizeContainers();
 	}

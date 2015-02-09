@@ -344,10 +344,9 @@ class UiElement{
 	 * Panel central - Botón para mostrar panel lateral una vez que se haya ocultado
 	 */
 	public static function PC_MostrarPanelLateral() {
-	/*menudown.gif*/
 		// Datos del botón para mostrar el panel lateral
 		$BOPLAHref = "javascript:MostrarPanelLateral();";
-		$BOPLATitle = "Mostrar panel";
+		$BOPLATitle = "Mostrar panel lateral";
 		$BOPLAOnclick = "this.target = '_self';";
 		$BOPLImgSrc = "images/botones/flecha-palante.png";
 		$BOPLImgAlt = "Mostrar";

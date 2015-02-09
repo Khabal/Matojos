@@ -147,9 +147,9 @@ text-align:right;
 /* B.1. CUADRO DE BÚSQUEDA */
 /* B.2. BOTÓN PARA MOSTRAR PANEL LATERAL */
 #mostrar-panel-lateral{
-	left:35px;
+	left:120px;
 	position:absolute;
-	top:5px;
+	top:20px;
 	visibility:hidden;
 	z-index:99;
 }

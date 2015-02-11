@@ -8,7 +8,7 @@
 .pm-tool-links a {color:#0000cc;}
 .pm-searchoptions, .pm-searchitem td {background-color:transparent; color:#000000;}
 .pm-searchoptions select, .pm-searchitem input, .pm-searchitem select { background-color:#ffffff; }
-#scalebar {right:0px; left:auto} 
+/*#scalebar {right:0px; left:auto} */
 
 #scaleAreaX {
 position: absolute;
@@ -145,6 +145,8 @@ text-align:right;
 
 /* B. PANEL CENTRAL */
 /* B.1. CUADRO DE BÚSQUEDA */
+
+
 /* B.2. BOTÓN PARA MOSTRAR PANEL LATERAL */
 #mostrar-panel-lateral{
 	left:120px;
@@ -161,6 +163,8 @@ text-align:right;
 }
 
 /* B.3. BOTONES DE DESPLAZAMIENTO */
+
+
 /* B.4. BARRA Y BOTONES PARA ACERCAR/ALEJAR */
 #sliderArea {
 	background-color:transparent;
@@ -198,6 +202,8 @@ text-align:right;
 }
 
 /* B.5. BARRA DE MENÚ */
+
+
 /* B.6. BOTÓN PARA OCULTAR/MOSTRAR BARRA DE MENÚ */
 #mostrar-barra-herrammientas{
 	left:45px;
@@ -212,15 +218,32 @@ text-align:right;
 	width:16px;
 }
 
-/* B.7. COORDENADAS */
+/* B.7. LOGO DE LA BELLOTA SOFT */
+#labellota-logo{
+	bottom:10px;
+	left:40px;
+	margin:0;
+	padding:0;
+	position:absolute;
+	z-index:99;
+}
+
+#labellota-logo img{
+	border:medium none;
+	height:25px;
+	width:85px;
+	vertical-align:middle;
+}
+
+/* B.8. COORDENADAS */
 #showcoords{
 	background-color:rgba(47, 79, 79, 0.75);
-	bottom:10px;
+	bottom:15px;
 	color:white;
 	font-family:verdana, arial, helvetica, sans-serif;
 	font-size:xx-small;
 	height:16px;
-	left:60px;
+	left:135px;
 	margin:0;
 	position:absolute;
 	width:160px;
@@ -237,15 +260,13 @@ text-align:right;
 	padding:2px 4px 2px 6px;
 }
 
-/* B.8. FORMULARIO DE ESCALA */
-/* B.9. BARRA DE ESCALA */
-/* B.10. PIE */
+/* B.9. PIE */
 #pie-panel-central{
 	bottom:0;
 	margin:0;
 	padding:0;
 	position:absolute;
-	right:85px;
+	right:0;
 	z-index:99;
 }
 
@@ -262,22 +283,24 @@ text-align:right;
 	white-space:nowrap;
 }
 
-/* B.11. LOGO DE LA BELLOTA SOFT */
-#labellota-logo{
+/* B.8. FORMULARIO DE ESCALA */
+/* B.10. BARRA DE ESCALA */
+#scalebar{
 	background-color:rgba(255, 255, 255, 0.75);
-	bottom:0;
-	margin:0;
-	padding:0;
-	position:absolute;
+	bottom:13px;
+	left:auto;
 	right:0;
-	z-index:99;
+	position:absolute;
 }
 
-#labellota-logo img{
-	border:medium none;
-	height:25px;
-	width:85px;
-	vertical-align:sub;
+.sbLabelBox{
+	color:#2F4F4F !important;
+	font-size:xx-small !important;
+}
+
+.sbNumbersBox{
+	color:#2F4F4F !important;
+	font-size:xx-small !important;
 }
 
 /* C. VENTANAS EMERGENTES */

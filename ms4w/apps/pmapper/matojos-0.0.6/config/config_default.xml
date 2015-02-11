@@ -1,7 +1,7 @@
 <pmapper>
     <ini>
         <pmapper>
-            <pmTitle>Parques y Jardines de Motril</pmTitle>
+            <pmTitle>Matojos</pmTitle>
             <debugLevel>3</debugLevel>
             <plugins>export</plugins>
             <plugins>scalebar</plugins>

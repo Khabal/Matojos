@@ -209,16 +209,10 @@ ScaleBar.prototype.update = function(scaleDenominator) {
     };
     function formatNumber(aNumber, numDecimals) {
         numDecimals = (numDecimals) ? numDecimals : 0;
-        var formattedInteger = '' + Math.round(numDecimals);
+        var formattedInteger = '' + Math.round(aNumber);
         var thousandsPattern = /(-?[0-9]+)([0-9]{3})/;
         while(thousandsPattern.test(formattedInteger)) {
-            /*
-             * INICIO ALTERACIÓN DEL CONTINUO TOCINO-VELOCIDAD
-             */
-            formattedInteger = formattedInteger.replace(thousandsPattern, '$1.$2');
-            /*
-             * FIN ALTERACIÓN DEL CONTINUO TOCINO-VELOCIDAD
-             */
+            formattedInteger = formattedInteger.replace(thousandsPattern, '$1,$2');
         }
         if(numDecimals > 0) {
             var formattedDecimal = Math.floor(Math.pow(10, numDecimals) * (aNumber - Math.round(aNumber)));
@@ -226,13 +220,7 @@ ScaleBar.prototype.update = function(scaleDenominator) {
                 return formattedInteger;
             }
             else {
-                /*
-                 * INICIO ALTERACIÓN DEL CONTINUO TOCINO-VELOCIDAD
-                 */
-                return formattedInteger + ',' + formattedDecimal;
-                /*
-                 * FIN ALTERACIÓN DEL CONTINUO TOCINO-VELOCIDAD
-                 */
+                return formattedInteger + '.' + formattedDecimal;
             }
         }
         else {
@@ -240,13 +228,7 @@ ScaleBar.prototype.update = function(scaleDenominator) {
         }
     };
     // update the container title (for displaying scale as a tooltip)
-    /*
-     * INICIO ALTERACIÓN DEL CONTINUO TOCINO-VELOCIDAD
-     */
-    this.container.title = 'Escala 1:' + formatNumber(this.scaleDenominator);
-    /*
-     * FIN ALTERACIÓN DEL CONTINUO TOCINO-VELOCIDAD
-     */
+    this.container.title = 'scale 1:' + formatNumber(this.scaleDenominator);
     // measurementProperties holds display units, abbreviations,
     // and conversion to inches (since we're using dpi) - per measurement sytem
     var measurementProperties = new Object();
@@ -353,14 +335,7 @@ ScaleBar.prototype.update = function(scaleDenominator) {
         // set xPosition and markerMeasure to start of division
         xPosition = divisionIndex * this.subdivisions * subdivisionPixelLength;
         xPosition += alignmentOffset[this.align];
-        /*
-         * INICIO ALTERACIÓN DEL CONTINUO TOCINO-VELOCIDAD
-         */
-        markerMeasure = ((divisionIndex == 0) ? 0 : ((divisionIndex * this.subdivisions) * subdivisionDisplayLength).toFixed(numDec)).toString();
-        markerMeasure = markerMeasure.replace(".", ",");
-        /*
-         * FIN ALTERACIÓN DEL CONTINUO TOCINO-VELOCIDAD
-         */
+        markerMeasure = (divisionIndex == 0) ? 0 : ((divisionIndex * this.subdivisions) * subdivisionDisplayLength).toFixed(numDec);
         // add major marker
         aMarker = document.createElement('div');
         aMarker.className = 'sbMarkerMajor';
@@ -408,14 +383,7 @@ ScaleBar.prototype.update = function(scaleDenominator) {
                 // set xPosition and markerMeasure to end of subdivision
                 xPosition = ((divisionIndex * this.subdivisions) + (subdivisionIndex + 1)) * subdivisionPixelLength;
                 xPosition += alignmentOffset[this.align];
-                /*
-                 * INICIO ALTERACIÓN DEL CONTINUO TOCINO-VELOCIDAD
-                 */
-                markerMeasure = ((divisionIndex * this.subdivisions + subdivisionIndex + 1) * subdivisionDisplayLength).toString();
-                markerMeasure = markerMeasure.replace(".", ",");
-                /*
-                 * FIN ALTERACIÓN DEL CONTINUO TOCINO-VELOCIDAD
-                 */
+                markerMeasure = (divisionIndex * this.subdivisions + subdivisionIndex + 1) * subdivisionDisplayLength;
                 aMarker = document.createElement('div');
                 aMarker.className = 'sbMarkerMinor';
                 aMarker.style.position = 'absolute';
@@ -441,14 +409,7 @@ ScaleBar.prototype.update = function(scaleDenominator) {
     // set xPosition and markerMeasure to end of divisions
     xPosition = (this.divisions * this.subdivisions) * subdivisionPixelLength;
     xPosition += alignmentOffset[this.align];
-    /*
-     * INICIO ALTERACIÓN DEL CONTINUO TOCINO-VELOCIDAD
-     */
-    markerMeasure = ((this.divisions * this.subdivisions) * subdivisionDisplayLength).toFixed(numDec).toString();
-    markerMeasure = markerMeasure.replace(".", ",");
-    /*
-     * FIN ALTERACIÓN DEL CONTINUO TOCINO-VELOCIDAD
-     */
+    markerMeasure = ((this.divisions * this.subdivisions) * subdivisionDisplayLength).toFixed(numDec);
     // add the final major marker
     aMarker = document.createElement('div');
     aMarker.className = 'sbMarkerMajor';

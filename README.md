@@ -132,7 +132,14 @@ Versión 0.2.3 - 06/02/2015
 * Nuevos iconos para la barra de acercar/alejar.
 * Nuevo estilo de barra de acercar/alejar.
 
-Versión 0.2.4 - 07/02/2015
+Versión 0.2.4 - 09/02/2015
 * Mejoras en la presentación del botón para mostrar el panel lateral.
 * Depuración y limpieza en función javascript para mostrar el panel lateral.
 
+Versión 0.2.5 - 11/02/2015
+* Reposicionamiento de varios elementos de la zona del mapa.
+* Cambios de estilo de varios elementos.
+* Mejoras en la presentación de la barra de escala.
+* Nuevo estilo de la barra de escala.
+* Cambios de unidades y formato numérico de la escala.
+* Añadida nueva herramienta a la barra de herramientas para control de la escala.

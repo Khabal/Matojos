@@ -110,7 +110,8 @@ PM.suggestLaunchSearch = true;
  * Units for measurement (distance, area)
  */
 //var pmMeasureUnits = {distance:" [m]", area:" [m&sup2;]", factor:1}; 
-PM.measureUnits = {distance:" [km]", area:" [km&sup2;]", factor:1000};
+//PM.measureUnits = {distance:" [km]", area:" [km&sup2;]", factor:1000};
+PM.measureUnits = {distance:" [m]", area:" [m&sup2;]", factor:1};
 
 /**
  * Lines and polygon styles for measurement
@@ -220,7 +221,7 @@ PM.contextMenuList = [
 /**
  * Layout of scalebar (from plugin)
  */
-PM.scaleBarOptions = {divisions:2, subdivisions:2 ,resolution:96, minWidth:120, maxWidth:160, abbreviateLabel:true};
+PM.scaleBarOptions = {divisions:2, subdivisions:2, resolution:96, minWidth:120, maxWidth:160, abbreviateLabel:true};
 
 
 /**

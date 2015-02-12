@@ -73,7 +73,7 @@ header("Content-type: text/html; charset=$defCharset");
  <!--<script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>-->
 <!--<script src="javascript/src/pm.zoombox.js"></script>-->
  
- <link rel="shortcut icon" href="images/Escudo_Azul_Motril_peque.ico" type="image/x-icon" />
+ <link rel="shortcut icon" href="images/Matojos-icono.ico" type="image/x-icon" />
  <link rel="stylesheet" href="templates/default.css" type="text/css" />
  <link rel="stylesheet" href="templates/layout.css" type="text/css" />
  <link rel="stylesheet" href="templates/tuneo/layout.tuneado.css" type="text/css" />
@@ -252,6 +252,36 @@ header("Content-type: text/html; charset=$defCharset");
 		}
 	}
 
+	function FormularioEscala() {
+		var ADparametros = {
+			width: 640,
+			height: 240,
+			left: 100,
+			top: 50,
+			resizeable: false,
+			newsize: true,
+			container: 'acercade',
+			name: 'AcercaDe'
+		};
+		var ADdireccion = "formescala.phtml?" + SID;
+		var ADObjeto = $('#' + ADparametros.container + '_MSG');
+		
+		if (ADObjeto.length < 1) {
+			var dlg = PM.Dlg.createDnRDlg(ADparametros, _p('Escala'), ADdireccion);
+		}
+		else {
+			$.ajax({
+				url: ADdireccion,
+				type: 'GET',
+				dataType: 'html',
+				success: function(response) {
+					ADObjeto.html(response);
+					ADObjeto.parent().parent().show();
+				}
+			});
+		}
+	}
+	
 	</script>
 	
 </head>

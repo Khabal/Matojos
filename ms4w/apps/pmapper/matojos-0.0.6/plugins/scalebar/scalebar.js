@@ -209,7 +209,7 @@ ScaleBar.prototype.update = function(scaleDenominator) {
     };
     function formatNumber(aNumber, numDecimals) {
         numDecimals = (numDecimals) ? numDecimals : 0;
-        var formattedInteger = '' + Math.round(numDecimals);
+        var formattedInteger = '' + Math.round(aNumber);
         var thousandsPattern = /(-?[0-9]+)([0-9]{3})/;
         while(thousandsPattern.test(formattedInteger)) {
             /*

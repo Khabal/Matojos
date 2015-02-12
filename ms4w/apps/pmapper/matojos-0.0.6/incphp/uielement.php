@@ -33,12 +33,18 @@ class UiElement{
                 <div id=\"measureLayerTmp\" class=\"measureLayer\"></div>
                 <div id=\"zoombox\" class=\"zoombox\"></div>
                 <div id=\"helpMessage\"></div>
-                <div id=\"scalebar\"></div>
+				<div id=\"scalebar\"></div>
                 <div id=\"iqueryContainer\"></div>
                 <div id=\"loading\"><img id=\"loadingimg\" src=\"images/cargando.gif\" alt=\"Cargando\" /></div>
             </div>
         ";
         return $html;
+		
+		/*
+				<div id=\"scaleReference\">
+					<div id=\"scalebar\"></div>
+				</div>
+		*/
     }
 
 

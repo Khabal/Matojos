@@ -31,10 +31,10 @@ PM.useCustomCursor = true;
  * ==> set empty array for disabling function 
  * values can be numbers or numbers containing 1000-separators [. , ' blank]
  */
-//PM.scaleSelectList = []; 
+PM.scaleSelectList = []; 
 //PM.scaleSelectList = [5000, 10000, 25000, 50000, 100000, 250000, 500000, 1000000, 2500000]; 
 //PM.scaleSelectList = [100000, 250000, 500000, 1000000, 2500000, 5000000, 10000000, 25000000]; 
-PM.scaleSelectList = ["100.000", "250.000", "500.000", "1.000.000", "2.500.000", "5.000.000", "10.000.000", "25.000.000"];
+//PM.scaleSelectList = ["100.000", "250.000", "500.000", "1.000.000", "2.500.000", "5.000.000", "10.000.000", "25.000.000"];
 //PM.scaleSelectList = ["100,000", "250,000", "500,000", "1,000,000", "2,500,000", "5,000,000", "10,000,000", "25,000,000"];
 //PM.scaleSelectList = ["100'000", "250'000", "500'000", "1'000'000", "2'500'000", "5'000'000", "10'000'000", "25'000'000"];
 //PM.scaleSelectList = ["100 000", "250 000", "500 000", "1 000 000", "2 500 000", "5 000 000", "10 000 000", "25 000 000"];
@@ -268,7 +268,7 @@ PM.botonesTuneados = {
 	toolbarid:'toolBar',
 	options: {
 		orientation:'v',
-		css:{height:'560px'},
+		css:{height:'590px'},
 		theme:'tuneado',
 		imagetype:'png'
 	},
@@ -288,6 +288,7 @@ PM.botonesTuneados = {
 		{tool:'auto_identify', name:'Auto Identify'},
 		{tool:'separator3', dimension:1},
 		{tool:'measure', name:'Measure'},
+        {tool:'scale', name:'Scale'},
 		{tool:'separator4', dimension:1},
 		{tool:'transparency', name:'Transparency', run:'PM.Plugin.Transparency.openTransparencyDlg'},
 		{tool:'reload', name:'Refresh Map', run:'PM.Map.clearInfo'},

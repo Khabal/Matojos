@@ -31,18 +31,21 @@ RESOLUTION 96
 IMAGETYPE png
 INTERLACE OFF
 #CONFIG "PROJ_LIB" "C:/proj/nad/"
+#CONFIG "PROJ_LIB" "/ms4w/proj/nad/"
 PROJECTION
   # ETRS-LAEA
   #"init=epsg:3035"
   #"+proj=laea +lat_0=52 +lon_0=10 +x_0=4321000 +y_0=3210000 +ellps=GRS80 +units=m +no_defs  no_defs"
+  #"proj=laea"
+  #"units=m"
 END  
-
 
 
 #
 # Start of web interface definition
 #
 WEB
+	MINSCALEDENOM 10
   TEMPLATE "map.html"
   IMAGEPATH "/ms4w/tmp/ms_tmp/"
   IMAGEURL "/ms_tmp/"
@@ -92,10 +95,11 @@ END
 # Start of ScaleBar definition
 #
 SCALEBAR
+ALIGN center
   STATUS on
   #TRANSPARENT on
   INTERVALS 4
-  SIZE 160 3
+  SIZE 220 30
   UNITS meters
   #COLOR 250 250 250
   OUTLINECOLOR 0 0 0
@@ -105,7 +109,7 @@ SCALEBAR
   LABEL
     COLOR 0 0 90
     #OUTLINECOLOR 200 200 200
-    SIZE small
+    SIZE tiny
   END  # Label
 END  # Reference
 
@@ -204,7 +208,7 @@ END
 		TEMPLATE void
 		PROJECTION
 			#"init=epsg:4326"
-			"+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs no_defs"
+			"+proj=longlat +ellps=WGS84 +datum=WGS84 +units=m +no_defs no_defs"
 		END
 		METADATA
 			"DESCRIPTION" "jardines"
@@ -228,7 +232,7 @@ END
 		TEMPLATE void
 		PROJECTION
 			#"init=epsg:4326"
-			"+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs no_defs"
+			"+proj=longlat +ellps=WGS84 +datum=WGS84 +units=m +no_defs no_defs"
 		END
 		METADATA
 			"DESCRIPTION" "zonas"
@@ -252,7 +256,7 @@ END
 		TEMPLATE void
 		PROJECTION
 			#"init=epsg:4326"
-			"+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs no_defs"
+			"+proj=longlat +ellps=WGS84 +datum=WGS84 +units=m +no_defs no_defs"
 		END
 		METADATA
 			"DESCRIPTION" "arboles"
@@ -278,7 +282,7 @@ END
 		TEMPLATE void
 		PROJECTION
 			#"init=epsg:4326"
-			"+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs no_defs"
+			"+proj=longlat +ellps=WGS84 +datum=WGS84 +units=m +no_defs no_defs"
 		END
 		METADATA
 			"DESCRIPTION" "Palmeras"
@@ -304,7 +308,7 @@ END
 		TEMPLATE void
 		PROJECTION
 			#"init=epsg:4326"
-			"+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs no_defs"
+			"+proj=longlat +ellps=WGS84 +datum=WGS84 +units=m +no_defs no_defs"
 		END
 		METADATA
 			"DESCRIPTION" "arbustos"

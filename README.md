@@ -1,7 +1,7 @@
 Matojos
 ===============================================================================
 
-Versión 0.2.4 - 07/02/2015
+Versión 0.2.7 - 13/02/2015
 Sistema de Información Geográfica para parques, jardines y flora del municipio de Motril
 ===============================================================================
 
@@ -143,3 +143,15 @@ Versión 0.2.5 - 11/02/2015
 * Nuevo estilo de la barra de escala.
 * Cambios de unidades y formato numérico de la escala.
 * Añadida nueva herramienta a la barra de herramientas para control de la escala.
+
+Versión 0.2.6 - 12/02/2015
+* Nuevo icono para la web.
+* Corregidos errores al mostrar valores de escala en la barra de escala.
+* Corregido error de poder ampliar infinitamente el mapa.
+* Nuevos icono en la barra de herramientas para diálogo de cambiar escala.
+* Añadida funcionalidad para cambiar la escala mediante un diálogo.
+
+Versión 0.2.7 - 13/02/2015
+* Añadido nuevo diálogo para cambiar la escala y javascript asociado.
+* Añadidos varios cursores para el ratón en función de la herramienta seleccionada.
+* Cambio para usar los nuevos cursores en vez de los cursores por defecto.

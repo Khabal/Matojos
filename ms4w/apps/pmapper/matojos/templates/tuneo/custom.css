@@ -1,0 +1,375 @@
+/* ESTILOS PROPIOS */
+
+/* Z. PANELES */
+
+/* Z.1. PANEL LATERAL */
+.ui-layout-west{
+	background-color:WhiteSmoke;
+}
+
+.ui-layout-header {position:absolute; top:0px; width:100%; height:20px; border-bottom:1px solid #c9d7f1; font-size:13px; padding:4px 10px 0px 10px;}
+.ui-layout-header a {padding-right:10px; color:#0000cc; text-decoration:underline; }
+.ui-layout-header-2 {position:absolute; top:32px; width:100%; font-size:20px; font-weight:bold; padding:4px 10px 0px 10px;}
+.pm-tool-links a {color:#0000cc;}
+.pm-searchoptions, .pm-searchitem td {background-color:transparent; color:#000000;}
+.pm-searchoptions select, .pm-searchitem input, .pm-searchitem select { background-color:#ffffff; }
+/*#scalebar {right:0px; left:auto} */
+
+/*#scaleAreaX {
+position: absolute;
+bottom:60px;
+right:40px;
+background-color:#E9E9E9;
+z-index:99;
+} */
+#toolLinkContainer {top:2px}
+#scaleSuggest {background-color:#ffffff; border: 1px solid #999999;}
+.scale-link {background-color:#ffffff;}
+.scale-link-over {color: #000000; background-color: #d5ddf3;}
+/*#scaleAreaX{background-color:transparent; border:none; opacity:1.0;} */
+
+.pm-map-link, .pm-selectbox, #helpMessage {top: 5px; right:5px}
+div.jqmdTC { background-color:#d4d4d4; color:#000000;}
+
+
+.pm-logo-img{
+text-align:center;
+}
+
+
+
+/* Z.2. PANEL CENTRAL */
+
+
+/* A. PANEL LATERAL */
+/* A.1. CABECERA */
+#cabecera-panel-lateral{
+	height:auto;
+	margin:0 auto;
+	padding:0;
+	text-align:center;
+	width:100%;
+}
+
+#logo-principal{
+	display:block;
+	height:65px;
+	margin:20px auto 10px auto;
+	width:190px;
+}
+
+#logo-principal img{
+	border:medium none;
+	height:65px;
+	vertical-align:middle;
+	width:190px;
+}
+
+#logo-secundario{
+	display:block;
+	height:30px;
+	margin:15px auto 10px auto;
+	width:95px;
+}
+
+#logo-secundario img{
+	border:medium none;
+	height:30px;
+	vertical-align:middle;
+	width:95px;
+}
+
+#ocultar-panel-lateral{
+	position:absolute;
+	right:10px;
+	top:20px;
+}
+
+#ocultar-panel-lateral img{
+	height:16px;
+	vertical-align:middle;
+	width:16px;
+}
+
+/* A.2. LEYENDA */
+#leyenda{
+	border:1px solid darkgray;
+	height:auto;
+	margin-top:25px;
+}
+
+.leyenda-cabecera{
+	background-color:rgba(255, 255, 255, 0.75);
+	border-bottom:0.5px solid;
+	font-family:verdana, arial, helvetica, sans-serif;
+	font-size:larger;
+	font-weight:bold;
+	margin:0;
+	padding:10px;
+}
+
+#toc{
+	position:relative;
+}
+
+/* B. PANEL CENTRAL */
+/* B.1. CUADRO DE BÚSQUEDA */
+
+
+/* B.2. BOTÓN PARA MOSTRAR PANEL LATERAL */
+#mostrar-panel-lateral{
+	left:120px;
+	position:absolute;
+	top:20px;
+	visibility:hidden;
+	z-index:99;
+}
+
+#mostrar-panel-lateral img{
+	height:32px;
+	vertical-align:middle;
+	width:32px;
+}
+
+/* B.3. BOTONES DE DESPLAZAMIENTO */
+
+
+/* B.4. BARRA Y BOTONES PARA ACERCAR/ALEJAR */
+#sliderArea {
+	background-color:transparent;
+	border:medium none;
+	height:225px;
+	left:45px;
+	position:absolute;
+	top:115px;
+	width:20px;
+	z-index:99;
+}
+
+#sliderTool{
+	margin:0 auto;
+	position:static;
+}
+
+#sliderTool div{
+	border-radius:4px;
+	margin:0 auto;
+}
+
+.slider-top{
+	border:medium none;
+	border-radius:4px;
+	height:16px;
+	width:16px;
+}
+
+.slider-bottom{
+	border:medium none;
+	border-radius:4px;
+	height:16px;
+	width:16px;
+}
+
+/* B.5. BARRA DE MENÚ */
+.pm-toolbar-td img, .pm-toolbar-td-on img, .pm-toolbar-td-off img, .pm-toolbar-td-over img{
+	height:24px;
+	width:24px;
+}
+
+/* B.6. BOTÓN PARA OCULTAR/MOSTRAR BARRA DE MENÚ */
+#mostrar-barra-herrammientas{
+	left:45px;
+	position:absolute;
+	top:365px;
+	z-index:99;
+}
+
+#mostrar-barra-herrammientas img{
+	height:16px;
+	vertical-align:middle;
+	width:16px;
+}
+
+/* B.7. LOGO DE LA BELLOTA SOFT */
+#labellota-logo{
+	bottom:10px;
+	left:40px;
+	margin:0;
+	padding:0;
+	position:absolute;
+	z-index:99;
+}
+
+#labellota-logo img{
+	border:medium none;
+	height:25px;
+	width:85px;
+	vertical-align:middle;
+}
+
+/* B.8. COORDENADAS */
+#showcoords{
+	background-color:rgba(47, 79, 79, 0.75);
+	bottom:15px;
+	color:white;
+	font-family:verdana, arial, helvetica, sans-serif;
+	font-size:xx-small;
+	height:16px;
+	left:135px;
+	margin:0;
+	position:absolute;
+	width:160px;
+	z-index:99;
+}
+
+#xcoord{
+	float:left;
+	padding:2px 6px 2px 4px;
+}
+
+#ycoord{
+	float:right;
+	padding:2px 4px 2px 6px;
+}
+
+/* B.9. PIE */
+#pie-panel-central{
+	bottom:0;
+	margin:0;
+	padding:0;
+	position:absolute;
+	right:0;
+	z-index:99;
+}
+
+#pie-panel-central p{
+	background-color:rgba(255, 255, 255, 0.75);
+	color:#2F4F4F;
+	display:inline;
+	font-family:verdana, arial, helvetica, sans-serif;
+	font-size:xx-small;
+	margin:0;
+	overflow:hidden;
+	padding:1px;
+	vertical-align:sub;
+	white-space:nowrap;
+}
+
+/* B.10. BARRA DE ESCALA */
+#scalebar{
+	background-color:rgba(255, 255, 255, 0.75);
+	bottom:13px;
+	left:auto;
+	right:0;
+	position:absolute;
+}
+
+.sbLabelBox{
+	color:#2F4F4F !important;
+	font-size:xx-small !important;
+}
+
+.sbNumbersBox{
+	color:#2F4F4F !important;
+	font-size:xx-small !important;
+}
+
+/* C. VENTANAS EMERGENTES */
+/* C.1. ACERCA DE */
+#acercade_MSG{
+	background-color:whitesmoke;
+	text-align:center;
+}
+
+#acercade_MSG a{
+	color:steelblue ;
+	font-weight:bold;
+	text-decoration:none;
+}
+
+#acercade_MSG img{
+	border:medium none;
+	height:65px;
+	margin:10px auto 5px auto;
+	vertical-align:middle;
+	width:190px;
+}
+
+#acercade_MSG p{
+	font-family:verdana, arial, helvetica, sans-serif;
+	font-size:normal;
+}
+
+.acercade_texto{
+	font-family:verdana, arial, helvetica, sans-serif;
+	font-size:normal;
+	margin-left:20px;
+	margin-right:20px;
+	text-align:justify;
+}
+
+/* C.2. FORMULARIO DE ESCALA */
+#scaleform{
+	text-align:center;
+}
+
+#scaleform div{
+	padding:5px;
+}
+
+/****/
+#divTopSearch {
+    display: block;
+    /*left: 200px;*/
+    margin-left: 10px;
+    margin-top: 5px;
+    padding: 0;
+    /*position: absolute;
+    top: 22px;*/
+    z-index: 10000;
+}
+
+#formDireccion {
+    background-color: white;
+    border: 1px solid #374969;
+    border-radius: 2px;
+    box-shadow: 0 0 10px 0 rgba(50, 50, 50, 0.2);
+    display: block;
+    float: left;
+    margin-left: 0;
+    position: relative;
+}
+
+#dropdownTipoDeBusqueda {
+    cursor: pointer;
+    display: block;
+    float: left;
+    height: 27px;
+    padding: 0;
+    position: relative;
+    width: 90px;
+}
+
+#divTextboxBuscador {
+    display: block;
+    float: left;
+    height: 32px;
+    position: relative;
+    width: 308px;
+}
+
+#divBuscarDireccion {
+    float: right;
+}
+
+#BuscarDireccion {
+    background: url("img/images3.png?v=7.80") no-repeat scroll -360px -93px rgba(0, 0, 0, 0);
+    border: 0 none;
+    border-radius: 1px;
+    cursor: pointer;
+    height: 32px;
+    margin: 0;
+    padding: 0;
+    vertical-align: top;
+    width: 52px;
+}

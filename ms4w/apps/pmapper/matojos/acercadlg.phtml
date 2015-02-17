@@ -1,0 +1,36 @@
+<?php
+/******************************************************************************
+ * Archivo: acercadedlg.phtml
+ * Contenido: Página de la "ventana" típica "Acerca de ..." de la web del SIG
+ * de flora del Ayuntamiento de Motril (Matojos).
+ * Autor: Óscar El Becario Eterno.
+ * Versión: 0.2.7 (Preludio Alfalfa) - 13/02/2015
+ * Descripción: Archivo de texto plano precioso y encantador con código PHP
+ * para generar la página web que muestre la información acerca de del SIG de
+ * flora del Ayuntamiento de Motril (Matojos).
+ * 
+ * Notas: Nada a desastacar... por ahora. Todas las cañerías en orden.
+ *
+ ******************************************************************************/
+// Inclusión de archivos ".php" y establecimiento de parámetros varios
+require_once("incphp/pmsession.php");
+require_once("incphp/common.php");
+require_once("incphp/globals.php");
+
+// Datos de la versión actual
+$version = array_key_exists('versionMatojos', $GLOBALS) ? $GLOBALS['versionMatojos'] : "1.0.0";
+$ano_reventado = date("Y");
+?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml" lang="<?php echo $gLanguage ?>" xml:lang="<?php echo $gLanguage ?>">
+
+	<head></head>
+	<body>
+		<div id="acercade">
+			<img src="images/logos/matojos-logo.png" alt="Matojos">
+			<h3><?php echo ("Matojos " . $version . "© " . $ano_reventado); ?></h3>
+			<p>Sistema de Información Geográfica de parques, jardines y flora urbana del municipio motrileño.</p>
+			<p class="acercade_texto">Proyecto promovido por el <a href="http://www.motril.es" target="_blank"> Área de Agricultura, Parques y Jardines del Ayuntamiento de Motril</a> y desarrollado por <a href="http://www.labellotasoft.co.uk/" target="_blank">La Bellota Soft Limited</a>.</p>
+		</div>
+	</body>
+</html>

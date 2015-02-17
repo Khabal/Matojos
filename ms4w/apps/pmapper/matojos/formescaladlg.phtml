@@ -1,0 +1,63 @@
+<?php
+/******************************************************************************
+ * Archivo: formescala.phtml
+ * Contenido: Página del diálogo para mostrar formulario de cambio de escala de
+ * la web del SIG
+ * de flora del Ayuntamiento de Motril (Matojos).
+ * Autor: Óscar El Becario Eterno.
+ * Versión: 0.2.7 (Preludio Alfalfa) - 13/02/2015
+ * Descripción: Archivo de texto plano precioso y encantador con código PHP
+ * para generar la página web que muestre el formulario para cambio de escala y
+ * vista de la escala actural del SIG de flora del Ayuntamiento de Motril
+ * (Matojos).
+ * 
+ * Notas: Nada a desastacar... por ahora. Todas las cañerías en orden.
+ *
+ ******************************************************************************/
+// Inclusión de archivos ".php" y establecimiento de parámetros varios
+// prevent XSS
+if (isset($_REQUEST['PM_INCPHP'])) exit();
+
+require_once("incphp/group.php");
+require_once("incphp/pmsession.php");
+require_once("incphp/globals.php");
+require_once("incphp/common.php");
+include_once("incphp/uielement.php");
+
+?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml" lang="<?php echo $gLanguage ?>" xml:lang="<?php echo $gLanguage ?>">
+
+	<head></head>
+	<body>
+<?php
+	//echo UiElement::scaleForm()
+	// Código JS
+	$script_js = "<script type=\"text/javascript\"> function formesca(){
+					if(/^[0-9]+$/.test($('#scaleinput').val()) && ($('#scaleinput').val() > 0)){
+						PM.Map.zoom2scale($('#scaleinput').val());
+						PM.Form.scaleMouseOut(true);
+					}
+					else{
+						$('#scaleinput').val(PM.scale);
+					}
+				} </script>";
+	
+	// Escala 1:X
+	$escala = round($_SESSION["geo_scale"]);
+	
+	// Código HTML
+	$html = "<div id=\"scaleAreaX\">
+				<form id=\"scaleform\" action=\"javascript:formesca()\">
+					<div>" . _p("Scale") . " 1:  
+					<input type=\"text\" id=\"scaleinput\" name=\"scale\" size=\"6\" value=\"$escala\" onkeyup=\"PM.Form.scaleMouseOut()\" onblur=\"PM.Form.scaleMouseOut(true)\" onclick=\"PM.Form.initScaleSelect()\"/></div>
+					<div id=\"scaleSuggest\" onmouseover=\"PM.Form.setScaleMO()\" onmouseout=\"setTimeout('PM.Form.scaleMouseOut()', 1000)\"></div>
+					<div><input type=\"submit\" value=\"Cambiar\"></div>
+				</form>
+			</div>";
+	
+	// Mostrar código JS y HTML
+	echo $script_js . $html;
+?>
+	</body>
+</html>

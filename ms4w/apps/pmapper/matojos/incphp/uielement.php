@@ -522,13 +522,14 @@ menudown.gif*/
 	public static function PC_Pie() {
 		
 		// Datos de la versión actual
+		$nombre = array_key_exists('nombreMatojos', $GLOBALS) ? $GLOBALS['nombreMatojos'] : "Matojos";
 		$version = array_key_exists('versionMatojos', $GLOBALS) ? $GLOBALS['versionMatojos'] : "1.0.0";
 		$ano_reventado = date("Y");
 		
 		// Código HTML
 		$html = "<div id=\"pie-panel-central\">
 					<p>
-						Matojos $version" . "© $ano_reventado - Servicio de Información Geográfica de parques, jardines y flora del municipio de Motril.
+						$nombre $version" . "© $ano_reventado - Servicio de Información Geográfica de parques, jardines y flora del municipio de Motril.
 					</p>
 				</div>";
 		

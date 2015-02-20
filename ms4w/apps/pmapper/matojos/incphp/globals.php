@@ -111,10 +111,13 @@ if (isset($_SESSION['clientDynamicLayers'])) {
 /*
  * INICIO ALTERACIÓN DEL CONTINUO TOCINO-VELOCIDAD
  */
+// Establecer nombre del proyecto para uso interno
+global $nombreMatojos;
+$nombreMatojos = "Matojos";
 
 // Establecer versión de la aplicación
 global $versionMatojos;
-$versionMatojos = "0.2.6";
+$versionMatojos = "0.2.9";
 
  /*
  * FIN ALTERACIÓN DEL CONTINUO TOCINO-VELOCIDAD

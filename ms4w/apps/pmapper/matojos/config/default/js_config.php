@@ -288,7 +288,7 @@ PM.botonesTuneados = {
 		{tool:'auto_identify', name:'Auto Identify'},
 		{tool:'separator3', dimension:1},
 		{tool:'measure', name:'Measure'},
-        {tool:'scale', name:'Scale', run:'PM.Dlg.abrirFormularioEscala'},
+		{tool:'scale', name:'Scale', run:'PM.Dlg.abrirFormularioEscala'},
 		{tool:'separator4', dimension:1},
 		{tool:'transparency', name:'Transparency', run:'PM.Plugin.Transparency.openTransparencyDlg'},
 		{tool:'reload', name:'Refresh Map', run:'PM.Map.clearInfo'},
@@ -354,7 +354,7 @@ function createZSlider(sliderElemId) {
         16,				//width of button
         '#000000',		//colour of button
         0,				//thickness of button border (shaded to give 3D effect)
-        '<img src="images/botones/subir-bajar.png" style="display:block; margin:auto;" alt="Indicador" />', //text of button (if any)
+        '<img src="images/botones/subir-bajar.png" style="display:block; margin:auto; cursor:url(/matojos/images/cursors/mover.cur), auto;" alt="Indicador" />', //text of button (if any)
         //'', //text of button (if any)
         false,			//direction of travel (true = horizontal, false = vertical)
         'sliderMove',	//the name of the function to execute as the slider moves
@@ -381,69 +381,77 @@ $.extend(PM.Dlg, {
      * set the cursor to standard internal cursors
      * or special *.cur url (IE6+ only)
      */
-PM.setCursor = function(rmc, ctype) {	
-        if (!rmc) {
-            if (PM.Map) {
-                var toolType = PM.Map.tool;
-            } else {
-                var toolType = 'zoomin';
-            }
-        } else {
-            toolType = 'pan';
-        }
-
-        // take definition from js_config.php 
-        var iC = PM.useInternalCursors;
-        // don't use custom cursors for safari & chrome
-        if ($.browser.webkit) iC = false;
-        
-        var rootPath = this.getRootPath();//window.alert(rootPath + 'matojos/images/cursors/zoomin.cur');
-		rootPath=rootPath+'matojos/';
-        var usedCursor = (iC) ? toolType : 'url("' +rootPath + 'images/cursors/zoomin.cur"), default';
-        //window.alert(usedCursor);
-        switch (toolType) {
-            case "zoomin" :
-                var usedCursor = (iC) ? 'crosshair' : 'url("' +rootPath + 'images/cursors/zoomin.cur"), default';	
-                break;
-            
-            case "zoomout" :
-                var usedCursor = (iC) ? 'e-resize' : 'url(' +rootPath + 'images/cursors/zoomout.cur), default';	
-                break;
-            
-            case "identify" :
-                //var usedCursor = (iC) ? 'help' : 'url(' +rootPath + 'images/cursors/identify.cur), default';	
-                var usedCursor = 'help';	
-                break;
-            
-            case "auto_identify" :	
-                var usedCursor = 'pointer';	
-                break;
-
-            case "pan" :
-                //var usedCursor = (iC) ? 'move' : 'url(' +rootPath + 'images/cursors/pan.cur), default';	
-                var usedCursor = 'move';
-                break;
-                
-            case "select" :
-                //var usedCursor = (iC) ? 'help' : 'url(' +rootPath + 'images/cursors/select.cur), default';
-                var usedCursor = (iC) ? 'help' : 'help';	            
-                break;
-                
-            case "measure" :
-                var usedCursor = (iC) ? 'crosshair' : 'url(' +rootPath + 'images/cursors/measure.cur), default';	
-                break;
-                
-            case "digitize" :
-                var usedCursor =  'crosshair';	
-                break;
-                
-            default:
-                var usedCursor = 'default';
-        }
-
-        if (ctype) usedCursor = ctype;
-        $('#mapimgLayer').css({'cursor': usedCursor});
-        
-    };
+PM.setCursor = function(rmc, ctype) {
+	if(!rmc) {
+		if(PM.Map) {
+			var toolType = PM.Map.tool;
+		}
+		else {
+			var toolType = 'zoomin';
+		}
+	}
+	else {
+		toolType = 'pan';
+	}
+	
+	// Obtener definiciones desde js_config.php 
+	var iC = PM.useInternalCursors;
+	
+	// En navegadores 'safari' y 'chrome' no es recomendable usar cursores personalizados
+	if($.browser.webkit) {
+		iC = false;
+	}
+	
+	var rootPath = this.getRootPath();
+	
+	// Ajuste a la ruta porque no funciona bien la mierda esta
+	rootPath += "matojos/";
+	
+	var usedCursor = (iC) ? toolType : 'url("' + rootPath + 'images/punteros/puntero-defecto.cur"), default';
+	
+	// Adecuar puntero del ratón en base a la herramienta seleccionada
+	switch(toolType) {
+		case "zoomin":
+			var usedCursor = (iC) ? 'zoom-in' : 'url("' + rootPath + 'images/punteros/acercar.cur"), zoom-in';
+			break;
+		
+		case "zoomout":
+			var usedCursor = (iC) ? 'zoom-out' : 'url(' + rootPath + 'images/punteros/alejar.cur), zoom-out';
+			break;
+		
+		case "identify":
+			var usedCursor = (iC) ? 'help' : 'url(' + rootPath + 'images/punteros/identificar.cur), help';
+			break;
+		
+		case "auto_identify":
+			var usedCursor = (iC) ? 'help' : 'url(' + rootPath + 'images/punteros/examinar.cur), help';
+			break;
+		
+		case "pan":
+			var usedCursor = (iC) ? 'move' : 'url(' + rootPath + 'images/punteros/mover.cur), move';
+			break;
+		
+		case "select":
+			var usedCursor = (iC) ? 'crosshair' : 'url(' + rootPath + 'images/punteros/cruz.cur), crosshair';
+			break;
+		
+		case "measure":
+			var usedCursor = (iC) ? 'copy' : 'url(' + rootPath + 'images/punteros/medir.cur), copy';
+			break;
+		
+		case "digitize":
+			var usedCursor =  'crosshair';
+			break;
+		
+		default:
+			var usedCursor = (iC) ? 'default' : 'url(' + rootPath + 'images/punteros/puntero-defecto.cur), default';
+	}
+	
+	if(ctype) {
+		usedCursor = ctype;
+	}
+	
+	$('#mapimgLayer').css({'cursor': usedCursor});
+};
 
 //</script>

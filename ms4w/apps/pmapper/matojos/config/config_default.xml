@@ -19,8 +19,6 @@
             <tplMapFile>common/template.map</tplMapFile>
             <categories>
                 <category name="cat_admin">
-                    <group>countries</group>
-                    <group>cities10000eu</group>
 					<group>arboles</group>
 					<group>palmeras</group>
 					<group>arbustos</group>
@@ -31,16 +29,11 @@
                     <group>rivers</group>
                 </category>
                 <category name="cat_raster">
-                    <group>dem</group>
-                    <group>jpl_wms_global_mosaic</group>
+
                 </category>
             </categories>
             <allGroups>
-                <group>countries</group>
-                <group>cities10000eu</group>
-                <group>dem</group>
                 <group>rivers</group>
-                <group>jpl_wms_global_mosaic</group>
 				<group>arboles</group>
 				<group>palmeras</group>
 				<group>arbustos</group>
@@ -48,8 +41,6 @@
 				<group>zonas</group>
             </allGroups>
             <defGroups>
-                <group>countries</group>
-                <group>cities10000eu</group>
 				<group>arboles</group>
 				<group>palmeras</group>
 				<group>arbustos</group>

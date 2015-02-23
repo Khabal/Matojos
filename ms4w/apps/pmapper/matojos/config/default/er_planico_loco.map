@@ -143,28 +143,18 @@ END
 
 
 #================== START OF LAYER SECTION =====================#
-
-
-LAYER
-  NAME "jpl_wms_global_mosaic"
-  TYPE RASTER
-  STATUS OFF
-  CONNECTION "http://wms.jpl.nasa.gov/wms.cgi?"
-  CONNECTIONTYPE WMS
-  PROJECTION
-    #"init=epsg:4326"
-    #"+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs  no_defs"
-	#"+proj=utm +zone=32 +ellps=WGS84 +datum=WGS84 +units=m +no_defs"
+# ***************************************************************
+# CAPA BASE - ORTOFOTO DE MOTRIL
+# ***************************************************************
+  LAYER
+    NAME "ortofoto_motril"
+    TYPE RASTER
+	DATA "../ortofotos/motril_etrs89.ecw"
+    STATUS ON
+    PROJECTION
+      AUTO
+    END
   END
-  METADATA
-    "DESCRIPTION"         "JPL Global Mosaic (WMS)"
-    "wms_name"            "global_mosaic_base"
-    "wms_style"           "visual"
-    "wms_server_version"  "1.1.1"
-    "wms_format"          "image/jpeg"
-    "ows_title"           "jpl_wms_global_mosaic"
-  END
-END
 
 	LAYER
 	  NAME "inicial"
@@ -199,6 +189,15 @@ END
 	  END  # Class
 	END  # Layer
 
+  LAYER
+    NAME "ortofoto_motril"
+    TYPE RASTER
+	DATA "../ortofotos/motril_etrs89.ecw"
+    STATUS ON
+    PROJECTION
+      AUTO
+    END
+  END
 
 	LAYER
 		NAME "jardines"

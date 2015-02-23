@@ -108,6 +108,12 @@ SYMBOLSET
     IMAGE 'arbolicos/frutales_hoja_roja.png'
   END
   
+  SYMBOL
+    NAME 'resto_arboles'
+    TYPE pixmap
+    IMAGE 'arbolicos/resto_arboles.png'
+  END
+  
 # ***************************************
 # IMÁGENES DE LOS ARBUSTOS
 # ***************************************
@@ -154,9 +160,39 @@ SYMBOLSET
   END
   
   SYMBOL
+    NAME 'estrelitzias'
+    TYPE pixmap
+    IMAGE 'arbusticos/estrelitzias.png'
+  END
+  
+  SYMBOL
+    NAME 'filodendros'
+    TYPE pixmap
+    IMAGE 'arbusticos/filodendros.png'
+  END
+  
+  SYMBOL
     NAME 'helechos_y_cicas'
     TYPE pixmap
     IMAGE 'arbusticos/helechos_y_cicas.png'
+  END
+  
+  SYMBOL
+    NAME 'herbaceos'
+    TYPE pixmap
+    IMAGE 'arbusticos/herbaceos.png'
+  END
+  
+  SYMBOL
+    NAME 'hibiscos'
+    TYPE pixmap
+    IMAGE 'arbusticos/hibiscos.png'
+  END
+  
+  SYMBOL
+    NAME 'mediterraneo'
+    TYPE pixmap
+    IMAGE 'arbusticos/mediterraneo.png'
   END
   
   SYMBOL
@@ -196,6 +232,12 @@ SYMBOLSET
   END
   
   SYMBOL
+    NAME 'perennes_hoja_roja'
+    TYPE pixmap
+    IMAGE 'arbusticos/perennes_hoja_roja.png'
+  END
+  
+  SYMBOL
     NAME 'perennes_porte_pequeño'
     TYPE pixmap
     IMAGE 'arbusticos/perennes_porte_pequeño.png'
@@ -217,6 +259,12 @@ SYMBOLSET
     NAME 'porte_arboreo_perennes_flor_rosada'
     TYPE pixmap
     IMAGE 'arbusticos/porte_arboreo_perennes_flor_rosada.png'
+  END
+  
+  SYMBOL
+    NAME 'rosales'
+    TYPE pixmap
+    IMAGE 'arbusticos/rosales.png'
   END
   
   SYMBOL
@@ -267,10 +315,37 @@ SYMBOLSET
 # ***************************************
 # IMÁGENES DE LAS FLORES
 # ***************************************
-
+  
+  SYMBOL
+    NAME 'flores_temporada'
+    TYPE pixmap
+    IMAGE 'florecicas/flores_temporada.png'
+  END
+  
+  SYMBOL
+    NAME 'macizos_aromaticos'
+    TYPE pixmap
+    IMAGE 'florecicas/macizos_aromaticos.png'
+  END
+  
+  SYMBOL
+    NAME 'macizos_arbustivos'
+    TYPE pixmap
+    IMAGE 'florecicas/macizos_arbustivos.png'
+  END
+  
 # ***************************************
 # IMÁGENES DE LOS SETOS
 # ***************************************
-
+  
+  SYMBOL
+    NAME 'resto_setos'
+    TYPE pixmap
+    IMAGE 'seticos/resto_setos.png'
+  END
+  
+# ***************************************
+# FIN DE LAS DEFINICIONES DE SÍMBOLOS
+# ***************************************
 
 END

@@ -11,12 +11,18 @@
 #    IMAGEPATH  
 #    IMAGEURL    
 #
-##################################################################################################
+###############################################################################
+###################
 
-#
+
+###############################################################################
 # Start of map file  
-#
+###############################################################################
 MAP
+
+# *****************************************************************************
+# DEFINICIÓN GENERAL DEL MAPA
+# *****************************************************************************
 EXTENT  449047 4061084 463941 4069419
 
 
@@ -24,14 +30,17 @@ UNITS meters
 #EXTENT -15 30 40 70
 #UNITS dd
 SIZE 600 500
-SHAPEPATH "../../data/shapefiles/"
+#SHAPEPATH "../../data/shapefiles/"
+SHAPEPATH "/ms4w/apps/pmapper/matojos/data/"
 SYMBOLSET "../config-particular/symbols/simbolicos.sym"
 FONTSET "../common/fonts/msfontset.txt"
 RESOLUTION 96
-IMAGETYPE png
-INTERLACE OFF
-#CONFIG "PROJ_LIB" "C:/proj/nad/"
-#CONFIG "PROJ_LIB" "/ms4w/proj/nad/"
+#IMAGETYPE png
+IMAGETYPE JPEG
+#INTERLACE OFF
+INTERLACE ON
+#CONFIG "PROJ_LIB" "C:/ms4w/proj/nad/"
+CONFIG "PROJ_LIB" "/ms4w/proj/nad/"
 PROJECTION
   # ETRS-LAEA
   #"init=epsg:3035"
@@ -39,7 +48,18 @@ PROJECTION
   #"proj=laea"
   #"units=m"
 END  
+CONFIG "MS_ERRORFILE" "/ms4w/tmp/ms_error.txt"
+DEBUG ON
 
+OUTPUTFORMAT
+    NAME "jpeg"
+    MIMETYPE "image/jpeg"
+    DRIVER "AGG/JPEG"  ###Antes DRIVER "GD/JPEG"
+    EXTENSION "jpg"
+    IMAGEMODE "RGB"
+    TRANSPARENT FALSE
+    FORMATOPTION "QUALITY=70"
+  END
 
 #
 # Start of web interface definition
@@ -60,13 +80,13 @@ END  # Web
 #
 # Start of Reference map definition
 #
-REFERENCE
-  EXTENT 1496247 1332616 7055632 5502154 #2200000 1400000 8000000 5400000
-  IMAGE "../../images/reference.png"
-  SIZE 199 149
-  COLOR -1 -1 -1
-  OUTLINECOLOR 255 0 0
-END  # Reference
+#REFERENCE
+#  EXTENT 1496247 1332616 7055632 5502154 #2200000 1400000 8000000 5400000
+#  IMAGE "../../images/reference.png"
+#  SIZE 199 149
+#  COLOR -1 -1 -1
+#  OUTLINECOLOR 255 0 0
+#END  # Reference
 
 
 #
@@ -146,24 +166,24 @@ END
 # ***************************************************************
 # CAPA BASE - ORTOFOTO DE MOTRIL
 # ***************************************************************
-  LAYER
-    NAME "ortofoto_motril"
-    TYPE RASTER
-	DATA "../ortofotos/motril_etrs89.ecw"
-    STATUS ON
-    PROJECTION
-      AUTO
-    END
-  END
+#  LAYER
+#    NAME "ortofoto_motril"
+#    TYPE RASTER
+#	DATA "./ortofotos/motril_etrs89.ecw"
+#    STATUS ON
+#    PROJECTION
+#      AUTO
+#    END
+#  END
 
 	LAYER
 	  NAME "inicial"
 	  TYPE polygon
-	  DATA "inicial.shp"
+	  DATA "./ortofotos/inicial.shp"
 	  STATUS on
 	  PROJECTION
-		#"init=epsg:4326"
-		#"+proj=utm +zone=32 +ellps=WGS84 +datum=WGS84 +units=m +no_defs"
+#		#"init=epsg:4326"
+#		#"+proj=utm +zone=32 +ellps=WGS84 +datum=WGS84 +units=m +no_defs"
 		END
 	  CLASSITEM Fid_motril
 	  CLASS
@@ -190,20 +210,52 @@ END
 	END  # Layer
 
   LAYER
-    NAME "ortofoto_motril"
+    NAME "motril_etrs89"
     TYPE RASTER
-	DATA "../ortofotos/motril_etrs89.ecw"
+	OFFSITE 0 0 0
+	DATA "./ortofotos/motril_etrs89.jpg"
+	DEBUG 5
     STATUS ON
-    PROJECTION
-      AUTO
-    END
+#PROCESSING "SCALE=AUTO"
+#PROCESSING "BANDS=3,2,1"
+#PROCESSING "DITHER=YES"
+
+  PROJECTION
+	#"init=epsg:25830"
+    "init=epsg:4326"
+#    "+proj=longlat +datum=WGS84 +no_defs"
+  END
+  
+    METADATA 
+#    "DESCRIPTION" "Rivers"
+#    "RESULT_FIELDS" "NAME"
+#    "RESULT_HEADERS" "Name"
+    "ows_title"      "motreh"
+  END  # Metadata 
+#	TEMPLATE "void"
+	#CLASSITEM Fid_motril2
+	    CLASS
+	        STYLE
+	            COLOR 110 50 100
+	            OUTLINECOLOR 200 200 200
+	            SYMBOL 0
+	        END
+	    END
+
+	
+	
   END
 
+
+  
+  
+  
+  
 	LAYER
 		NAME "jardines"
 		TYPE LINE
 		STATUS ON
-		DATA "JARDIN.shp"
+		DATA "./shapefiles/JARDIN.shp"
 		TEMPLATE void
 		PROJECTION
 			#"init=epsg:4326"
@@ -227,7 +279,7 @@ END
 		NAME "zonas"
 		TYPE POLYGON
 		STATUS ON
-		DATA "ZONAS.shp"
+		DATA "./shapefiles/ZONAS.shp"
 		TEMPLATE void
 		PROJECTION
 			#"init=epsg:4326"
@@ -251,7 +303,7 @@ END
 		NAME "arboles"
 		TYPE POINT
 		STATUS ON
-		DATA "ARBOLES.shp"
+		DATA "./shapefiles/ARBOLES.shp"
 		TEMPLATE void
 		PROJECTION
 			#"init=epsg:4326"
@@ -277,7 +329,7 @@ END
 		NAME "palmeras"
 		TYPE POINT
 		STATUS ON
-		DATA "PALMERAS.shp"
+		DATA "./shapefiles/PALMERAS.shp"
 		TEMPLATE void
 		PROJECTION
 			#"init=epsg:4326"
@@ -303,7 +355,7 @@ END
 		NAME "arbustos"
 		TYPE POINT
 		STATUS ON
-		DATA "ARBUSTOS.shp"
+		DATA "./shapefiles/ARBUSTOS.shp"
 		TEMPLATE void
 		PROJECTION
 			#"init=epsg:4326"

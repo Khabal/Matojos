@@ -223,6 +223,7 @@ text-align:center;
 }
 
 #mostrar-barra-herrammientas img{
+	border:thin outset;
 	height:16px;
 	vertical-align:middle;
 	width:16px;

@@ -11,251 +11,158 @@
 #    IMAGEPATH  
 #    IMAGEURL    
 #
-###############################################################################
-###################
+##################################################################################################
 
-
-###############################################################################
-# Start of map file  
-###############################################################################
+# *****************************************************************************
+# DEFINICIÓN DEL MAPA
+# *****************************************************************************
 MAP
-
-# *****************************************************************************
-# DEFINICIÓN GENERAL DEL MAPA
-# *****************************************************************************
-EXTENT  449047 4061084 463941 4069419
-
-
-UNITS meters
-#EXTENT -15 30 40 70
-#UNITS dd
-SIZE 600 500
-#SHAPEPATH "../../data/shapefiles/"
-SHAPEPATH "/ms4w/apps/pmapper/matojos/data/"
-SYMBOLSET "../config-particular/symbols/simbolicos.sym"
-FONTSET "../common/fonts/msfontset.txt"
-RESOLUTION 96
-#IMAGETYPE png
-IMAGETYPE JPEG
-#INTERLACE OFF
-INTERLACE ON
-#CONFIG "PROJ_LIB" "C:/ms4w/proj/nad/"
-CONFIG "PROJ_LIB" "/ms4w/proj/nad/"
-PROJECTION
-  # ETRS-LAEA
-  #"init=epsg:3035"
-  #"+proj=laea +lat_0=52 +lon_0=10 +x_0=4321000 +y_0=3210000 +ellps=GRS80 +units=m +no_defs  no_defs"
-  #"proj=laea"
-  #"units=m"
-END  
-CONFIG "MS_ERRORFILE" "/ms4w/tmp/ms_error.txt"
-DEBUG ON
-
-OUTPUTFORMAT
-    NAME "jpeg"
-    MIMETYPE "image/jpeg"
-    DRIVER "AGG/JPEG"  ###Antes DRIVER "GD/JPEG"
-    EXTENSION "jpg"
-    IMAGEMODE "RGB"
-    TRANSPARENT FALSE
-    FORMATOPTION "QUALITY=70"
-  END
-
-#
-# Start of web interface definition
-#
-WEB
-	MINSCALEDENOM 10
-  TEMPLATE "map.html"
-  IMAGEPATH "/ms4w/tmp/ms_tmp/"
-  IMAGEURL "/ms_tmp/"
-  METADATA
-    "MAPFILE_ENCODING" "UTF-8" 
-    #"ows_title"     "WMS Demo Server"  
-    #"ows_onlineresource" "http://wms.yourserver.org?owskey=test&"   
-    #"ows_srs"       "EPSG:3035 EPSG:4326"  
-  END  # Metadata
-END  # Web
-
-#
-# Start of Reference map definition
-#
-#REFERENCE
-#  EXTENT 1496247 1332616 7055632 5502154 #2200000 1400000 8000000 5400000
-#  IMAGE "../../images/reference.png"
-#  SIZE 199 149
-#  COLOR -1 -1 -1
-#  OUTLINECOLOR 255 0 0
-#END  # Reference
-
-
-#
-# Start of legend object
-#
-LEGEND
-	STATUS OFF
-	IMAGECOLOR 255 255 255
-#	OUTLINECOLOR 0 0 0
-	POSITION ll
-	KEYSIZE 18 12
-	KEYSPACING 10 5 
-	TEMPLATE "void"
-	LABEL
-		TYPE TRUETYPE
-		FONT "FreeSans"
-		SIZE small
-		POSITION AUTO
-		COLOR 0 0 89
-		OUTLINECOLOR 255 255 255
-		ANTIALIAS TRUE
-	END
-END
-
-#
-# Start of ScaleBar definition
-#
-SCALEBAR
-ALIGN center
-  STATUS on
-  #TRANSPARENT on
-  INTERVALS 4
-  SIZE 220 30
-  UNITS meters
-  #COLOR 250 250 250
-  OUTLINECOLOR 0 0 0
-  #BACKGROUNDCOLOR 100 100 100
-  STYLE 0
-  POSTLABELCACHE true
-  LABEL
-    COLOR 0 0 90
-    #OUTLINECOLOR 200 200 200
-    SIZE tiny
-  END  # Label
-END  # Reference
-
-
-
-# SYMBOLS USED IN PMAPPER
-# - 'circle' always necessary (used e.g. for highlight)
-# - 'square' used in currecnt map file
-# Symbols can also be defined via tag SYMBOLSET (see above)
-Symbol
-  Name 'circle'
-  Type ELLIPSE
-  Filled TRUE
-  Points
-    1 1
-  END
-END 
-
-Symbol
-  Name 'square'
-  Type VECTOR
-  Filled TRUE
-  Points
-    0 1
-    0 0
-    1 0
-    1 1
-    0 1
-  END
-END
-
-
-#================== START OF LAYER SECTION =====================#
-# ***************************************************************
-# CAPA BASE - ORTOFOTO DE MOTRIL
-# ***************************************************************
-#  LAYER
-#    NAME "ortofoto_motril"
-#    TYPE RASTER
-#	DATA "./ortofotos/motril_etrs89.ecw"
-#    STATUS ON
-#    PROJECTION
-#      AUTO
-#    END
-#  END
-
-	LAYER
-	  NAME "inicial"
-	  TYPE polygon
-	  DATA "./ortofotos/inicial.shp"
-	  STATUS on
-	  PROJECTION
-#		#"init=epsg:4326"
-#		#"+proj=utm +zone=32 +ellps=WGS84 +datum=WGS84 +units=m +no_defs"
-		END
-	  CLASSITEM Fid_motril
-	  CLASS
-		NAME "1"
-		EXPRESSION "1"
-		COLOR 0 130 255
-		OUTLINECOLOR 0 37 100
-		TEMPLATE void
-	  END  # Class
-	  CLASS
-		NAME "2"
-		EXPRESSION "2"
-		COLOR 255 255 255
-		OUTLINECOLOR 0 0 0
-		TEMPLATE void
-	  END  # Class
-	  CLASS
-		NAME "3"
-		EXPRESSION "3"
-		COLOR 255 255 255
-		OUTLINECOLOR 0 0 0
-		TEMPLATE void
-	  END  # Class
-	END  # Layer
-
-  LAYER
-    NAME "motril_etrs89"
-    TYPE RASTER
-	OFFSITE 0 0 0
-	DATA "./ortofotos/motril_etrs89.jpg"
-	DEBUG 5
-    STATUS ON
-#PROCESSING "SCALE=AUTO"
-#PROCESSING "BANDS=3,2,1"
-#PROCESSING "DITHER=YES"
-
+  
+  # ============================================================================= 
+  # A.- SECCIÓN DE DEFINICIONES GENERALES DEL MAPA
+  # =============================================================================
+  
+  CONFIG "MS_ERRORFILE" "/ms4w/tmp/errores.txt"
+  DEBUG ON
+  EXTENT 449094 4059635 463757 4073442
+  UNITS METERS
+  SIZE 600 500
+  SHAPEPATH "../../data/shapefiles/"
+  SYMBOLSET "../config-particular/symbols/simbolicos.sym"
+  FONTSET "../common/fonts/msfontset.txt"
+  RESOLUTION 96
+  IMAGETYPE PNG
+  INTERLACE OFF
+  IMAGECOLOR 210 210 210
+  
+  # *****************************************************************************
+  # DEFINICIÓN DE LA PROYECCIÓN GENERAL DEL MAPA TOTAL - NO DEFINIDA
+  # *****************************************************************************
   PROJECTION
-	#"init=epsg:25830"
-    "init=epsg:4326"
-#    "+proj=longlat +datum=WGS84 +no_defs"
+    #
   END
   
-    METADATA 
-#    "DESCRIPTION" "Rivers"
-#    "RESULT_FIELDS" "NAME"
-#    "RESULT_HEADERS" "Name"
-    "ows_title"      "motreh"
-  END  # Metadata 
-#	TEMPLATE "void"
-	#CLASSITEM Fid_motril2
-	    CLASS
-	        STYLE
-	            COLOR 110 50 100
-	            OUTLINECOLOR 200 200 200
-	            SYMBOL 0
-	        END
-	    END
-
-	
-	
+  # *****************************************************************************
+  # DEFINICIÓN DE LA INTERFAZ WEB
+  # *****************************************************************************
+  WEB
+    MINSCALEDENOM 1000
+    TEMPLATE "map.html"
+    IMAGEPATH "/ms4w/tmp/ms_tmp/"
+    IMAGEURL "/ms_tmp/"
+    METADATA
+      "MAPFILE_ENCODING" "UTF-8"
+    END
   END
-
-
   
+  # *****************************************************************************
+  # DEFINICIÓN DEL MAPA DE REFERENCIA - NO USADO
+  # *****************************************************************************
+  REFERENCE
+    STATUS OFF
+	IMAGE "../../images/mapa_referencia.png"
+	SIZE 218 113
+	EXTENT 449094 4059635 463757 4073442
+  END
   
+  # *****************************************************************************
+  # DEFINICIÓN DE LA LEYENDA - NO USADA
+  # *****************************************************************************
+  LEGEND
+    STATUS OFF
+    #IMAGECOLOR 255 255 255
+    #OUTLINECOLOR 0 0 0
+    #POSITION ll
+    #KEYSIZE 18 12
+    #KEYSPACING 10 5
+    #TEMPLATE "void"
+    #LABEL
+        #TYPE TRUETYPE
+        #FONT "FreeSans"
+        #SIZE SMALL
+        #POSITION AUTO
+        #COLOR 0 0 90
+        #OUTLINECOLOR 255 255 255
+        #ANTIALIAS TRUE
+    #END
+  END
   
+  # *****************************************************************************
+  # DEFINICIÓN DE LA BARRA DE ESCALA - NO USADA
+  # *****************************************************************************
+  SCALEBAR
+    STATUS OFF
+    #ALIGN CENTER
+    #TRANSPARENT ON
+    #INTERVALS 4
+    #SIZE 220 30
+    #UNITS METERS
+    #COLOR 250 250 250
+    #OUTLINECOLOR 0 0 0
+    #BACKGROUNDCOLOR 100 100 100
+    #STYLE 0
+    #POSTLABELCACHE TRUE
+    #LABEL
+      #COLOR 0 0 90
+      #OUTLINECOLOR 200 200 200
+      #SIZE TINY
+    #END
+  END
   
-	LAYER
+  # *****************************************************************************
+  # DEFINICIÓN DE LOS SÍMBOLOS BASE NECESARIOS Y OLBIGATORIOS EN P.MAPPER
+  # *****************************************************************************
+  SYMBOL
+    NAME 'circle'
+    TYPE ELLIPSE
+    FILLED TRUE
+    POINTS
+      1 1
+    END
+  END
+  
+  SYMBOL
+    NAME 'square'
+    TYPE VECTOR
+    FILLED TRUE
+    POINTS
+      0 1
+      0 0
+      1 0
+      1 1
+      0 1
+    END
+  END
+  
+  # ============================================================================= 
+  # B.- SECCIÓN DE DEFINICIONES DE LAS CAPAS DEL MAPA
+  # =============================================================================
+  
+  # *****************************************************************************
+  # DEFINICIÓN DE CAPA BASE - ORTOFOTO DEL TÉRMINO MUNICIPAL EN FORMATO 'ECW'
+  # *****************************************************************************
+  LAYER
+    NAME "base"
+    TYPE RASTER
+    STATUS ON
+    DATA "../ortofotos/motril_etrs89.ecw"
+    MINSCALE 1000
+    PROJECTION
+      "init=epsg:3042"
+    END
+    METADATA
+      #
+    END
+  END
+  
+  # *****************************************************************************
+  # DEFINICIÓN DE CAPA - CONTORNOS DE LOS JARDINES EN FORMATO 'SHP'
+  # *****************************************************************************
+  LAYER
 		NAME "jardines"
 		TYPE LINE
 		STATUS ON
-		DATA "./shapefiles/JARDIN.shp"
+		DATA "JARDIN.shp"
 		TEMPLATE void
 		PROJECTION
 			#"init=epsg:4326"
@@ -279,7 +186,7 @@ END
 		NAME "zonas"
 		TYPE POLYGON
 		STATUS ON
-		DATA "./shapefiles/ZONAS.shp"
+		DATA "ZONAS.shp"
 		TEMPLATE void
 		PROJECTION
 			#"init=epsg:4326"
@@ -303,7 +210,7 @@ END
 		NAME "arboles"
 		TYPE POINT
 		STATUS ON
-		DATA "./shapefiles/ARBOLES.shp"
+		DATA "ARBOLES.shp"
 		TEMPLATE void
 		PROJECTION
 			#"init=epsg:4326"
@@ -329,7 +236,7 @@ END
 		NAME "palmeras"
 		TYPE POINT
 		STATUS ON
-		DATA "./shapefiles/PALMERAS.shp"
+		DATA "PALMERAS.shp"
 		TEMPLATE void
 		PROJECTION
 			#"init=epsg:4326"
@@ -355,7 +262,7 @@ END
 		NAME "arbustos"
 		TYPE POINT
 		STATUS ON
-		DATA "./shapefiles/ARBUSTOS.shp"
+		DATA "ARBUSTOS.shp"
 		TEMPLATE void
 		PROJECTION
 			#"init=epsg:4326"
@@ -377,27 +284,6 @@ END
 		END  # Class
 	END
 	
-
-##
-## LAYER DGM
-##
-#LAYER
-#  NAME "dem"
-#  TYPE Raster
-#  STATUS OFF
-#  DATA 'europa_dem.jpg'
-#  MINSCALE 3000000
-#  PROJECTION
-#    #"init=epsg:4326"
-#    "+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs  no_defs"
-#  END
-#  METADATA
-#    "DESCRIPTION"   "NGDC Shaded  relief"
-#    "LEGENDICON"    "images/legend/dem.png"
-#    "ows_title"     "dem"
-#  END
-#END
-
 
 
  
@@ -545,4 +431,4 @@ END
 
 
 
-END  #Map
+END

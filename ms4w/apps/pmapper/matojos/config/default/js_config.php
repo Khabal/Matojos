@@ -354,7 +354,7 @@ function createZSlider(sliderElemId) {
         16,				//width of button
         '#000000',		//colour of button
         0,				//thickness of button border (shaded to give 3D effect)
-        '<img src="images/botones/subir-bajar.png" style="display:block; margin:auto; cursor:url(/matojos/images/cursors/mover.cur), auto;" alt="Indicador" />', //text of button (if any)
+        '<img src="images/botones/subir-bajar.png" style="display:block; margin:auto; cursor:url(/matojos/images/punteros/mover.cur), auto;" alt="Indicador" />', //text of button (if any)
         //'', //text of button (if any)
         false,			//direction of travel (true = horizontal, false = vertical)
         'sliderMove',	//the name of the function to execute as the slider moves

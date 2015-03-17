@@ -266,7 +266,13 @@ class UiElement{
         //$html .= "<table width=\"100%\" class=\"pm-searchcont pm-toolframe\" border=\"0\" cellspacing=\"0\" cellpadding=\"0\">";
 		$html .= "<div id=\"dropdownTipoDeBusqueda\">";
         $html .= " <div id=\"flechitaTipoDeBusqueda\"></div>";
-        $html .= " <div id=\"inputTipoDeBusqueda\" name=\"inputTipoDeBusqueda\" style=\"-moz-user-select: none;\">Dirección</div><div id=\"tipoDeBusquedaListado\"><ul id=\"ulTipoDeBusquedaListado\"><li><div id=\"TipoDeBusqueda1\" value=\"1\">Dirección</div></li><li><div id=\"TipoDeBusqueda2\" value=\"2\">Dirección exacta</div></li></ul></div></div>";
+        $html .= " <div id=\"inputTipoDeBusqueda\" name=\"inputTipoDeBusqueda\" style=\"-moz-user-select: none;\">Parques y jardines</div><div id=\"tipoDeBusquedaListado\">
+		<ul id=\"ulTipoDeBusquedaListado\">
+		<li><div id=\"TipoDeBusqueda1\" value=\"1\">Parques y jardines</div></li>
+		<li><div id=\"TipoDeBusqueda2\" value=\"2\">Árboles (Nombre común o científico)</div></li>
+		<li><div id=\"TipoDeBusqueda2\" value=\"3\">Palmeras (Nombre común o científico)</div></li>
+		<li><div id=\"TipoDeBusqueda2\" value=\"4\">Arbustos (Nombre común o científico)</div></li>
+		<li><div id=\"TipoDeBusqueda2\" value=\"5\">Flores (Nombre común o científico)</div></li></ul></div></div>";
         //$html .= "<tr>";  
         //$html .= "<td id=\"searchoptions\" class=\"pm-searchoptions\" style=\"padding:0px 8px\"></td>";  
         //if ($style == "block") $html .= "</tr><tr>";    
@@ -279,20 +285,18 @@ class UiElement{
         $html .= "</form>";
         $html .= "</div>";
 
-// <div id="divTopSearch" style="display: block; z-index: 0; position: absolute; left: 88px; top: 0px;">
-        // <form class="form" action="javascript:void(0);" onsubmit="SubmitBuscar(); return false;" id="formDireccion">
-            // <div id="dropdownTipoDeBusqueda">
-                // <div id="flechitaTipoDeBusqueda"></div>
-            // <div id="inputTipoDeBusqueda" name="inputTipoDeBusqueda" style="-moz-user-select: none;">Dirección</div><div id="tipoDeBusquedaListado"><ul id="ulTipoDeBusquedaListado"><li><div id="TipoDeBusqueda1" value="1">Dirección</div></li><li><div id="TipoDeBusqueda2" value="2">Dirección exacta</div></li><li><div id="TipoDeBusqueda3" value="3">Polígono y Parcela</div></li><li><div id="TipoDeBusqueda4" value="4">Referencia Catastral</div></li><li><div id="TipoDeBusqueda5" value="5">Coords. Geográficas</div></li><li><div id="TipoDeBusqueda6" value="6">Coordenadas UTM</div></li><li><div id="TipoDeBusqueda7" value="7">Ruta</div></li></ul></div></div>
-                    
-            // <div id="divTextboxBuscador"><input type="text" id="TextDireccion" name="TextDireccion" class="textBoxBuscador" classname="textBoxBuscador" placeholder="Introduce la dirección" value="Introduce la dirección" tabindex="1" autocomplete="off"><input type="text" id="TextReferencia" name="TextReferencia" class="textBoxBuscador" classname="textBoxBuscador" placeholder="Referencia catastral de la parcela" value="Referencia catastral de la parcela"><div id="divDireccionExacta"><select id="provincias2" name="provincias2" class="textBoxRoudedLeft" classname="textBoxRoudedLeft" style="width: 80px;"></select><select id="poblaciones2" name="poblaciones2" class="textBoxRoudedLeft" classname="textBoxRoudedLeft" style="width: 96px;"></select><select id="calles" name="calles" class="textBoxRoudedLeft" classname="textBoxRoudedLeft" style="width: 96px;"></select><input type="text" id="numero" name="numero" class="textBoxRoudedLeft" classname="textBoxRoudedLeft" placeholder="nº" style="width: 25px;" value="nº"></div><div id="divPoligonoYParcela"><select id="provincias" name="provincias" class="textBoxRoudedLeft" classname="textBoxRoudedLeft" style="width: 90px;"></select><select id="poblaciones" name="poblaciones" class="textBoxRoudedLeft" classname="textBoxRoudedLeft" style="width: 140px;"></select><input type="text" id="poligono" name="poligono" class="textBoxRoudedLeft" classname="textBoxRoudedLeft" placeholder="Pol." style="width: 30px;" value="Pol."><div class="separador"></div><input type="text" id="parcela" name="parcela" class="textBoxRoudedLeft" classname="textBoxRoudedLeft" placeholder="Parc." style="width: 30px;" value="Parc."></div><div id="divCoordenadasGeograficas"><input type="text" id="latitud" name="latitud" class="textBoxBuscador" classname="textBoxBuscador" placeholder="Latitud" style="width: 146px;" value="Latitud"><div class="separador"></div><input type="text" id="longitud" name="longitud" class="textBoxBuscador" classname="textBoxBuscador" placeholder="Longitud" style="width: 144px;" value="Longitud"></div><div id="DivCoordenadasUTM"><input type="text" id="CoordenadaX" name="CoordenadaX" class="textBoxBuscador" classname="textBoxBuscador" placeholder="Norte" style="width: 94px;" value="Norte"><div class="separador"></div><input type="text" id="CoordenadaY" name="CoordenadaY" class="textBoxBuscador" classname="textBoxBuscador" placeholder="Este" style="width: 94px;" value="Este"><div class="separador"></div><input type="text" id="Zona" name="Zona" class="textBoxBuscador" classname="textBoxBuscador" placeholder="Zona" style="width: 90px;" value="Zona"></div><div id="DivBusquedaRuta"><input type="text" id="DivBusquedaRutaDesde" name="DivBusquedaRutaDesde" class="textBoxBuscador" classname="textBoxBuscador" placeholder="Desde" style="width: 144px;" value="Desde"><div class="separador"></div><input type="text" id="DivBusquedaRutaHasta" name="DivBusquedaRutaHasta" class="textBoxBuscador" classname="textBoxBuscador" placeholder="Hasta" style="width: 144px;" value="Hasta"></div></div>
-            // <div id="divBuscarDireccion">
-                // <input type="submit" name="BuscarDireccion" value="" class="buttonBuscar" id="BuscarDireccion">
-            // </div>
-        // </form>
-    // </div>
-		
-		
+        // $html  = "<div id=\"searchContainer\">";
+        // $html .= "<form id=\"searchForm\" action=\"blank.html\" onsubmit=\"PM.Query.submitSearch()\" onkeypress=\"return PM.Query.disableEnterKey(event)\">";
+        // $html .= "<table width=\"100%\" class=\"pm-searchcont pm-toolframe\" border=\"0\" cellspacing=\"0\" cellpadding=\"0\">";
+        // $html .= "<tr>";  
+        // $html .= "<td id=\"searchoptions\" class=\"pm-searchoptions\" style=\"padding:0px 8px\"></td>";  
+        // if ($style == "block") $html .= "</tr><tr>";    
+        // $html .= "<td id=\"searchitems\" class=\"pm_search_$style\"></td>";
+        // $html .= "</tr>";  
+        // $html .= "</table>";
+        // $html .= "</form>";
+        // $html .= "</div>";
+        
         return $html;
     }
     

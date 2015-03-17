@@ -150,7 +150,72 @@ text-align:center;
 
 /* B. PANEL CENTRAL */
 /* B.1. CUADRO DE BÚSQUEDA */
+#flechitaTipoDeBusqueda {
+	background: url("/matojos/img/images3.png?v=8.09") no-repeat scroll -88px -12px rgba(0, 0, 0, 0);
+	height: 3px;
+	position: absolute;
+	right: 8px;
+	top: 15px;
+	width: 5px;
+}
+/****/
+#divTopSearch {
+    display: block;
+    /*left: 200px;*/
+    margin-left: 10px;
+    margin-top: 5px;
+    padding: 0;
+    /*position: absolute;
+    top: 22px;*/
+    z-index: 10000;
+}
 
+#formDireccion {
+    background-color: white;
+    border: 1px solid #374969;
+    border-radius: 2px;
+    box-shadow: 0 0 10px 0 rgba(50, 50, 50, 0.2);
+    display: block;
+    float: left;
+    margin-left: 0;
+    position: relative;
+}
+
+#dropdownTipoDeBusqueda {
+    cursor: pointer;
+    display: block;
+    float: left;
+    height: 27px;
+    padding: 0;
+    position: relative;
+    width: 90px;
+}
+
+#divTextboxBuscador {
+    display: block;
+    float: left;
+    height: 32px;
+    position: relative;
+    width: 308px;
+}
+
+#divBuscarDireccion {
+    float: right;
+}
+
+#BuscarDireccion {
+    background: url("/matojos/img/images3.png?v=7.80") no-repeat scroll -360px -93px rgba(0, 0, 0, 0);
+    border: 0 none;
+    border-radius: 1px;
+    cursor: pointer;
+    height: 32px;
+    margin: 0;
+    padding: 0;
+    vertical-align: top;
+    width: 52px;
+	
+}
+/********************/
 
 /* B.2. BOTÓN PARA MOSTRAR PANEL LATERAL */
 #mostrar-panel-lateral{
@@ -354,61 +419,4 @@ text-align:center;
 
 #scaleform div{
 	padding:5px;
-}
-
-/****/
-#divTopSearch {
-    display: block;
-    /*left: 200px;*/
-    margin-left: 10px;
-    margin-top: 5px;
-    padding: 0;
-    /*position: absolute;
-    top: 22px;*/
-    z-index: 10000;
-}
-
-#formDireccion {
-    background-color: white;
-    border: 1px solid #374969;
-    border-radius: 2px;
-    box-shadow: 0 0 10px 0 rgba(50, 50, 50, 0.2);
-    display: block;
-    float: left;
-    margin-left: 0;
-    position: relative;
-}
-
-#dropdownTipoDeBusqueda {
-    cursor: pointer;
-    display: block;
-    float: left;
-    height: 27px;
-    padding: 0;
-    position: relative;
-    width: 90px;
-}
-
-#divTextboxBuscador {
-    display: block;
-    float: left;
-    height: 32px;
-    position: relative;
-    width: 308px;
-}
-
-#divBuscarDireccion {
-    float: right;
-}
-
-#BuscarDireccion {
-    background: url("img/images3.png?v=7.80") no-repeat scroll -360px -93px rgba(0, 0, 0, 0);
-    border: 0 none;
-    border-radius: 1px;
-    cursor: pointer;
-    height: 32px;
-    margin: 0;
-    padding: 0;
-    vertical-align: top;
-    width: 52px;
 }

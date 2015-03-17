@@ -18,34 +18,47 @@
             <mapFile>er_planico_loco.map</mapFile>
             <tplMapFile>common/template.map</tplMapFile>
             <categories>
-                <category name="cat_admin">
-					<group>arboles</group>
-					<group>palmeras</group>
-					<group>arbustos</group>
+                <category name="Distritos municipales">
+					<group>distritos</group>
+                </category>
+                <category name="Parques y jardines públicos">
 					<group>jardines</group>
 					<group>zonas</group>
+					<group>albero</group>
+					<group>masas_arbustos</group>
+					<group>flores</group>
+					<group>setos</group>
                 </category>
-                <category name="cat_nature">
-                    <group>rivers</group>
-                </category>
-                <category name="cat_raster">
-
+                <category name="Flora urbana">
+                    <group>arboles</group>
+					<group>palmeras</group>
+					<group>arbustos</group>
                 </category>
             </categories>
             <allGroups>
+				<group>distritos</group>
                 <group>rivers</group>
 				<group>arboles</group>
 				<group>palmeras</group>
 				<group>arbustos</group>
+				<group>setos</group>
 				<group>jardines</group>
 				<group>zonas</group>
+				<group>albero</group>
+				<group>flores</group>
+				<group>masas_arbustos</group>
             </allGroups>
             <defGroups>
+				<group>distritos</group>
 				<group>arboles</group>
 				<group>palmeras</group>
 				<group>arbustos</group>
+				<group>setos</group>
 				<group>jardines</group>
 				<group>zonas</group>
+				<group>albero</group>
+				<group>flores</group>
+				<group>masas_arbustos</group>
             </defGroups>
             <layerAutoRefresh>1</layerAutoRefresh>
             <imgFormat>png8</imgFormat>

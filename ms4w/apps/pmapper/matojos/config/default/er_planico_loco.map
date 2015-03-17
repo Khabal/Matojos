@@ -1,18 +1,3 @@
-################################################################################################ 
-# Adapt settings in map file <tt>pmapper_demo.map</tt> for the following tags to match settings
-# on your machine (see additionally MapServer documentation for detailed information):
-#
-#  MAP
-#    SHAPEPATH 
-#    FONTSET
-#    SYMBOLSET
-#  
-#  WEB
-#    IMAGEPATH  
-#    IMAGEURL    
-#
-##################################################################################################
-
 # *****************************************************************************
 # DEFINICIÓN DEL MAPA
 # *****************************************************************************
@@ -23,7 +8,7 @@ MAP
   # =============================================================================
   
   CONFIG "MS_ERRORFILE" "/ms4w/tmp/errores.txt"
-  DEBUG ON
+  DEBUG OFF
   EXTENT 449094 4059635 463757 4073442
   UNITS METERS
   SIZE 600 500
@@ -33,7 +18,7 @@ MAP
   RESOLUTION 96
   IMAGETYPE PNG
   INTERLACE OFF
-  IMAGECOLOR 210 210 210
+  IMAGECOLOR 0 0 0
   
   # *****************************************************************************
   # DEFINICIÓN DE LA PROYECCIÓN GENERAL DEL MAPA TOTAL - NO DEFINIDA
@@ -46,7 +31,7 @@ MAP
   # DEFINICIÓN DE LA INTERFAZ WEB
   # *****************************************************************************
   WEB
-    MINSCALEDENOM 1000
+    MINSCALEDENOM 450
     TEMPLATE "map.html"
     IMAGEPATH "/ms4w/tmp/ms_tmp/"
     IMAGEURL "/ms_tmp/"
@@ -70,21 +55,6 @@ MAP
   # *****************************************************************************
   LEGEND
     STATUS OFF
-    #IMAGECOLOR 255 255 255
-    #OUTLINECOLOR 0 0 0
-    #POSITION ll
-    #KEYSIZE 18 12
-    #KEYSPACING 10 5
-    #TEMPLATE "void"
-    #LABEL
-        #TYPE TRUETYPE
-        #FONT "FreeSans"
-        #SIZE SMALL
-        #POSITION AUTO
-        #COLOR 0 0 90
-        #OUTLINECOLOR 255 255 255
-        #ANTIALIAS TRUE
-    #END
   END
   
   # *****************************************************************************
@@ -92,21 +62,6 @@ MAP
   # *****************************************************************************
   SCALEBAR
     STATUS OFF
-    #ALIGN CENTER
-    #TRANSPARENT ON
-    #INTERVALS 4
-    #SIZE 220 30
-    #UNITS METERS
-    #COLOR 250 250 250
-    #OUTLINECOLOR 0 0 0
-    #BACKGROUNDCOLOR 100 100 100
-    #STYLE 0
-    #POSTLABELCACHE TRUE
-    #LABEL
-      #COLOR 0 0 90
-      #OUTLINECOLOR 200 200 200
-      #SIZE TINY
-    #END
   END
   
   # *****************************************************************************
@@ -138,6 +93,10 @@ MAP
   # B.- SECCIÓN DE DEFINICIONES DE LAS CAPAS DEL MAPA
   # =============================================================================
   
+  # ----------------------------------------------------------------------------- 
+  # B.1- SECCIÓN DE DEFINICIONES DE LAS CAPAS BASE DEL MAPA
+  # -----------------------------------------------------------------------------
+  
   # *****************************************************************************
   # DEFINICIÓN DE CAPA BASE - ORTOFOTO DEL TÉRMINO MUNICIPAL EN FORMATO 'ECW'
   # *****************************************************************************
@@ -146,289 +105,363 @@ MAP
     TYPE RASTER
     STATUS ON
     DATA "../ortofotos/motril_etrs89.ecw"
-    MINSCALE 1000
+    MINSCALE 450
+    PROJECTION
+      "init=epsg:3042"
+    END
+  END
+  
+  # ----------------------------------------------------------------------------- 
+  # B.2- SECCIÓN DE DEFINICIONES DE LAS CAPAS DE ZONAS DEL MAPA (POLÍGONOS)
+  # -----------------------------------------------------------------------------
+  
+  # *****************************************************************************
+  # DEFINICIÓN DE CAPA - DIVISIÓN EN DISTRITOS DEL TÉRMINO MUNICIPAL EN FORMATO 'SHP'
+  # *****************************************************************************
+  LAYER
+    NAME "distritos"
+    TYPE POLYGON
+    STATUS ON
+    DATA "DISTRITOS.shp"
+    TEMPLATE VOID
     PROJECTION
       "init=epsg:3042"
     END
     METADATA
-      #
+      "DESCRIPTION" "Distritos"
+      "RESULT_FIELDS" "N1"
+      "RESULT_HEADERS" "Distrito"
+      "ows_title" "Distritos"
+    END
+    CLASS
+      NAME "Distrito 1"
+	  EXPRESSION ('[N1]' = "1")
+      STYLE
+        COLOR 120 0 0
+        OPACITY 10
+      END
+      STYLE
+        OPACITY 100
+        OUTLINECOLOR 120 120 120
+        WIDTH 3.0
+      END
+    END
+    CLASS
+      NAME "Distrito 2"
+	  EXPRESSION ('[N1]' = "2")
+      STYLE
+        COLOR 120 120 0
+        OPACITY 10
+      END
+      STYLE
+        OPACITY 100
+        OUTLINECOLOR 120 120 120
+        WIDTH 3.0
+      END
+    END
+    CLASS
+      NAME "Distrito 3"
+	  EXPRESSION ('[N1]' = "3")
+      STYLE
+        COLOR 0 120 120
+        OPACITY 10
+      END
+      STYLE
+        OPACITY 100
+        OUTLINECOLOR 120 120 120
+        WIDTH 3.0
+      END
+    END
+    CLASS
+      NAME "Distrito 4"
+	  EXPRESSION ('[N1]' = "4")
+      STYLE
+        COLOR 0 0 120
+        OPACITY 10
+      END
+      STYLE
+        OPACITY 100
+        OUTLINECOLOR 120 120 120
+        WIDTH 3.0
+      END
+    END
+    CLASS
+      NAME "Distrito 5"
+	  EXPRESSION ('[N1]' = "5")
+      STYLE
+        COLOR 120 0 120
+        OPACITY 10
+      END
+      STYLE
+        OPACITY 100
+        OUTLINECOLOR 120 120 120
+        WIDTH 3.0
+      END
     END
   END
   
   # *****************************************************************************
-  # DEFINICIÓN DE CAPA - CONTORNOS DE LOS JARDINES EN FORMATO 'SHP'
+  # DEFINICIÓN DE CAPA - ZONAS VERDES DE LOS JARDINES EN FORMATO 'SHP'
   # *****************************************************************************
   LAYER
-		NAME "jardines"
-		TYPE LINE
-		STATUS ON
-		DATA "JARDIN.shp"
-		TEMPLATE void
-		PROJECTION
-			#"init=epsg:4326"
-			"+proj=longlat +ellps=WGS84 +datum=WGS84 +units=m +no_defs no_defs"
-		END
-		METADATA
-			"DESCRIPTION" "jardines"
-#    ## ADAPTED TO MULTILINGUAL SHAPEFILE
-#    "RESULT_FIELDS" "ISOCODE,@default:NAME_EN@de:NAME_DE@it:NAME_IT@fr:NAME_FR@br:NAME_BR@es:NAME_ES,@default:CAPITAL_EN@de:CAPITAL_DE@it:CAPITAL_IT@fr:CAPITAL_FR@br:CAPITAL_BR@es:CAPITAL_ES,AREA_KM2,POPULATION"
-#    "RESULT_HEADERS" "ISO Code,Name,Capital,Area,Population"
-			"ows_title" "Jardines"
-		END  # Metadata 
-		CLASS
-			Name "Jardines"
-			COLOR 200 254 199
-			OUTLINECOLOR 0 0 0
-		END  # Class
-	END
-
-	LAYER
-		NAME "zonas"
-		TYPE POLYGON
-		STATUS ON
-		DATA "ZONAS.shp"
-		TEMPLATE void
-		PROJECTION
-			#"init=epsg:4326"
-			"+proj=longlat +ellps=WGS84 +datum=WGS84 +units=m +no_defs no_defs"
-		END
-		METADATA
-			"DESCRIPTION" "zonas"
-#    ## ADAPTED TO MULTILINGUAL SHAPEFILE
-#    "RESULT_FIELDS" "ISOCODE,@default:NAME_EN@de:NAME_DE@it:NAME_IT@fr:NAME_FR@br:NAME_BR@es:NAME_ES,@default:CAPITAL_EN@de:CAPITAL_DE@it:CAPITAL_IT@fr:CAPITAL_FR@br:CAPITAL_BR@es:CAPITAL_ES,AREA_KM2,POPULATION"
-#    "RESULT_HEADERS" "ISO Code,Name,Capital,Area,Population"
-			"ows_title" "Zonas"
-		END  # Metadata 
-		CLASS
-			Name "Zonas"
-			COLOR 0 80 0
-			OUTLINECOLOR 0 0 0
-		END  # Class
-	END
-	
-	LAYER
-		NAME "arboles"
-		TYPE POINT
-		STATUS ON
-		DATA "ARBOLES.shp"
-		TEMPLATE void
-		PROJECTION
-			#"init=epsg:4326"
-			"+proj=longlat +ellps=WGS84 +datum=WGS84 +units=m +no_defs no_defs"
-		END
-		METADATA
-			"DESCRIPTION" "arboles"
-#    ## ADAPTED TO MULTILINGUAL SHAPEFILE
-#    "RESULT_FIELDS" "ISOCODE,@default:NAME_EN@de:NAME_DE@it:NAME_IT@fr:NAME_FR@br:NAME_BR@es:NAME_ES,@default:CAPITAL_EN@de:CAPITAL_DE@it:CAPITAL_IT@fr:CAPITAL_FR@br:CAPITAL_BR@es:CAPITAL_ES,AREA_KM2,POPULATION"
-#    "RESULT_HEADERS" "ISO Code,Name,Capital,Area,Population"
-			"ows_title" "Árboles"
-		END  # Metadata 
-		CLASS
-			Name "Árboles"
-			COLOR 0 0 100
-			OUTLINECOLOR 0 0 100
-			SYMBOL 'circle' 
-			SIZE 8
-		END  # Class
-	END
-	
-	LAYER
-		NAME "palmeras"
-		TYPE POINT
-		STATUS ON
-		DATA "PALMERAS.shp"
-		TEMPLATE void
-		PROJECTION
-			#"init=epsg:4326"
-			"+proj=longlat +ellps=WGS84 +datum=WGS84 +units=m +no_defs no_defs"
-		END
-		METADATA
-			"DESCRIPTION" "Palmeras"
-#    ## ADAPTED TO MULTILINGUAL SHAPEFILE
-#    "RESULT_FIELDS" "ISOCODE,@default:NAME_EN@de:NAME_DE@it:NAME_IT@fr:NAME_FR@br:NAME_BR@es:NAME_ES,@default:CAPITAL_EN@de:CAPITAL_DE@it:CAPITAL_IT@fr:CAPITAL_FR@br:CAPITAL_BR@es:CAPITAL_ES,AREA_KM2,POPULATION"
-#    "RESULT_HEADERS" "ISO Code,Name,Capital,Area,Population"
-			"ows_title" "Palmeras"
-		END  # Metadata 
-		CLASS
-			Name "Palmeras"
-			COLOR 100 100 0
-			OUTLINECOLOR 0 0 100
-			SYMBOL 'square' 
-			SIZE 8
-		END  # Class
-	END
-	
-	LAYER
-		NAME "arbustos"
-		TYPE POINT
-		STATUS ON
-		DATA "ARBUSTOS.shp"
-		TEMPLATE void
-		PROJECTION
-			#"init=epsg:4326"
-			"+proj=longlat +ellps=WGS84 +datum=WGS84 +units=m +no_defs no_defs"
-		END
-		METADATA
-			"DESCRIPTION" "arbustos"
-#    ## ADAPTED TO MULTILINGUAL SHAPEFILE
-#    "RESULT_FIELDS" "ISOCODE,@default:NAME_EN@de:NAME_DE@it:NAME_IT@fr:NAME_FR@br:NAME_BR@es:NAME_ES,@default:CAPITAL_EN@de:CAPITAL_DE@it:CAPITAL_IT@fr:CAPITAL_FR@br:CAPITAL_BR@es:CAPITAL_ES,AREA_KM2,POPULATION"
-#    "RESULT_HEADERS" "ISO Code,Name,Capital,Area,Population"
-			"ows_title" "Arbustos"
-		END  # Metadata 
-		CLASS
-			Name "Arbustos"
-			COLOR 100 0 0
-			OUTLINECOLOR 0 0 100
-			SYMBOL 'square' 
-			SIZE 8
-		END  # Class
-	END
-	
-
-
- 
-##
-## Start of Layer Countries.shp
-##
-#LAYER
-#  NAME "countries"
-#  TYPE polygon
-#  DATA "countries"
-#  TRANSPARENCY 30
-#  TEMPLATE void
-#  PROJECTION
-#    #"init=epsg:4326"
-#    "+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs  no_defs"
-#  END
-#  METADATA 
-#    "DESCRIPTION" "Countries"
-#    ## ADAPTED TO MULTILINGUAL SHAPEFILE
-#    "RESULT_FIELDS" "ISOCODE,@default:NAME_EN@de:NAME_DE@it:NAME_IT@fr:NAME_FR@br:NAME_BR@es:NAME_ES,@default:CAPITAL_EN@de:CAPITAL_DE@it:CAPITAL_IT@fr:CAPITAL_FR@br:CAPITAL_BR@es:CAPITAL_ES,AREA_KM2,POPULATION"
-#    "RESULT_HEADERS" "ISO Code,Name,Capital,Area,Population"
-#    "ows_title"      "countries"
-#  END  # Metadata 
-#  CLASS
-#    Name 'Countries'
-#    COLOR 200 254 199
-#    OUTLINECOLOR 0 0 0
-#  END  # Class
-#END  # Layer
-
-
-
-#LAYER
-#  NAME "cities10000eu" 
-#  TYPE point
-#  DATA "cities10000eu"
-#  TOLERANCE 6
-#  TOLERANCEUNITS pixels
-#  LABELITEM "NAME"
-#  LABELMAXSCALE 8000000
-#  TEMPLATE void
-#  PROJECTION
-#    #"init=epsg:4326"
-#    "+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs  no_defs"
-#  END
-#  METADATA 
-#    "DESCRIPTION" "Cities"
-#    "RESULT_FIELDS" "NAME, ISO2_CODE, POPULATION, GTOPO30"
-#    "RESULT_HEADERS" "Name,Country,Inhabitants,Altitude"
-#    "RESULT_HYPERLINK" "NAME"
-#    "LAYER_ENCODING" "UTF-8"
-#    "ows_title"      "cities1000"
-#  END  # Metadata  
+    NAME "zonas"
+    TYPE POLYGON
+    STATUS ON
+    DATA "ZONAS.shp"
+    TEMPLATE VOID
+    PROJECTION
+      "init=epsg:3042"
+    END
+    METADATA
+      "DESCRIPTION" "Zonas verdes"
+      "RESULT_FIELDS" "COD_ZONA, NOMB_ZONA, NOMB_JARD, VIA, SUPERF, TIPOLO_SUP, TELECONTRO, TIPO_RIEGO"
+      "RESULT_HEADERS" "Código de la zona, Nombre de la zona, Nombre del jardín, Lugar, Superficie, Tipología de superficie, Telecontrol, Tipo de riego"
+      "ows_title" "Zonas verdes"
+    END
+    CLASS
+      NAME "Zonas verdes"
+      STYLE
+        COLOR 0 200 0
+        OPACITY 40
+        OUTLINECOLOR 0 0 0
+      END
+    END
+  END
   
-#  CLASS
-#    NAME "> 1'000'000"
-#    EXPRESSION ([POPULATION] > 1000000)
-#    COLOR 255 0 0 
-#    OUTLINECOLOR 0 0 0 
-#    SYMBOL 'square' 
-#    SIZE 9
-#    LABEL
-#      POSITION Auto
-#      COLOR 0 0 150 
-#      BUFFER 2
-#      TYPE truetype
-#      ENCODING "UTF-8"
-#      FONT FreeSans
-#      SIZE 8
-#      MAXSIZE 9
-#      #SIZE small
-#    END #Label  
-#  END  # Class
-#  CLASS
-#    NAME "500'000 - 1'000'000"
-#    EXPRESSION ([POPULATION] <= 1000000 AND [POPULATION] > 500000)
-#    COLOR 255 0 0
-#    SYMBOL 'circle' 
-#    SIZE 8
-#    LABEL
-#      POSITION Auto
-#      COLOR 0 0 150 
-#      BUFFER 2
-#      TYPE truetype
-#      ENCODING "UTF-8"
-#      FONT FreeSans
-#      SIZE 8
-#      MAXSIZE 9
-#      #SIZE small
-#    END #Label  
-#  END  # Class
-#  CLASS
-#    NAME "100'000 - 500'000"
-#    EXPRESSION ([POPULATION] <= 500000 AND [POPULATION] > 100000)
-#    COLOR 255 0 0
-#    SYMBOL 'square' 
-#    SIZE 5
-#  END  # Class
-#  CLASS
-#    NAME "50'000 - 100'000"
-#    EXPRESSION ([POPULATION] <= 100000 AND [POPULATION] > 50000)
-#    COLOR 0 0 0
-#    SYMBOL 'square' 
-#    SIZE 4
-#    #MAXSCALE 20000000
-#  END  # Class
-#  CLASS
-#    NAME "10'000 - 50'000"
-#    EXPRESSION ([POPULATION] <= 50000 AND [POPULATION] > 10000)
-#    COLOR 100 100 100
-#    SYMBOL 'circle' 
-#    SIZE 3
-#    #MAXSCALE 10000000
-#  END  # Class
-#
-#END  # Layer
-
-
-##
-## Start of Layer Rivers.shp
-##
-#LAYER
-#  NAME "rivers"
-#  TYPE line
-#  DATA "rivers"
-#  TOLERANCE 3
-#  TOLERANCEUNITS pixels
-#  TEMPLATE void
-#  PROJECTION
-#    #"init=epsg:4326"
-#    "+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs  no_defs"
-#  END
-#  METADATA 
-#    "DESCRIPTION" "Rivers"
-#    "RESULT_FIELDS" "NAME"
-#    "RESULT_HEADERS" "Name"
-#    "ows_title"      "cities"
-#  END  # Metadata 
-#  CLASS
-#    Name 'Rivers'
-#    COLOR 0 0 255
-#  END  # Class
-#END  # Layer
-
-
-
-
+  # *****************************************************************************
+  # DEFINICIÓN DE CAPA - ZONAS DE ALBERO DE LOS JARDINES EN FORMATO 'SHP'
+  # *****************************************************************************
+  LAYER
+    NAME "albero"
+    TYPE POLYGON
+    STATUS ON
+    DATA "ALVEROS.shp"
+    TEMPLATE VOID
+    PROJECTION
+      "init=epsg:3042"
+    END
+    METADATA
+      "DESCRIPTION" "Zona de albero"
+      "RESULT_FIELDS" "COD_ZONA, NOMB_ZONA, NOMB_JARD, VIA, SUPERF"
+      "RESULT_HEADERS" "Código de la zona, Nombre de la zona, Nombre del jardín, Lugar, Superficie"
+	  "ows_title" "Zona de albero"
+    END
+    CLASS
+      NAME "Zona de albero"
+      STYLE
+        COLOR 250 200 50
+	    OPACITY 40
+        OUTLINECOLOR 0 0 0
+      END
+    END
+  END
+  
+  # *****************************************************************************
+  # DEFINICIÓN DE CAPA - ZONAS DE FLORES DE LOS JARDINES EN FORMATO 'SHP'
+  # *****************************************************************************
+  LAYER
+    NAME "flores"
+    TYPE POLYGON
+    STATUS ON
+    DATA "FLOR TEMPORADA.shp"
+    TEMPLATE VOID
+    PROJECTION
+      "init=epsg:3042"
+    END
+    METADATA
+      "DESCRIPTION" "Macizos florales"
+      "RESULT_FIELDS" "COD_ZONA, SUP, FLOR_TEMP"
+      "RESULT_HEADERS" "Código de la zona, Superficie, Flor de temporada"
+	  "ows_title" "Macizos florales"
+    END
+    CLASS
+      NAME "Macizos florales"
+      STYLE
+        COLOR 140 0 0
+	    OPACITY 80
+        OUTLINECOLOR 0 0 0
+      END
+    END
+  END
+  
+  # *****************************************************************************
+  # DEFINICIÓN DE CAPA - ZONAS DE MASAS ARBUSTIVAS DE LOS JARDINES EN FORMATO 'SHP'
+  # *****************************************************************************
+  LAYER
+    NAME "masas_arbustos"
+    TYPE POLYGON
+    STATUS ON
+    DATA "MASA ARBUSTIVA.shp"
+    TEMPLATE VOID
+    PROJECTION
+      "init=epsg:3042"
+    END
+    METADATA
+      "DESCRIPTION" "Masas arbustivas"
+      "RESULT_FIELDS" "CIENTIFICO, NOM_COMUN, FECHA_PLAN, COD_ZONA, VIA"
+      "RESULT_HEADERS" "Nombre científico, Nombre común, Fecha de plantación, Código de la zona, Lugar"
+	  "ows_title" "Masas arbustivas"
+    END
+    CLASS
+      NAME "Masas arbustivas"
+      STYLE
+        COLOR 0 40 10
+	    OPACITY 80
+        OUTLINECOLOR 150 150 150
+      END
+    END
+  END
+  
+  # *****************************************************************************
+  # DEFINICIÓN DE CAPA - ÁREAS DE PARQUES Y JARDINES EN FORMATO 'SHP'
+  # *****************************************************************************
+  LAYER
+    NAME "jardines"
+    TYPE POLYGON
+    STATUS ON
+    DATA "JARDIN.shp"
+    TEMPLATE VOID
+    PROJECTION
+      "init=epsg:3042"
+    END
+    METADATA
+      "DESCRIPTION" "Jardines"
+      "RESULT_FIELDS" "NOMB_JARD, SUP_JARD, SUP_TOT_ZO, DISTRITO, TIPO_JARD, VIA"
+      "RESULT_HEADERS" "Nombre del jardín, Superficie del jardín, Superficie total de las zonas, Distrito, Tipo de jardín, Lugar"
+      "ows_title" "Jardines"
+    END
+    CLASS
+      NAME "Jardines"
+      STYLE
+        COLOR 0 80 0
+        OPACITY 20
+      END
+      STYLE
+        OPACITY 100
+        OUTLINECOLOR 250 250 250
+        WIDTH 2.0
+      END
+    END
+  END
+  
+  # ----------------------------------------------------------------------------- 
+  # B.3- SECCIÓN DE DEFINICIONES DE LAS CAPAS DE FLORA DEL MAPA (LÍNEAS)
+  # -----------------------------------------------------------------------------
+  
+  # *****************************************************************************
+  # DEFINICIÓN DE CAPA - LOCALIZACIÓN Y TIPOS DE LOS SETOS EN FORMATO 'SHP'
+  # *****************************************************************************
+  LAYER
+    NAME "setos"
+    TYPE LINE
+    STATUS ON
+    DATA "SETO.shp"
+    TEMPLATE VOID
+    PROJECTION
+      "init=epsg:3042"
+    END
+    METADATA
+      "DESCRIPTION" "Setos"
+      "RESULT_FIELDS" "CIENTIFICO, COMUN, COD_ZONA, FECHA_PLAN, LONGITUD, VIA"
+      "RESULT_HEADERS" "Nombre científico, Nombre común, Código de la zona, Fecha de plantación, Longitud del seto, Lugar"
+      "ows_title" "Setos"
+    END
+    CLASS
+      NAME "Setos"
+      STYLE
+        COLOR 0 50 0
+        OPACITY 100
+        WIDTH 4.0
+      END
+    END
+  END
+  
+  # ----------------------------------------------------------------------------- 
+  # B.4- SECCIÓN DE DEFINICIONES DE LAS CAPAS DE FLORA DEL MAPA (PUNTOS)
+  # -----------------------------------------------------------------------------
+  
+  # *****************************************************************************
+  # DEFINICIÓN DE CAPA - LOCALIZACIÓN Y TIPOS DE LOS ÁRBOLES EN FORMATO 'SHP'
+  # *****************************************************************************	
+  LAYER
+    NAME "arboles"
+    TYPE POINT
+    STATUS ON
+    DATA "ARBOLES.shp"
+    TEMPLATE VOID
+    PROJECTION
+      "init=epsg:3042"
+    END
+    METADATA
+      "DESCRIPTION" "Árboles"
+      "RESULT_FIELDS" "CIENTIFICO, COMUN, FENLOGIA, EJEMPLAR, ENFERMO, COD_ZONA, FECHA_PLAN, VIA"
+      "RESULT_HEADERS" "Nombre científico, Nombre común, Fenología, Ejemplar, Enfermo, Código de la zona, Fecha de plantación, Lugar"
+      "ows_title" "Árboles"
+    END
+    CLASS
+      NAME "Árboles"
+      STYLE
+        SYMBOL 'imagen_arbolicos'
+        SIZE 14
+      END
+    END
+  END
+  
+  # *****************************************************************************
+  # DEFINICIÓN DE CAPA - LOCALIZACIÓN Y TIPOS DE LAS PALMERAS EN FORMATO 'SHP'
+  # *****************************************************************************	
+  LAYER
+    NAME "palmeras"
+    TYPE POINT
+    STATUS ON
+    DATA "PALMERAS.shp"
+    TEMPLATE VOID
+    PROJECTION
+      "init=epsg:3042"
+    END
+    METADATA
+      "DESCRIPTION" "Palmeras"
+      "RESULT_FIELDS" "CIENTIFICO, COMUN, FENLOGIA, EJEMPLAR, ENFERMO, COD_ZONA, FECHA_PLAN, VIA"
+      "RESULT_HEADERS" "Nombre científico, Nombre común, Fenología, Ejemplar, Enfermo, Código de la zona, Fecha de plantación, Lugar"
+      "ows_title" "Palmeras"
+    END
+    CLASS
+      NAME "Palmeras"
+      STYLE
+        SYMBOL 'imagen_palmericas'
+        SIZE 16
+      END
+    END
+  END
+  
+  # *****************************************************************************
+  # DEFINICIÓN DE CAPA - LOCALIZACIÓN Y TIPOS DE LOS ARBUSTOS EN FORMATO 'SHP'
+  # *****************************************************************************	
+  LAYER
+    NAME "arbustos"
+    TYPE POINT
+    STATUS ON
+    DATA "ARBUSTOS.shp"
+    TEMPLATE VOID
+    PROJECTION
+      "init=epsg:3042"
+    END
+    METADATA
+      "DESCRIPTION" "Arbustos"
+      "RESULT_FIELDS" "CIENTIFICO, COMUN, FENLOGIA, EJEMPLAR, ENFERMO, COD_ZONA, FECHA_PLAN, VIA"
+      "RESULT_HEADERS" "Nombre científico, Nombre común, Fenología, Ejemplar, Enfermo, Código de la zona, Fecha de plantación, Lugar"
+      "ows_title" "Arbustos"
+    END
+    CLASS
+      NAME "Arbustos"
+      STYLE
+        SYMBOL 'imagen_arbusticos'
+        SIZE 12
+      END
+    END
+  END
+  
+  # *****************************************************************************
+  # FIN DE LA DEFINICIÓN DEL MAPA
+  # *****************************************************************************
 END

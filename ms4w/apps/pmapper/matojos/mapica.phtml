@@ -128,9 +128,9 @@ header("Content-type: text/html; charset=$defCharset");
 								.top(0)
                                 //.left($('#uiLayoutWest').outerWidth({margin:false}));
 								.left($('#uiLayoutWest').width());
-            $('#uiLayoutEast').height(mH).top(northH);
-            $('#toc, #toclegend').height(mH - $('#refmap').height() - $('#toc').itop() - 8);
-                                
+            $('#uiLayoutWest').height(mH).top(northH);
+			$('#toc, #toclegend').height(mH - $('#leyenda').offset().top - 40);//40 es la suma de los márgenes de los elementos de cabecera y la propia leyenda
+            
             PM.Layout.resizeMapZone();
         }
         

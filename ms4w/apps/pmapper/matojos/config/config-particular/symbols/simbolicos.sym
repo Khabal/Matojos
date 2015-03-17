@@ -1,24 +1,30 @@
-# Symbols for use in p.mapper
+# *****************************************************************************
+# DEFINICIÓN DEL CONJUNTO DE SÍMBOLOS
+# *****************************************************************************
 SYMBOLSET
-
-# ***************************************
-# SÍMBOLOS BASE NECESARIOS Y OLBIGATORIOS
-# ***************************************
-
+  
+  # ============================================================================= 
+  # A.1- SECCIÓN DE DEFINICIONES DE SÍMBOLOS GENERALES 'OLBIGATORIAS'
+  # =============================================================================
+  
+  # *****************************************************************************
+  # SÍMBOLOS BASE NECESARIOS Y OLBIGATORIOS
+  # *****************************************************************************
+  
   SYMBOL
-    Name 'circle'
-    Type ELLIPSE
-    Filled TRUE
-    Points
+    NAME 'circle'
+    TYPE ELLIPSE
+    FILLED TRUE
+    POINTS
       1 1
     END
   END 
-
+  
   SYMBOL
-    Name 'square'
-    Type VECTOR
-    Filled TRUE
-    Points
+    NAME 'square'
+    TYPE VECTOR
+    FILLED TRUE
+    POINTS
       0 1
       0 0
       1 0
@@ -26,326 +32,42 @@ SYMBOLSET
       0 1
     END
   END
-
-# ***************************************
-# IMÁGENES DE LOS ÁRBOLES
-# ***************************************
-  SYMBOL
-    NAME 'abetos_y_araucarias'
-    TYPE pixmap
-    IMAGE 'arbolicos/abetos_y_araucarias.png'
-  END
+  
+  # ============================================================================= 
+  # A.2- SECCIÓN DE DEFINICIONES DE SÍMBOLOS DE IMÁGENES PARA LA FLORA
+  # =============================================================================
+  
+  # *****************************************************************************
+  # IMAGEN PARA ÁRBOLES (PARA TODOS LOS ÁRBOLES INDIFERENTEMENTE DE LA ESPECIE)
+  # *****************************************************************************
   
   SYMBOL
-    NAME 'acacias'
-    TYPE pixmap
-    IMAGE 'arbolicos/acacias.png'
+    NAME 'imagen_arbolicos'
+    TYPE PIXMAP
+    IMAGE 'arbol.png'
   END
+  
+  # *****************************************************************************
+  # IMAGEN PARA ARBUSTOS (PARA TODOS LOS ARBUSTOS INDIFERENTEMENTE DE LA ESPECIE)
+  # *****************************************************************************
   
   SYMBOL
-    NAME 'coniferas_hoja_escamosa'
-    TYPE pixmap
-    IMAGE 'arbolicos/coniferas_hoja_escamosa.png'
+    NAME 'imagen_arbusticos'
+    TYPE PIXMAP
+    IMAGE 'arbusto.png'
   END
+  
+  # *****************************************************************************
+  # IMAGEN PARA PALMERAS (PARA TODOS LAS PALMERAS INDIFERENTEMENTE DE LA ESPECIE)
+  # *****************************************************************************
   
   SYMBOL
-    NAME 'coniferas_hoja_acicular'
-    TYPE pixmap
-    IMAGE 'arbolicos/coniferas_hoja_acicular.png'
+    NAME 'imagen_palmericas'
+    TYPE PIXMAP
+    IMAGE 'palmera.png'
   END
   
-  SYMBOL
-    NAME 'ficus'
-    TYPE pixmap
-    IMAGE 'arbolicos/ficus.png'
-  END
-  
-  SYMBOL
-    NAME 'frondosos_caducos'
-    TYPE pixmap
-    IMAGE 'arbolicos/frondosos_caducos.png'
-  END
-  
-  SYMBOL
-    NAME 'frondosos_caducos_con_flor'
-    TYPE pixmap
-    IMAGE 'arbolicos/frondosos_caducos_con_flor.png'
-  END
-  
-  SYMBOL
-    NAME 'frondosos_caducos_porte_pequeño'
-    TYPE pixmap
-    IMAGE 'arbolicos/frondosos_caducos_porte_pequeño.png'
-  END
-  
-  SYMBOL
-    NAME 'frondosos_perennes'
-    TYPE pixmap
-    IMAGE 'arbolicos/frondosos_perennes.png'
-  END
-  
-  SYMBOL
-    NAME 'frondosos_perennes_con_flor'
-    TYPE pixmap
-    IMAGE 'arbolicos/frondosos_perennes_con_flor.png'
-  END
-  
-  SYMBOL
-    NAME 'frondosos_perennes_porte_pequeño'
-    TYPE pixmap
-    IMAGE 'arbolicos/frondosos_perennes_porte_pequeño.png'
-  END
-  
-  SYMBOL
-    NAME 'frutales'
-    TYPE pixmap
-    IMAGE 'arbolicos/frutales.png'
-  END
-  
-  SYMBOL
-    NAME 'frutales_hoja_roja'
-    TYPE pixmap
-    IMAGE 'arbolicos/frutales_hoja_roja.png'
-  END
-  
-  SYMBOL
-    NAME 'resto_arboles'
-    TYPE pixmap
-    IMAGE 'arbolicos/resto_arboles.png'
-  END
-  
-# ***************************************
-# IMÁGENES DE LOS ARBUSTOS
-# ***************************************
-  SYMBOL
-    NAME 'agaves_y_similares'
-    TYPE pixmap
-    IMAGE 'arbusticos/agaves_y_similares.png'
-  END
-  
-  SYMBOL
-    NAME 'bambues_y_cañas'
-    TYPE pixmap
-    IMAGE 'arbusticos/bambues_y_cañas.png'
-  END
-  
-  SYMBOL
-    NAME 'cactus_y_crasas'
-    TYPE pixmap
-    IMAGE 'arbusticos/cactus_y_crasas.png'
-  END
-  
-  SYMBOL
-    NAME 'caducos'
-    TYPE pixmap
-    IMAGE 'arbusticos/caducos.png'
-  END
-  
-  SYMBOL
-    NAME 'caducos_flor_amarilla'
-    TYPE pixmap
-    IMAGE 'arbusticos/caducos_flor_amarilla.png'
-  END
-  
-  SYMBOL
-    NAME 'caducos_flor_rosada'
-    TYPE pixmap
-    IMAGE 'arbusticos/caducos_flor_rosada.png'
-  END
-  
-  SYMBOL
-    NAME 'cintas'
-    TYPE pixmap
-    IMAGE 'arbusticos/cintas.png'
-  END
-  
-  SYMBOL
-    NAME 'estrelitzias'
-    TYPE pixmap
-    IMAGE 'arbusticos/estrelitzias.png'
-  END
-  
-  SYMBOL
-    NAME 'filodendros'
-    TYPE pixmap
-    IMAGE 'arbusticos/filodendros.png'
-  END
-  
-  SYMBOL
-    NAME 'helechos_y_cicas'
-    TYPE pixmap
-    IMAGE 'arbusticos/helechos_y_cicas.png'
-  END
-  
-  SYMBOL
-    NAME 'herbaceos'
-    TYPE pixmap
-    IMAGE 'arbusticos/herbaceos.png'
-  END
-  
-  SYMBOL
-    NAME 'hibiscos'
-    TYPE pixmap
-    IMAGE 'arbusticos/hibiscos.png'
-  END
-  
-  SYMBOL
-    NAME 'mediterraneo'
-    TYPE pixmap
-    IMAGE 'arbusticos/mediterraneo.png'
-  END
-  
-  SYMBOL
-    NAME 'perennes'
-    TYPE pixmap
-    IMAGE 'arbusticos/perennes.png'
-  END
-  
-  SYMBOL
-    NAME 'perennes_flor_amarilla'
-    TYPE pixmap
-    IMAGE 'arbusticos/perennes_flor_amarilla.png'
-  END
-  
-  SYMBOL
-    NAME 'perennes_flor_blanca'
-    TYPE pixmap
-    IMAGE 'arbusticos/perennes_flor_blanca.png'
-  END
-  
-  SYMBOL
-    NAME 'perennes_flor_roja'
-    TYPE pixmap
-    IMAGE 'arbusticos/perennes_flor_roja.png'
-  END
-  
-  SYMBOL
-    NAME 'perennes_flor_rosada'
-    TYPE pixmap
-    IMAGE 'arbusticos/perennes_flor_rosada.png'
-  END
-  
-  SYMBOL
-    NAME 'perennes_flor_violeta'
-    TYPE pixmap
-    IMAGE 'arbusticos/perennes_flor_violeta.png'
-  END
-  
-  SYMBOL
-    NAME 'perennes_hoja_roja'
-    TYPE pixmap
-    IMAGE 'arbusticos/perennes_hoja_roja.png'
-  END
-  
-  SYMBOL
-    NAME 'perennes_porte_pequeño'
-    TYPE pixmap
-    IMAGE 'arbusticos/perennes_porte_pequeño.png'
-  END
-  
-  SYMBOL
-    NAME 'porte_arboreo_perennes'
-    TYPE pixmap
-    IMAGE 'arbusticos/porte_arboreo_perennes.png'
-  END
-  
-  SYMBOL
-    NAME 'porte_arboreo_perennes_flor_blanca'
-    TYPE pixmap
-    IMAGE 'arbusticos/porte_arboreo_perennes_flor_blanca.png'
-  END
-  
-  SYMBOL
-    NAME 'porte_arboreo_perennes_flor_rosada'
-    TYPE pixmap
-    IMAGE 'arbusticos/porte_arboreo_perennes_flor_rosada.png'
-  END
-  
-  SYMBOL
-    NAME 'rosales'
-    TYPE pixmap
-    IMAGE 'arbusticos/rosales.png'
-  END
-  
-  SYMBOL
-    NAME 'trepadores'
-    TYPE pixmap
-    IMAGE 'arbusticos/trepadores.png'
-  END
-  
-# ***************************************
-# IMÁGENES DE LAS PALMERAS
-# ***************************************
-  SYMBOL
-    NAME 'palmitos_y_similares'
-    TYPE pixmap
-    IMAGE 'palmericas/palmitos_y_similares.png'
-  END
-  
-  SYMBOL
-    NAME 'phoenix'
-    TYPE pixmap
-    IMAGE 'palmericas/phoenix.png'
-  END
-  
-  SYMBOL
-    NAME 'phoenix_pequeñas'
-    TYPE pixmap
-    IMAGE 'palmericas/phoenix_pequeñas.png'
-  END
-  
-  SYMBOL
-    NAME 'resto_palmeras'
-    TYPE pixmap
-    IMAGE 'palmericas/resto_palmeras.png'
-  END
-  
-  SYMBOL
-    NAME 'washingtonia'
-    TYPE pixmap
-    IMAGE 'palmericas/washingtonia.png'
-  END
-  
-  SYMBOL
-    NAME 'yucas_y_similares'
-    TYPE pixmap
-    IMAGE 'palmericas/yucas_y_similares.png'
-  END
-  
-# ***************************************
-# IMÁGENES DE LAS FLORES
-# ***************************************
-  
-  SYMBOL
-    NAME 'flores_temporada'
-    TYPE pixmap
-    IMAGE 'florecicas/flores_temporada.png'
-  END
-  
-  SYMBOL
-    NAME 'macizos_aromaticos'
-    TYPE pixmap
-    IMAGE 'florecicas/macizos_aromaticos.png'
-  END
-  
-  SYMBOL
-    NAME 'macizos_arbustivos'
-    TYPE pixmap
-    IMAGE 'florecicas/macizos_arbustivos.png'
-  END
-  
-# ***************************************
-# IMÁGENES DE LOS SETOS
-# ***************************************
-  
-  SYMBOL
-    NAME 'resto_setos'
-    TYPE pixmap
-    IMAGE 'seticos/resto_setos.png'
-  END
-  
-# ***************************************
-# FIN DE LAS DEFINICIONES DE SÍMBOLOS
-# ***************************************
-
+  # *****************************************************************************
+  # FIN DE LAS DEFINICIONES DE SÍMBOLOS
+  # *****************************************************************************
 END

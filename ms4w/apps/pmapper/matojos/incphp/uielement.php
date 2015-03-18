@@ -221,23 +221,35 @@ class UiElement{
         return $html;
     }
     
-   /**
-    * Search form 
-    */
-    public static function searchContainer($style)
-    {
-        $html  = "<div id=\"searchContainer\">";
-        $html .= "<form id=\"searchForm\" action=\"blank.html\" onsubmit=\"PM.Query.submitSearch()\" onkeypress=\"return PM.Query.disableEnterKey(event)\">";
-        $html .= "<table width=\"100%\" class=\"pm-searchcont pm-toolframe\" border=\"0\" cellspacing=\"0\" cellpadding=\"0\">";
-        $html .= "<tr>";  
-        $html .= "<td id=\"searchoptions\" class=\"pm-searchoptions\" style=\"padding:0px 8px\"></td>";  
-        if ($style == "block") $html .= "</tr><tr>";    
-        $html .= "<td id=\"searchitems\" class=\"pm_search_$style\"></td>";
-        $html .= "</tr>";  
-        $html .= "</table>";
-        $html .= "</form>";
-        $html .= "</div>";
-        
+	/**
+	 * Panel central - Cuadro de búsqueda de elementos en el mapa
+	 */
+	public static function PC_CuadroBusqueda() {
+		// Datos
+		
+		// Código HTML
+		$html  = "<div id=\"searchContainer\">
+					<form id=\"searchForm\" action=\"blank.html\" onsubmit=\"PM.Query.submitSearch()\" onkeypress=\"return PM.Query.disableEnterKey(event)\">
+						<div id=\"tipo-buscar\">Parques</div>
+						<div class=\"lista-desplegable-buscar\" style=\"visibility:hidden;\">
+							<ul id=\"lista-buscar\">
+								<li><div id=\"olisqueo1\" value=\"1\">Parques y jardines</div></li>
+								<li><div id=\"olisqueo2\" value=\"2\">Árboles (Nombre común o científico)</div></li>
+								<li><div id=\"olisqueo3\" value=\"3\">Palmeras (Nombre común o científico)</div></li>
+								<li><div id=\"olisqueo4\" value=\"4\">Arbustos (Nombre común o científico)</div></li>
+								<li><div id=\"olisqueo5\" value=\"5\">Flores (Nombre común o científico)</div></li>
+							</ul>
+						</div>
+						<div class=\"flechita-elementos-buscar\"></div>
+						<div id=\"zona-texto-buscar\">
+							<input id=\"TextoBuscar\" type=\"text\" name=\"TextoBuscar\" placeholder=\"Introduzca el término de búsqueda\" value=\"\" autocomplete=\"on\" style=\"display: block;\">
+						</div>
+						<div id=\"zona-boton-buscar\">
+							<input class=\"boton-buscar\" type=\"submit\" name=\"Buscar\" value=\"\">
+						</div>
+					</form>
+				</div>";
+		
 		//Núcleos, prques, jardines, árboles...
 		// Desplegable
 		// <div id="flechitaTipoDeBusqueda"></div>
@@ -261,30 +273,30 @@ class UiElement{
 // </div>
 // </div>
 
-        $html  = "<div id=\"searchContainer\">";
-        $html .= "<form id=\"searchForm\" action=\"blank.html\" onsubmit=\"PM.Query.submitSearch()\" onkeypress=\"return PM.Query.disableEnterKey(event)\">";
+        // $html  = "<div id=\"searchContainer\">";
+        // $html .= "<form id=\"searchForm\" action=\"blank.html\" onsubmit=\"PM.Query.submitSearch()\" onkeypress=\"return PM.Query.disableEnterKey(event)\">";
         //$html .= "<table width=\"100%\" class=\"pm-searchcont pm-toolframe\" border=\"0\" cellspacing=\"0\" cellpadding=\"0\">";
-		$html .= "<div id=\"dropdownTipoDeBusqueda\">";
-        $html .= " <div id=\"flechitaTipoDeBusqueda\"></div>";
-        $html .= " <div id=\"inputTipoDeBusqueda\" name=\"inputTipoDeBusqueda\" style=\"-moz-user-select: none;\">Parques y jardines</div><div id=\"tipoDeBusquedaListado\">
-		<ul id=\"ulTipoDeBusquedaListado\">
-		<li><div id=\"TipoDeBusqueda1\" value=\"1\">Parques y jardines</div></li>
-		<li><div id=\"TipoDeBusqueda2\" value=\"2\">Árboles (Nombre común o científico)</div></li>
-		<li><div id=\"TipoDeBusqueda2\" value=\"3\">Palmeras (Nombre común o científico)</div></li>
-		<li><div id=\"TipoDeBusqueda2\" value=\"4\">Arbustos (Nombre común o científico)</div></li>
-		<li><div id=\"TipoDeBusqueda2\" value=\"5\">Flores (Nombre común o científico)</div></li></ul></div></div>";
+		// $html .= "<div id=\"dropdownTipoDeBusqueda\">";
+        // $html .= " <div id=\"flechitaTipoDeBusqueda\"></div>";
+        // $html .= " <div id=\"inputTipoDeBusqueda\" name=\"inputTipoDeBusqueda\" style=\"-moz-user-select: none;\">Parques y jardines</div><div id=\"tipoDeBusquedaListado\">
+		// <ul id=\"ulTipoDeBusquedaListado\">
+		// <li><div id=\"TipoDeBusqueda1\" value=\"1\">Parques y jardines</div></li>
+		// <li><div id=\"TipoDeBusqueda2\" value=\"2\">Árboles (Nombre común o científico)</div></li>
+		// <li><div id=\"TipoDeBusqueda2\" value=\"3\">Palmeras (Nombre común o científico)</div></li>
+		// <li><div id=\"TipoDeBusqueda2\" value=\"4\">Arbustos (Nombre común o científico)</div></li>
+		// <li><div id=\"TipoDeBusqueda2\" value=\"5\">Flores (Nombre común o científico)</div></li></ul></div></div>";
         //$html .= "<tr>";  
         //$html .= "<td id=\"searchoptions\" class=\"pm-searchoptions\" style=\"padding:0px 8px\"></td>";  
         //if ($style == "block") $html .= "</tr><tr>";    
         //$html .= "<td id=\"searchitems\" class=\"pm_search_$style\"></td>";
         //$html .= "</tr>";  
         //$html .= "</table>";
-		$html .= "<div id=\"divBuscarDireccion\">";
-            $html .= "<input type=\"submit\" name=\"BuscarDireccion\" value=\"\" class=\"buttonBuscar\" id=\"BuscarDireccion\">";
-            $html .= "</div>";
-        $html .= "</form>";
-        $html .= "</div>";
-
+		// $html .= "<div id=\"divBuscarDireccion\">";
+            // $html .= "<input type=\"submit\" name=\"BuscarDireccion\" value=\"\" class=\"buttonBuscar\" id=\"BuscarDireccion\">";
+            // $html .= "</div>";
+        // $html .= "</form>";
+        // $html .= "</div>";
+/****************************/
         // $html  = "<div id=\"searchContainer\">";
         // $html .= "<form id=\"searchForm\" action=\"blank.html\" onsubmit=\"PM.Query.submitSearch()\" onkeypress=\"return PM.Query.disableEnterKey(event)\">";
         // $html .= "<table width=\"100%\" class=\"pm-searchcont pm-toolframe\" border=\"0\" cellspacing=\"0\" cellpadding=\"0\">";
@@ -296,9 +308,10 @@ class UiElement{
         // $html .= "</table>";
         // $html .= "</form>";
         // $html .= "</div>";
-        
-        return $html;
-    }
+/****************************/
+		// Devolver código HTML
+		return $html;
+	}
     
    /**
     * Scaleform with scale options

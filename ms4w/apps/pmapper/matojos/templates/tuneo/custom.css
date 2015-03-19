@@ -13,6 +13,10 @@ input[type="text"]{
 	cursor:url(/matojos/images/punteros/escribir.cur), auto;
 }
 
+.negrita{
+	font-weight:bold;
+}
+
 /* Y. DIÁLOGOS */
 .jqmClose{
 	cursor:url(/matojos/images/punteros/mano-acusadora.cur), auto;
@@ -153,146 +157,86 @@ text-align:center;
 #searchContainer{
 	background-color:rgba(255, 255, 255, 0.75);
 	border:thin solid #477979;
-	color:#2f4f4f;
-	left:80px;
+	color:#2F4F4F;
+	font-family:verdana, arial, helvetica, sans-serif;
+	font-size:x-small;
+	height:32px;
+	left:100px;
 	padding:0;
 	position:absolute;
 	top:10px;
 	width:auto;
 	z-index:99;
-	height: 32px;
-	    font-family:verdana, arial, helvetica, sans-serif;
-    font-size: x-small;
-
-	
-    
-}
-
-#searchForm{
-	display:block;
-	margin:0;
-	padding:0;
 }
 
 #tipo-buscar{
-    -moz-user-select: none;
-
-    border: 0 none;
-    cursor: pointer;
-
-    font-weight: bold;
+	border:0 none;
+	cursor:url("/matojos/images/punteros/mano-acusadora.cur"), pointer;
+	font-weight:bold;
 	float:left;
-    margin-top: 8px;
-	padding-left: 6px;
-    overflow: hidden;
-    /*padding: 5px 10px;*/
-	/*padding: 50%;*/
-	/*margin:auto 50%;*/
-    /*position: relative;*/
-    text-align: left;
-    /*top: 5px;*/
-    width: 60px;
+	height:32px;
+	margin-top:9px;
+	padding-left:6px;
+	overflow:hidden;
+	text-align:left;
+	width:64px;
 }
 
 .flechita-elementos-buscar{
-	/*background: url("/matojos/img/images3.png?v=8.09") no-repeat scroll -88px -12px rgba(0, 0, 0, 0);*/
-	background: url("/matojos/images/botones/flechita.png") no-repeat scroll center center rgba(47, 79, 79, 0.75);
-	border: 0 none;
-    cursor: url("/matojos/images/punteros/mano-acusadora.cur"), pointer;
-	height: 32px;
+	background:url("/matojos/images/botones/flechita.png") no-repeat scroll center center rgba(47, 79, 79, 0.75);
+	border:0 none;
+	cursor:url("/matojos/images/punteros/mano-acusadora.cur"), pointer;
+	height:32px;
 	float:left;
-	/*position: relative;*/
-	/*right: 8px;
-	top: 15px;*/
-	width: 16px;
-	
-    
+	width:16px;
 }
 
 .lista-desplegable-buscar{
+	background-color:rgba(255, 255, 255, 0.75);
+	cursor:url("/matojos/images/punteros/mano-acusadora.cur"), pointer;
 	overflow:hidden;
-	display:none !important;
+	position:absolute;
+	left:0;
+	top:32px;
 }
 
-.lista-buscar{
-	font-size:11pt;
+#lista-buscar{
+	font-size:xx-small;
 	font-weight:normal;
 	list-style-type:none;
 	margin:0;
 	overflow:hidden;
 	padding:0;
 	text-align:left;
-	width:auto;
+	width:256px;
 }
 
-/****/
-#divTopSearch {
-    display: block;
-    /*left: 200px;*/
-    margin-left: 10px;
-    margin-top: 5px;
-    padding: 0;
-    /*position: absolute;
-    top: 22px;*/
-    z-index: 10000;
+#lista-buscar > li{
+    border-bottom:thin solid #477979;
+	border-left:thin solid #477979;
+	border-right:thin solid #477979;
+	padding:5px;
 }
 
-#formDireccion {
-    background-color: white;
-    border: 1px solid #374969;
-    border-radius: 2px;
-    box-shadow: 0 0 10px 0 rgba(50, 50, 50, 0.2);
-    display: block;
-    float: left;
-    margin-left: 0;
-    position: relative;
+#lista-buscar > li:hover{
+    background-color:rgba(47, 79, 79, 0.75);
+	color:rgba(255, 255, 255, 0.75);
 }
 
-#dropdownTipoDeBusqueda {
-    cursor: pointer;
-    display: block;
-    float: left;
-    height: 27px;
-    padding: 0;
-    position: relative;
-    width: 90px;
-}
-
-
-
-
-#BuscarDireccion {
-    /*background: url("/matojos/img/images3.png?v=7.80") no-repeat scroll -360px -93px rgba(0, 0, 0, 0);*/
-    border: 0 none;
-    border-radius: 1px;
-    cursor: pointer;
-    height: 32px;
-    margin: 0;
-    padding: 0;
-    vertical-align: top;
-    width: 52px;
-	
-}
-/********************/
 #zona-texto-buscar{
-	display:block;
 	float:left;
 	height:32px;
-	/*position:relative;*/
-	width:302px;
+	width:228px;
 }
 
 #TextoBuscar{
-    background: none repeat scroll 0 0 rgba(0, 0, 0, 0);
-    border: medium none;
-    display: inline;
-    float: left;
-    font-size: 8pt;
-    font-weight: normal;
-    height: 100%;
-    margin: 0;
-    padding: 0 4px;
-    width: 100%;
+	background:none repeat scroll 0 0 rgba(0, 0, 0, 0);
+	border:0 none;
+	float:left;
+	height:100%;
+	margin:0;
+	padding:0 4px;
+	width:100%;
 }
 
 #zona-boton-buscar{
@@ -304,9 +248,6 @@ text-align:center;
 	border:0 none;
 	cursor:url(/matojos/images/punteros/mano-acusadora.cur), pointer;
 	height:32px;
-	margin:0;
-	padding:0;
-	vertical-align:top;
 	width:42px;
 }
 

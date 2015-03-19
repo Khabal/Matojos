@@ -227,20 +227,36 @@ class UiElement{
 	public static function PC_CuadroBusqueda() {
 		// Datos
 		
+		// Código JS
+		$js = "<script type=\"text/javascript\"> function lista_buscar() {
+				if($('.lista-desplegable-buscar').css('visibility') == 'hidden') {
+					$('.lista-desplegable-buscar').css({visibility:'visible'});
+				}
+				else{
+					$('.lista-desplegable-buscar').css({visibility:'hidden'});
+				}
+			}
+			function pinchar_elemento_buscar(texto) {
+				$('#tipo-buscar').text(texto);
+				$('.lista-desplegable-buscar').css({visibility:'hidden'});
+			} </script>";
+		
 		// Código HTML
-		$html  = "<div id=\"searchContainer\">
+		$html = "<div id=\"searchContainer\">
 					<form id=\"searchForm\" action=\"blank.html\" onsubmit=\"PM.Query.submitSearch()\" onkeypress=\"return PM.Query.disableEnterKey(event)\">
-						<div id=\"tipo-buscar\">Parques</div>
+					<div onmouseout=\"javascript:$('.lista-desplegable-buscar').css({visibility:'hidden'});\" onmouseover=\"javascript:$('.lista-desplegable-buscar').css({visibility:'visible'});\">
+						<div id=\"tipo-buscar\" onclick=\"lista_buscar()\">Parques</div>
 						<div class=\"lista-desplegable-buscar\" style=\"visibility:hidden;\">
 							<ul id=\"lista-buscar\">
-								<li><div id=\"olisqueo1\" value=\"1\">Parques y jardines</div></li>
-								<li><div id=\"olisqueo2\" value=\"2\">Árboles (Nombre común o científico)</div></li>
-								<li><div id=\"olisqueo3\" value=\"3\">Palmeras (Nombre común o científico)</div></li>
-								<li><div id=\"olisqueo4\" value=\"4\">Arbustos (Nombre común o científico)</div></li>
-								<li><div id=\"olisqueo5\" value=\"5\">Flores (Nombre común o científico)</div></li>
+								<li><div id=\"olisqueo1\" value=\"1\" onclick=\"pinchar_elemento_buscar('Parques')\"><span class=\"negrita\">Parques y jardines</span></div></li>
+								<li><div id=\"olisqueo2\" value=\"2\" onclick=\"pinchar_elemento_buscar('Árboles')\"><span class=\"negrita\">Árboles</span> (Nombre común o científico)</div></li>
+								<li><div id=\"olisqueo3\" value=\"3\" onclick=\"pinchar_elemento_buscar('Palmeras')\"><span class=\"negrita\">Palmeras</span> (Nombre común o científico)</div></li>
+								<li><div id=\"olisqueo4\" value=\"4\" onclick=\"pinchar_elemento_buscar('Arbustos')\"><span class=\"negrita\">Arbustos</span> (Nombre común o científico)</div></li>
+								<li><div id=\"olisqueo5\" value=\"5\" onclick=\"pinchar_elemento_buscar('Flores')\"><span class=\"negrita\">Flores</span> (Nombre común o científico)</div></li>
 							</ul>
 						</div>
-						<div class=\"flechita-elementos-buscar\"></div>
+						<div class=\"flechita-elementos-buscar\" onclick=\"lista_buscar()\"></div>
+					</div>
 						<div id=\"zona-texto-buscar\">
 							<input id=\"TextoBuscar\" type=\"text\" name=\"TextoBuscar\" placeholder=\"Introduzca el término de búsqueda\" value=\"\" autocomplete=\"on\" style=\"display: block;\">
 						</div>
@@ -310,7 +326,7 @@ class UiElement{
         // $html .= "</div>";
 /****************************/
 		// Devolver código HTML
-		return $html;
+		return $js . $html;
 	}
     
    /**

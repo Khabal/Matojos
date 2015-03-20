@@ -127,11 +127,44 @@
     
     <searchlist version="1.0">
         <dataroot>$</dataroot>
-        <searchitem name="cities" description="City">
-            <layer type="shape" name="cities10000eu">
-                <field type="s" name="NAME" description="City"  wildcard="0" />
+        <searchitem name="jardines" description="Jardines">
+            <layer type="shape" name="jardines">
+                <field type="s" name="NOMB_JARD" description="Jardines" wildcard="0">
+                    <definition type="suggest" connectiontype="ms" minlength="1" startleft="1" sort="asc">
+                        <mslayer encoding="UTF-8"/>
+                    </definition>
+                </field> 
             </layer>
         </searchitem>
+        <searchitem name="arboles" description="Árboles">
+            <layer type="shape" name="arboles">
+                <field type="s" name="COMUN" description="Árboles" wildcard="0">
+                    <definition type="suggest" connectiontype="dbase" minlength="1" startleft="1" sort="asc">
+						<dbasefile encoding="UTF-8" searchfield="COMUN">$/ARBOLES.dbf</dbasefile>
+                    </definition>
+                </field> 
+            </layer>
+        </searchitem>
+        <searchitem name="palmeras" description="Palmeras">
+            <layer type="shape" name="palmeras">
+                <field type="s" name="COMUN" description="Palmeras" wildcard="0">
+                    <definition type="suggest" connectiontype="ms" minlength="1" startleft="1" sort="asc">
+                        <mslayer encoding="UTF-8"/>
+                    </definition>
+                </field> 
+            </layer>
+        </searchitem>
+        <searchitem name="arbustos" description="Arbustos">
+            <layer type="shape" name="arbustos">
+                <field type="s" name="COMUN" description="Arbustos" wildcard="0">
+                    <definition type="suggest" connectiontype="ms" minlength="1" startleft="1" sort="asc">
+                        <mslayer encoding="UTF-8"/>
+                    </definition>
+                </field> 
+            </layer>
+        </searchitem>
+		
+		
         <searchitem name="countries" description="Country">
             <layer type="shape" name="countries">
                 <field type="s" name="ISOCODE" description="Country" wildcard="2">

@@ -131,7 +131,7 @@ $.extend(PM.Form,
             var delim = (i>0 ? '&' : '');
             
             if (evalue && evalue.length > 0 && evalue != '#') {
-                //alert(etype + ' - ' + evalue);
+                alert(etype + ' - ' + evalue);
                 switch (etype) {
                     //case 'text':
                     case 'select-one':
@@ -167,7 +167,7 @@ $.extend(PM.Form,
                 }
             }
         }
-        //alert(s);
+        alert(s);
         return s;
     },
     

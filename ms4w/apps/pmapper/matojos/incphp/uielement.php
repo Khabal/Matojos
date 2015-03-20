@@ -236,8 +236,9 @@ class UiElement{
 					$('.lista-desplegable-buscar').css({visibility:'hidden'});
 				}
 			}
-			function pinchar_elemento_buscar(texto) {
+			function pinchar_elemento_buscar(texto, n) {
 				$('#tipo-buscar').text(texto);
+				$('#olisqueo').val($('#olisqueo' + n).attr('name'));
 				$('.lista-desplegable-buscar').css({visibility:'hidden'});
 			} </script>";
 		
@@ -248,24 +249,26 @@ class UiElement{
 						<div id=\"tipo-buscar\" onclick=\"lista_buscar()\">Parques</div>
 						<div class=\"lista-desplegable-buscar\" style=\"visibility:hidden;\">
 							<ul id=\"lista-buscar\">
-								<li><div id=\"olisqueo1\" value=\"1\" onclick=\"pinchar_elemento_buscar('Parques')\"><span class=\"negrita\">Parques y jardines</span></div></li>
-								<li><div id=\"olisqueo2\" value=\"2\" onclick=\"pinchar_elemento_buscar('Árboles')\"><span class=\"negrita\">Árboles</span> (Nombre común o científico)</div></li>
-								<li><div id=\"olisqueo3\" value=\"3\" onclick=\"pinchar_elemento_buscar('Palmeras')\"><span class=\"negrita\">Palmeras</span> (Nombre común o científico)</div></li>
-								<li><div id=\"olisqueo4\" value=\"4\" onclick=\"pinchar_elemento_buscar('Arbustos')\"><span class=\"negrita\">Arbustos</span> (Nombre común o científico)</div></li>
-								<li><div id=\"olisqueo5\" value=\"5\" onclick=\"pinchar_elemento_buscar('Flores')\"><span class=\"negrita\">Flores</span> (Nombre común o científico)</div></li>
+								<li><div id=\"olisqueo1\" name=\"jardines\" onclick=\"pinchar_elemento_buscar('Parques',1)\"><span class=\"negrita\">Parques y jardines</span></div></li>
+								<li><div id=\"olisqueo2\" name=\"arboles\" onclick=\"pinchar_elemento_buscar('Árboles',2)\"><span class=\"negrita\">Árboles</span> (Nombre común o científico)</div></li>
+								<li><div id=\"olisqueo3\" name=\"palmeras\" onclick=\"pinchar_elemento_buscar('Palmeras',3)\"><span class=\"negrita\">Palmeras</span> (Nombre común o científico)</div></li>
+								<li><div id=\"olisqueo4\" name=\"arbustos\" onclick=\"pinchar_elemento_buscar('Arbustos',4)\"><span class=\"negrita\">Arbustos</span> (Nombre común o científico)</div></li>
+								<li><div id=\"olisqueo5\" name=\"flores\" onclick=\"pinchar_elemento_buscar('Flores',5)\"><span class=\"negrita\">Flores</span> (Nombre común o científico)</div></li>
 							</ul>
 						</div>
 						<div class=\"flechita-elementos-buscar\" onclick=\"lista_buscar()\"></div>
 					</div>
 						<div id=\"zona-texto-buscar\">
-							<input id=\"TextoBuscar\" type=\"text\" name=\"TextoBuscar\" placeholder=\"Introduzca el término de búsqueda\" value=\"\" autocomplete=\"on\" style=\"display: block;\">
+							<input id=\"TextoBuscar\" class=\"ac_input\" type=\"text\" name=\"COMUN\" placeholder=\"Introduzca el término de búsqueda\" value=\"\" autocomplete=\"off\">
 						</div>
 						<div id=\"zona-boton-buscar\">
 							<input class=\"boton-buscar\" type=\"submit\" name=\"Buscar\" value=\"\">
 						</div>
+						<input id=\"olisqueo\" type=\"hidden\" value=\"jardines\" name=\"searchitem\">
+						
 					</form>
 				</div>";
-		
+		//<input id=\"pmsfld_COMUN\" type=\"hidden\" class=\"pm-search-textinput\" value=\"aca\" type=\"text\" name=\"COMUN\">
 		//Núcleos, prques, jardines, árboles...
 		// Desplegable
 		// <div id="flechitaTipoDeBusqueda"></div>

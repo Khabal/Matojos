@@ -68,7 +68,7 @@ $.extend(PM.Query,
         
         var searchForm = _$('searchForm');
         var skvp = PM.Form.getFormKVP('searchForm');
-        //alert(skvp);
+        alert(skvp);
         
         if (PM.infoWin != 'window') {
             searchForm.target='infoZone';
@@ -79,7 +79,7 @@ $.extend(PM.Query,
         
         var queryurl = PM_XAJAX_LOCATION + 'x_info.php';
         var params = SID + '&' + skvp + '&mode=search';
-        //alert(queryurl);
+        alert(queryurl);
         this.getQueryResult(queryurl, params);
     },
     

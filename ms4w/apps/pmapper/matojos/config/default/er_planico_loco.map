@@ -389,6 +389,7 @@ MAP
     STATUS ON
     DATA "ARBOLES.shp"
     TEMPLATE VOID
+	LABELITEM "COMUN"
     PROJECTION
       "init=epsg:3042"
     END
@@ -396,6 +397,8 @@ MAP
       "DESCRIPTION" "Árboles"
       "RESULT_FIELDS" "CIENTIFICO, COMUN, FENLOGIA, EJEMPLAR, ENFERMO, COD_ZONA, FECHA_PLAN, VIA"
       "RESULT_HEADERS" "Nombre científico, Nombre común, Fenología, Ejemplar, Enfermo, Código de la zona, Fecha de plantación, Lugar"
+      "RESULT_HYPERLINK" "COMUN"
+      "LAYER_ENCODING" "UTF-8"
       "ows_title" "Árboles"
     END
     CLASS

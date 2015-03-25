@@ -117,7 +117,7 @@ $nombreMatojos = "Matojos";
 
 // Establecer versión de la aplicación
 global $versionMatojos;
-$versionMatojos = "0.2.9";
+$versionMatojos = "0.3.4";
 
  /*
  * FIN ALTERACIÓN DEL CONTINUO TOCINO-VELOCIDAD

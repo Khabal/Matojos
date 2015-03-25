@@ -227,8 +227,10 @@ class UiElement{
 	public static function PC_CuadroBusqueda() {
 		// Datos
 		
+		
 		// Código JS
-		$js = "<script type=\"text/javascript\"> function lista_buscar() {
+		$js = "<script type=\"text/javascript\">
+			function lista_buscar() {
 				if($('.lista-desplegable-buscar').css('visibility') == 'hidden') {
 					$('.lista-desplegable-buscar').css({visibility:'visible'});
 				}
@@ -237,84 +239,53 @@ class UiElement{
 				}
 			}
 			function pinchar_elemento_buscar(texto, n) {
+				$('.ac_results').html('');
+				var searchitem = 'sugerir_' + $('#olisqueo' + n).attr('name');
 				$('#tipo-buscar').text(texto);
-				$('#olisqueo').val($('#olisqueo' + n).attr('name'));
+				$('#olisqueo').val(searchitem);
 				$('.lista-desplegable-buscar').css({visibility:'hidden'});
+				if(n == 1) {
+					$('#TextoBuscar').attr('name', 'NOMB_JARD');
+				}
+				else {
+					$('#TextoBuscar').attr('name', 'COMUN');
+				}
+				var url = PM_XAJAX_LOCATION + 'x_search.php?' + SID +'&action=searchitem&searchitem=' + searchitem;
+				PM.Query.createSearchItems(url);
+				var suggesturl = PM_XAJAX_LOCATION + 'x_suggest.php?' + SID + '&searchitem=' + searchitem + '&fldname=' + $('#TextoBuscar').attr('name');
+				var xParamsParts = {};
+				var xParams = xParamsParts ? xParamsParts : false;
+				$('#TextoBuscar').autocomplete(suggesturl, PM.Query.suggestOptions).setOptions({ minChars: 1, extraParams: xParams });
 			} </script>";
 		
 		// Código HTML
 		$html = "<div id=\"searchContainer\">
 					<form id=\"searchForm\" action=\"blank.html\" onsubmit=\"PM.Query.submitSearch()\" onkeypress=\"return PM.Query.disableEnterKey(event)\">
-					<div onmouseout=\"javascript:$('.lista-desplegable-buscar').css({visibility:'hidden'});\" onmouseover=\"javascript:$('.lista-desplegable-buscar').css({visibility:'visible'});\">
-						<div id=\"tipo-buscar\" onclick=\"lista_buscar()\">Parques</div>
-						<div class=\"lista-desplegable-buscar\" style=\"visibility:hidden;\">
-							<ul id=\"lista-buscar\">
-								<li><div id=\"olisqueo1\" name=\"jardines\" onclick=\"pinchar_elemento_buscar('Parques',1)\"><span class=\"negrita\">Parques y jardines</span></div></li>
-								<li><div id=\"olisqueo2\" name=\"arboles\" onclick=\"pinchar_elemento_buscar('Árboles',2)\"><span class=\"negrita\">Árboles</span> (Nombre común o científico)</div></li>
-								<li><div id=\"olisqueo3\" name=\"palmeras\" onclick=\"pinchar_elemento_buscar('Palmeras',3)\"><span class=\"negrita\">Palmeras</span> (Nombre común o científico)</div></li>
-								<li><div id=\"olisqueo4\" name=\"arbustos\" onclick=\"pinchar_elemento_buscar('Arbustos',4)\"><span class=\"negrita\">Arbustos</span> (Nombre común o científico)</div></li>
-								<li><div id=\"olisqueo5\" name=\"flores\" onclick=\"pinchar_elemento_buscar('Flores',5)\"><span class=\"negrita\">Flores</span> (Nombre común o científico)</div></li>
-							</ul>
+						<div onmouseout=\"javascript:$('.lista-desplegable-buscar').css({visibility:'hidden'});\" onmouseover=\"javascript:$('.lista-desplegable-buscar').css({visibility:'visible'});\">
+							<div id=\"tipo-buscar\" onclick=\"lista_buscar()\">Parques</div>
+							<div class=\"lista-desplegable-buscar\" style=\"visibility:hidden;\">
+								<ul id=\"lista-buscar\">
+									<li id=\"olisqueo1\" name=\"jardines\" onclick=\"pinchar_elemento_buscar('Parques',1)\"><span class=\"negrita\">Parques y jardines</span></li>
+									<li id=\"olisqueo2\" name=\"arboles\" onclick=\"pinchar_elemento_buscar('Árboles',2)\"><span class=\"negrita\">Árboles</span> (Nombre común o científico)</li>
+									<li id=\"olisqueo3\" name=\"palmeras\" onclick=\"pinchar_elemento_buscar('Palmeras',3)\"><span class=\"negrita\">Palmeras</span> (Nombre común o científico)</li>
+									<li id=\"olisqueo4\" name=\"arbustos\" onclick=\"pinchar_elemento_buscar('Arbustos',4)\"><span class=\"negrita\">Arbustos</span> (Nombre común o científico)</li>
+									<li id=\"olisqueo5\" name=\"flores\" onclick=\"pinchar_elemento_buscar('Flores',5)\"><span class=\"negrita\">Flores</span> (Nombre común o científico)</li>
+								</ul>
+							</div>
+							<div class=\"flechita-elementos-buscar\" onclick=\"lista_buscar()\"></div>
 						</div>
-						<div class=\"flechita-elementos-buscar\" onclick=\"lista_buscar()\"></div>
-					</div>
 						<div id=\"zona-texto-buscar\">
-							<input id=\"TextoBuscar\" class=\"ac_input\" type=\"text\" name=\"COMUN\" placeholder=\"Introduzca el término de búsqueda\" value=\"\" autocomplete=\"off\">
+							<input id=\"TextoBuscar\" class=\"ac_input\" type=\"text\" name=\"NOMB_JARD\" placeholder=\"Introduzca el término de búsqueda\" value=\"\" autocomplete=\"off\">
 						</div>
+						<div id=\"searchitems\" style=\"display:none;\"></div>
 						<div id=\"zona-boton-buscar\">
-							<input class=\"boton-buscar\" type=\"submit\" name=\"Buscar\" value=\"\">
+							<input class=\"boton-buscar\" type=\"button\" name=\"Buscar\" onclick=\"PM.Query.submitSearch()\">
 						</div>
-						<input id=\"olisqueo\" type=\"hidden\" value=\"jardines\" name=\"searchitem\">
+						<input id=\"olisqueo\" type=\"hidden\" value=\"sugerir_jardines\" name=\"searchitem\">
 						
 					</form>
 				</div>";
-		//<input id=\"pmsfld_COMUN\" type=\"hidden\" class=\"pm-search-textinput\" value=\"aca\" type=\"text\" name=\"COMUN\">
-		//Núcleos, prques, jardines, árboles...
-		// Desplegable
-		// <div id="flechitaTipoDeBusqueda"></div>
-// <div id="inputTipoDeBusqueda" name="inputTipoDeBusqueda" style="-moz-user-select: none;">Dirección</div>
-// <div id="tipoDeBusquedaListado">
-// <ul id="ulTipoDeBusquedaListado">
-// <li>
-// <div id="TipoDeBusqueda1" value="1">Dirección</div>
-// </li>
-// <li>
-// <div id="TipoDeBusqueda2" value="2">Dirección exacta</div>
-// </li>
-// <li>
-// <div id="TipoDeBusqueda3" value="3">Polígono y Parcela</div>
-// </li>
-// <li>
-// <li>
-// <li>
-// <li>
-// </ul>
-// </div>
-// </div>
-
-        // $html  = "<div id=\"searchContainer\">";
-        // $html .= "<form id=\"searchForm\" action=\"blank.html\" onsubmit=\"PM.Query.submitSearch()\" onkeypress=\"return PM.Query.disableEnterKey(event)\">";
-        //$html .= "<table width=\"100%\" class=\"pm-searchcont pm-toolframe\" border=\"0\" cellspacing=\"0\" cellpadding=\"0\">";
-		// $html .= "<div id=\"dropdownTipoDeBusqueda\">";
-        // $html .= " <div id=\"flechitaTipoDeBusqueda\"></div>";
-        // $html .= " <div id=\"inputTipoDeBusqueda\" name=\"inputTipoDeBusqueda\" style=\"-moz-user-select: none;\">Parques y jardines</div><div id=\"tipoDeBusquedaListado\">
-		// <ul id=\"ulTipoDeBusquedaListado\">
-		// <li><div id=\"TipoDeBusqueda1\" value=\"1\">Parques y jardines</div></li>
-		// <li><div id=\"TipoDeBusqueda2\" value=\"2\">Árboles (Nombre común o científico)</div></li>
-		// <li><div id=\"TipoDeBusqueda2\" value=\"3\">Palmeras (Nombre común o científico)</div></li>
-		// <li><div id=\"TipoDeBusqueda2\" value=\"4\">Arbustos (Nombre común o científico)</div></li>
-		// <li><div id=\"TipoDeBusqueda2\" value=\"5\">Flores (Nombre común o científico)</div></li></ul></div></div>";
-        //$html .= "<tr>";  
-        //$html .= "<td id=\"searchoptions\" class=\"pm-searchoptions\" style=\"padding:0px 8px\"></td>";  
-        //if ($style == "block") $html .= "</tr><tr>";    
-        //$html .= "<td id=\"searchitems\" class=\"pm_search_$style\"></td>";
-        //$html .= "</tr>";  
-        //$html .= "</table>";
-		// $html .= "<div id=\"divBuscarDireccion\">";
-            // $html .= "<input type=\"submit\" name=\"BuscarDireccion\" value=\"\" class=\"buttonBuscar\" id=\"BuscarDireccion\">";
-            // $html .= "</div>";
-        // $html .= "</form>";
-        // $html .= "</div>";
+//<li><div id=\"olisqueo1\" name=\"jardines\" onclick=\"pinchar_elemento_buscar('Parques',1)\"><span class=\"negrita\">Parques y jardines</span></div></li>
 /****************************/
         // $html  = "<div id=\"searchContainer\">";
         // $html .= "<form id=\"searchForm\" action=\"blank.html\" onsubmit=\"PM.Query.submitSearch()\" onkeypress=\"return PM.Query.disableEnterKey(event)\">";

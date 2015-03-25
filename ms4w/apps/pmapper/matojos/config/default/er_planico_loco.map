@@ -8,7 +8,7 @@ MAP
   # =============================================================================
   
   CONFIG "MS_ERRORFILE" "/ms4w/tmp/errores.txt"
-  DEBUG OFF
+  DEBUG 5
   EXTENT 449094 4059635 463757 4073442
   UNITS METERS
   SIZE 600 500

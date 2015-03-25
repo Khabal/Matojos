@@ -127,38 +127,38 @@
     
     <searchlist version="1.0">
         <dataroot>$</dataroot>
-        <searchitem name="jardines" description="Jardines">
+        <searchitem name="sugerir_jardines" description="Jardines">
             <layer type="shape" name="jardines">
                 <field type="s" name="NOMB_JARD" description="Jardines" wildcard="0">
-                    <definition type="suggest" connectiontype="ms" minlength="1" startleft="1" sort="asc">
-                        <mslayer encoding="UTF-8"/>
+                    <definition type="suggest" connectiontype="dbase" minlength="1" sort="asc">
+                        <dbasefile encoding="ISO-8859-1" searchfield="NOMB_JARD">$/JARDIN.dbf</dbasefile>
                     </definition>
                 </field> 
             </layer>
         </searchitem>
-        <searchitem name="arboles" description="Árboles">
-            <layer type="shape" name="arboles">
+        <searchitem name="sugerir_arboles" description="Árboles">
+            <layer type="ms" name="arboles">
                 <field type="s" name="COMUN" description="Árboles" wildcard="0">
-                    <definition type="suggest" connectiontype="dbase" minlength="1" startleft="1" sort="asc">
-						<dbasefile encoding="UTF-8" searchfield="COMUN">$/ARBOLES.dbf</dbasefile>
+                    <definition type="suggest" connectiontype="dbase" minlength="1" sort="asc">
+						<dbasefile encoding="ISO-8859-1" searchfield="COMUN">$/ARBOLES.dbf</dbasefile>
                     </definition>
                 </field> 
             </layer>
         </searchitem>
-        <searchitem name="palmeras" description="Palmeras">
-            <layer type="shape" name="palmeras">
-                <field type="s" name="COMUN" description="Palmeras" wildcard="0">
+        <searchitem name="sugerir_palmeras" description="Palmeras">
+            <layer type="ms" name="palmeras">
+                <field type="s" name="COMUN" description="Palmeras" wildcard="2">
                     <definition type="suggest" connectiontype="ms" minlength="1" startleft="1" sort="asc">
-                        <mslayer encoding="UTF-8"/>
+                        <mslayer encoding="ISO-8859-1"/>
                     </definition>
                 </field> 
             </layer>
         </searchitem>
-        <searchitem name="arbustos" description="Arbustos">
+        <searchitem name="sugerir_arbustos" description="Arbustos">
             <layer type="shape" name="arbustos">
                 <field type="s" name="COMUN" description="Arbustos" wildcard="0">
                     <definition type="suggest" connectiontype="ms" minlength="1" startleft="1" sort="asc">
-                        <mslayer encoding="UTF-8"/>
+                        <mslayer encoding="ISO-8859-1"/>
                     </definition>
                 </field> 
             </layer>

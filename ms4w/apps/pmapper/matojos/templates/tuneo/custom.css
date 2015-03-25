@@ -212,14 +212,31 @@ text-align:center;
 }
 
 #lista-buscar > li{
-    border-bottom:thin solid #477979;
+	border-bottom:thin solid #477979;
 	border-left:thin solid #477979;
 	border-right:thin solid #477979;
 	padding:5px;
 }
 
 #lista-buscar > li:hover{
-    background-color:rgba(47, 79, 79, 0.75);
+	background-color:rgba(47, 79, 79, 0.75);
+	color:rgba(255, 255, 255, 0.75);
+}
+
+.ac_results{
+	background-color:initial;
+}
+
+.ac_even{
+	background-color:rgba(255, 255, 255, 0.75);
+}
+
+.ac_odd{
+	background-color:rgba(205, 205, 205, 0.75);
+}
+
+.ac_over{
+	background-color:rgba(47, 79, 79, 0.75);
 	color:rgba(255, 255, 255, 0.75);
 }
 

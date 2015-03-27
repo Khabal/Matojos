@@ -82,7 +82,7 @@
             <zoomAll>nquery</zoomAll>
             <infoWin>dynwin</infoWin>
             <alignQueryResults>1</alignQueryResults>
-            <pointBuffer>10000</pointBuffer>
+            <pointBuffer>100</pointBuffer>
             <shapeQueryBuffer>0.02</shapeQueryBuffer>
         </query>
         <ui>
@@ -128,63 +128,65 @@
     <searchlist version="1.0">
         <dataroot>$</dataroot>
         <searchitem name="sugerir_jardines" description="Jardines">
-            <layer type="shape" name="jardines">
-                <field type="s" name="NOMB_JARD" description="Jardines" wildcard="0">
-                    <definition type="suggest" connectiontype="dbase" minlength="1" sort="asc">
-                        <dbasefile encoding="ISO-8859-1" searchfield="NOMB_JARD">$/JARDIN.dbf</dbasefile>
-                    </definition>
-                </field> 
-            </layer>
-        </searchitem>
-        <searchitem name="sugerir_arboles" description="Árboles">
-            <layer type="ms" name="arboles">
-                <field type="s" name="COMUN" description="Árboles" wildcard="0">
-                    <definition type="suggest" connectiontype="dbase" minlength="1" sort="asc">
-						<dbasefile encoding="ISO-8859-1" searchfield="COMUN">$/ARBOLES.dbf</dbasefile>
-                    </definition>
-                </field> 
-            </layer>
-        </searchitem>
-        <searchitem name="sugerir_palmeras" description="Palmeras">
-            <layer type="ms" name="palmeras">
-                <field type="s" name="COMUN" description="Palmeras" wildcard="2">
-                    <definition type="suggest" connectiontype="ms" minlength="1" startleft="1" sort="asc">
+            <layer type="ms" name="jardines">
+                <field type="s" name="NOMB_JARD" description="Jardines" wildcard="2">
+                    <definition type="suggest" connectiontype="ms" minlength="1" sort="asc">
                         <mslayer encoding="ISO-8859-1"/>
-                    </definition>
-                </field> 
-            </layer>
-        </searchitem>
-        <searchitem name="sugerir_arbustos" description="Arbustos">
-            <layer type="shape" name="arbustos">
-                <field type="s" name="COMUN" description="Arbustos" wildcard="0">
-                    <definition type="suggest" connectiontype="ms" minlength="1" startleft="1" sort="asc">
-                        <mslayer encoding="ISO-8859-1"/>
-                    </definition>
-                </field> 
-            </layer>
-        </searchitem>
-		
-		
-        <searchitem name="countries" description="Country">
-            <layer type="shape" name="countries">
-                <field type="s" name="ISOCODE" description="Country" wildcard="2">
-                    <definition type="options" connectiontype="ms" sort="asc" firstoption="*">
-                        <mslayer encoding="ISO-8859-1" keyfield="ISOCODE" showfield="NAME_EN"/>
                     </definition>
                 </field>
             </layer>
         </searchitem>
-        <!-- Sample for suggest function -->
-        <searchitem name="cities_suggest_ms" description="Cities Suggest MS">
-            <layer type="ms" name="cities10000eu">
-                <field type="s" name="NAME" description="City" wildcard="2">
-                    <definition type="suggest" connectiontype="ms" minlength="1" startleft="1" sort="asc">
-                        <mslayer encoding="UTF-8"/>
+        <searchitem name="sugerir_arboles" description="Árboles">
+            <layer type="ms" name="arboles">
+                <field type="s" name="COMUN" description="Árboles Común" wildcard="2" operator="OR">
+                    <definition type="suggest" connectiontype="ms" minlength="1" sort="asc">
+                        <mslayer encoding="ISO-8859-1"/>
                     </definition>
-                </field> 
+                </field>
+				<field type="s" name="CIENTIFICO" description="Árboles Científico" wildcard="2" operator="OR">
+				    <definition type="suggest" connectiontype="ms" minlength="1" sort="asc">
+                        <mslayer encoding="ISO-8859-1"/>
+                    </definition>
+                </field>
+            </layer>
+        </searchitem>
+        <searchitem name="sugerir_palmeras" description="Palmeras">
+            <layer type="ms" name="palmeras">
+                <field type="s" name="COMUN" description="Palmeras Común" wildcard="2" operator="OR">
+                    <definition type="suggest" connectiontype="ms" minlength="1" sort="asc">
+                        <mslayer encoding="ISO-8859-1"/>
+                    </definition>
+                </field>
+				<field type="s" name="CIENTIFICO" description="Palmeras Científico" wildcard="2" operator="OR">
+				    <definition type="suggest" connectiontype="ms" minlength="1" sort="asc">
+                        <mslayer encoding="ISO-8859-1"/>
+                    </definition>
+                </field>
+            </layer>
+        </searchitem>
+        <searchitem name="sugerir_arbustos" description="Arbustos">
+            <layer type="ms" name="arbustos">
+                <field type="s" name="COMUN" description="Arbustos Común" wildcard="2" operator="OR">
+                    <definition type="suggest" connectiontype="ms" minlength="1" sort="asc">
+                        <mslayer encoding="ISO-8859-1"/>
+                    </definition>
+                </field>
+				<field type="s" name="CIENTIFICO" description="Arbustos Científico" wildcard="2" operator="OR">
+				    <definition type="suggest" connectiontype="ms" minlength="1" sort="asc">
+                        <mslayer encoding="ISO-8859-1"/>
+                    </definition>
+                </field>
+            </layer>
+        </searchitem>
+        <searchitem name="sugerir_flores" description="Flores">
+            <layer type="ms" name="flores">
+                <field type="s" name="FLOR_TEMP" description="Flores" wildcard="2">
+                    <definition type="suggest" connectiontype="ms" minlength="1" sort="asc">
+                        <mslayer encoding="ISO-8859-1"/>
+                    </definition>
+                </field>
             </layer>
         </searchitem>
     </searchlist>
-    
-    
+	
 </pmapper>

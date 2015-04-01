@@ -455,4 +455,21 @@ PM.setCursor = function(rmc, ctype) {
 	$('#mapimgLayer').css({'cursor': usedCursor});
 };
 
+PM.Query.disableEnterKey = function(e)
+    {
+        var key;
+        if (window.event) {
+            key = window.event.keyCode;     //IE
+        } else {
+            key = e.which;     //firefox
+        }
+        if (key == 13) {
+           enviar_busqueda();
+            return false;
+        } else {
+            return true;
+        }
+    };
+
+
 //</script>

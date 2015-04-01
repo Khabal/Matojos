@@ -12,7 +12,7 @@
             <pm_config_location>default</pm_config_location>
             <pm_javascript_location>javascript</pm_javascript_location>
             <pm_print_configfile>common/print.xml</pm_print_configfile>
-            <pm_search_configfile>inline</pm_search_configfile>
+            <pm_search_configfile>config-particular/regoler.xml</pm_search_configfile>
         </config>
         <map>
             <mapFile>er_planico_loco.map</mapFile>
@@ -122,71 +122,5 @@
             </export>
         </pluginsConfig>
     </ini>
-    
-    
-    
-    <searchlist version="1.0">
-        <dataroot>$</dataroot>
-        <searchitem name="sugerir_jardines" description="Jardines">
-            <layer type="ms" name="jardines">
-                <field type="s" name="NOMB_JARD" description="Jardines" wildcard="2">
-                    <definition type="suggest" connectiontype="ms" minlength="1" sort="asc">
-                        <mslayer encoding="ISO-8859-1"/>
-                    </definition>
-                </field>
-            </layer>
-        </searchitem>
-        <searchitem name="sugerir_arboles" description="Árboles">
-            <layer type="ms" name="arboles">
-                <field type="s" name="COMUN" description="Árboles Común" wildcard="2" operator="OR">
-                    <definition type="suggest" connectiontype="ms" minlength="1" sort="asc">
-                        <mslayer encoding="ISO-8859-1"/>
-                    </definition>
-                </field>
-				<field type="s" name="CIENTIFICO" description="Árboles Científico" wildcard="2" operator="OR">
-				    <definition type="suggest" connectiontype="ms" minlength="1" sort="asc">
-                        <mslayer encoding="ISO-8859-1"/>
-                    </definition>
-                </field>
-            </layer>
-        </searchitem>
-        <searchitem name="sugerir_palmeras" description="Palmeras">
-            <layer type="ms" name="palmeras">
-                <field type="s" name="COMUN" description="Palmeras Común" wildcard="2" operator="OR">
-                    <definition type="suggest" connectiontype="ms" minlength="1" sort="asc">
-                        <mslayer encoding="ISO-8859-1"/>
-                    </definition>
-                </field>
-				<field type="s" name="CIENTIFICO" description="Palmeras Científico" wildcard="2" operator="OR">
-				    <definition type="suggest" connectiontype="ms" minlength="1" sort="asc">
-                        <mslayer encoding="ISO-8859-1"/>
-                    </definition>
-                </field>
-            </layer>
-        </searchitem>
-        <searchitem name="sugerir_arbustos" description="Arbustos">
-            <layer type="ms" name="arbustos">
-                <field type="s" name="COMUN" description="Arbustos Común" wildcard="2" operator="OR">
-                    <definition type="suggest" connectiontype="ms" minlength="1" sort="asc">
-                        <mslayer encoding="ISO-8859-1"/>
-                    </definition>
-                </field>
-				<field type="s" name="CIENTIFICO" description="Arbustos Científico" wildcard="2" operator="OR">
-				    <definition type="suggest" connectiontype="ms" minlength="1" sort="asc">
-                        <mslayer encoding="ISO-8859-1"/>
-                    </definition>
-                </field>
-            </layer>
-        </searchitem>
-        <searchitem name="sugerir_flores" description="Flores">
-            <layer type="ms" name="flores">
-                <field type="s" name="FLOR_TEMP" description="Flores" wildcard="2">
-                    <definition type="suggest" connectiontype="ms" minlength="1" sort="asc">
-                        <mslayer encoding="ISO-8859-1"/>
-                    </definition>
-                </field>
-            </layer>
-        </searchitem>
-    </searchlist>
-	
+
 </pmapper>

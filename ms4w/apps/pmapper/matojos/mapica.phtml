@@ -3,7 +3,7 @@
  * Archivo: mapica.phtml
  * Contenido: Página principal de la publicación web del SIG de flora.
  * Autor: Óscar El Becario Eterno.
- * Versión: 0.0.8 (Preludio Alfalfa) - 18/12/2014
+ * Versión: 0.3.6 (Preludio Alfalfa) - 18/12/2014
  * Descripción: Archivo de texto plano precioso y encantador con código PHP
  * para generar la página web que muestre el mapa de flora, así como ir
  * actualizando dicha web en base a las capas seleccionadas, opciones y
@@ -167,7 +167,9 @@ header("Content-type: text/html; charset=$defCharset");
         //$('#uiLayoutCenter').appendElement('div').addClass('map-top-bar');  // Top bar over map
         
 		MostrarOcultarHerramientas();
-		//pinchar_elemento_buscar('Parques',1);
+		PincharElementoBuscar('Parques',1);
+		//$('#searchitems').remove();
+		//$('.ac_results').remove();
 		
         PM.Layout.resizeContainers();
         $(window).resize(function(){
@@ -283,6 +285,41 @@ header("Content-type: text/html; charset=$defCharset");
 		}
 	}
 	
+	function PincharElementoBuscar(texto, n) {
+		var searchitem = 'sugerir_' + $('#olisqueo' + n).attr('name');
+		var suggesturl_ext = '';
+		$('#tipo-buscar').text(texto);
+		$('#olisqueo').val(searchitem);
+		$('.lista-desplegable-buscar').css({visibility:'hidden'});
+		if(n == 1) {
+			$('#TextoBuscar').attr('name', 'NOMB_JARD');
+			$('#TextoBuscarAlt').attr('name', '');
+		}
+		else if(n == 5){
+			$('#TextoBuscar').attr('name', 'FLOR_TEMP');
+			$('#TextoBuscarAlt').attr('name', '');
+		}
+		else {
+			$('#TextoBuscar').attr('name', 'COMUN');
+			$('#TextoBuscarAlt').attr('name', 'CIENTIFICO');
+			suggesturl_ext = '&fldname2=CIENTIFICO';
+		}
+		
+		//$( "#TextoBuscar" ).remove();
+		//$("#zona-texto-buscar").append("<input id=\"TextoBuscar\" class=\"ac_input\" type=\"text\" name=\"\" placeholder=\"Introduzca el término de búsqueda\" value=\"\" autocomplete=\"off\">");
+		
+		var url = PM_XAJAX_LOCATION + 'x_search.php?' + SID +'&action=searchitem&searchitem=' + searchitem;
+		PM.Query.createSearchItems(url);
+		$('.ac_results').remove();
+		var suggesturl = PM_XAJAX_LOCATION + 'x_suggest.php?' + SID + '&searchitem=' + searchitem + '&fldname1=' + $('#TextoBuscar').attr('name') + suggesturl_ext;
+		var xParamsParts = {};
+		var xParams = xParamsParts ? xParamsParts : false;
+		$('#TextoBuscar').autocomplete(suggesturl, PM.Query.suggestOptions).setOptions({ minChars: 1, extraParams: xParams });
+		$('#TextoBuscar').result(function(event, data, formatted) {
+                            if (data) PM.Query.submitSearch();
+                        });
+	}
+	
 	</script>
 	
 </head>
@@ -368,10 +405,6 @@ header("Content-type: text/html; charset=$defCharset");
     
     //#fede
     jg_tmp = new jsGraphics('measureLayerTmp');
-	
-	pinchar_elemento_buscar('Parques',1);
-		$('.ac_results').remove();
-		$('#searchitems').html(' ');
     
 </script>
 

@@ -237,7 +237,9 @@ class UiElement{
 				}
 				else {
 					$('#TextoBuscarAlt').attr('name', '');
+					$('#TextoBuscarAlt').val('');
 				}
+				$('#olisqueo').val($('#olisqueo').val().replace('sugerir_', ''));
 				PM.Query.submitSearch();
 			}
 			function lista_buscar() {
@@ -248,34 +250,37 @@ class UiElement{
 					$('.lista-desplegable-buscar').css({visibility:'hidden'});
 				}
 			}
-			function pinchar_elemento_buscar(texto, n) {
-				var searchitem = 'sugerir_' + $('#olisqueo' + n).attr('name');
-				var suggesturl_ext = '';
-				$('#tipo-buscar').text(texto);
-				$('#olisqueo').val(searchitem);
-				$('.lista-desplegable-buscar').css({visibility:'hidden'});
-				if(n == 1) {
-					$('#TextoBuscar').attr('name', 'NOMB_JARD');
-				}
-				else if(n == 5){
-					$('#TextoBuscar').attr('name', 'FLOR_TEMP');
-				}
-				else {
-					$('#TextoBuscar').attr('name', 'COMUN');
-					suggesturl_ext = '&fldname=CIENTIFICO';
-				}
-				//alert(searchitem);
-				var url = PM_XAJAX_LOCATION + 'x_search.php?' + SID +'&action=searchitem&searchitem=' + searchitem;
-				PM.Query.createSearchItems(url);
-				$('#searchitems').empty();
-				$('.ac_results').remove();
-				var suggesturl = PM_XAJAX_LOCATION + 'x_suggest.php?' + SID + '&searchitem=' + searchitem + '&fldname=' + $('#TextoBuscar').attr('name') + suggesturl_ext;
-				var xParamsParts = {};
-				var xParams = xParamsParts ? xParamsParts : false;
-				$('#TextoBuscar').autocomplete(suggesturl, PM.Query.suggestOptions).setOptions({ minChars: 1, extraParams: xParams });
-				//$('#searchitems').empty();
-				//$('#searchitems').remove();
-			}
+			// function pinchar_elemento_buscar(texto, n) {
+				// var searchitem = 'sugerir_' + $('#olisqueo' + n).attr('name');
+				// var suggesturl_ext = '';
+				// $('#tipo-buscar').text(texto);
+				// $('#olisqueo').val(searchitem);
+				// $('.lista-desplegable-buscar').css({visibility:'hidden'});
+				// if(n == 1) {
+					// $('#TextoBuscar').attr('name', 'NOMB_JARD');
+					// $('#TextoBuscarAlt').attr('name', '');
+					// //suggesturl_ext = '';
+				// }
+				// else if(n == 5){
+					// $('#TextoBuscar').attr('name', 'FLOR_TEMP');
+					// $('#TextoBuscarAlt').attr('name', '');
+					// //suggesturl_ext = '';
+				// }
+				// else {
+					// $('#TextoBuscar').attr('name', 'COMUN');
+					// $('#TextoBuscarAlt').attr('name', 'CIENTIFICO');
+					// suggesturl_ext = '&fldname2=CIENTIFICO';
+				// }
+				// var url = PM_XAJAX_LOCATION + 'x_search.php?' + SID +'&action=searchitem&searchitem=' + searchitem;
+				// PM.Query.createSearchItems(url);
+				// $('.ac_results').remove();
+				// $('#TextoBuscar').autocomplete();
+				// var suggesturl = PM_XAJAX_LOCATION + 'x_suggest.php?' + SID + '&searchitem=' + searchitem + '&fldname1=' + $('#TextoBuscar').attr('name') + suggesturl_ext;
+				// var xParamsParts = {};
+				// var xParams = xParamsParts ? xParamsParts : false;
+				// $('#TextoBuscar').autocomplete(suggesturl, PM.Query.suggestOptions).setOptions({ minChars: 1, extraParams: xParams });
+				// //$('#searchitems').remove();
+			// }
 			</script>";
 		
 		// Código HTML
@@ -285,18 +290,18 @@ class UiElement{
 							<div id=\"tipo-buscar\" onclick=\"lista_buscar()\"></div>
 							<div class=\"lista-desplegable-buscar\" style=\"visibility:hidden;\">
 								<ul id=\"lista-buscar\">
-									<li id=\"olisqueo1\" name=\"jardines\" onclick=\"pinchar_elemento_buscar('Parques',1)\"><span class=\"negrita\">Parques y jardines</span> (Nombre)</li>
-									<li id=\"olisqueo2\" name=\"arboles\" onclick=\"pinchar_elemento_buscar('Árboles',2)\"><span class=\"negrita\">Árboles</span> (Nombre común o científico)</li>
-									<li id=\"olisqueo3\" name=\"palmeras\" onclick=\"pinchar_elemento_buscar('Palmeras',3)\"><span class=\"negrita\">Palmeras</span> (Nombre común o científico)</li>
-									<li id=\"olisqueo4\" name=\"arbustos\" onclick=\"pinchar_elemento_buscar('Arbustos',4)\"><span class=\"negrita\">Arbustos</span> (Nombre común o científico)</li>
-									<li id=\"olisqueo5\" name=\"flores\" onclick=\"pinchar_elemento_buscar('Flores',5)\"><span class=\"negrita\">Flores</span> (Nombre común o científico)</li>
+									<li id=\"olisqueo1\" name=\"jardines\" onclick=\"PincharElementoBuscar('Parques',1)\"><span class=\"negrita\">Parques y jardines</span> (Nombre)</li>
+									<li id=\"olisqueo2\" name=\"arboles\" onclick=\"PincharElementoBuscar('Árboles',2)\"><span class=\"negrita\">Árboles</span> (Nombre común o científico)</li>
+									<li id=\"olisqueo3\" name=\"palmeras\" onclick=\"PincharElementoBuscar('Palmeras',3)\"><span class=\"negrita\">Palmeras</span> (Nombre común o científico)</li>
+									<li id=\"olisqueo4\" name=\"arbustos\" onclick=\"PincharElementoBuscar('Arbustos',4)\"><span class=\"negrita\">Arbustos</span> (Nombre común o científico)</li>
+									<li id=\"olisqueo5\" name=\"flores\" onclick=\"PincharElementoBuscar('Flores',5)\"><span class=\"negrita\">Flores</span> (Nombre común o científico)</li>
 								</ul>
 							</div>
 							<div class=\"flechita-elementos-buscar\" onclick=\"lista_buscar()\"></div>
 						</div>
 						<div id=\"zona-texto-buscar\">
 							<input id=\"TextoBuscar\" class=\"ac_input\" type=\"text\" name=\"\" placeholder=\"Introduzca el término de búsqueda\" value=\"\" autocomplete=\"off\">
-							<input id=\"TextoBuscarAlt\" type=\"hidden\" name=\"\" value=\"\">
+							<input id=\"TextoBuscarAlt\" class=\"ac_input\" type=\"hidden\" name=\"\" value=\"\" autocomplete=\"off\">
 						</div>
 						<div id=\"searchitems\" style=\"display:none;\"></div>
 						<div id=\"zona-boton-buscar\">
@@ -305,27 +310,8 @@ class UiElement{
 						<input id=\"olisqueo\" type=\"hidden\" value=\"\" name=\"searchitem\">
 						
 					</form>
-				</div>
-				<script type=\"text/javascript\">
-			/*********/
-			//pinchar_elemento_buscar('Parques',1);
-			/**********/
-				</script>
-				";
-//<li><div id=\"olisqueo1\" name=\"jardines\" onclick=\"pinchar_elemento_buscar('Parques',1)\"><span class=\"negrita\">Parques y jardines</span></div></li>
-/****************************/
-        // $html  = "<div id=\"searchContainer\">";
-        // $html .= "<form id=\"searchForm\" action=\"blank.html\" onsubmit=\"PM.Query.submitSearch()\" onkeypress=\"return PM.Query.disableEnterKey(event)\">";
-        // $html .= "<table width=\"100%\" class=\"pm-searchcont pm-toolframe\" border=\"0\" cellspacing=\"0\" cellpadding=\"0\">";
-        // $html .= "<tr>";  
-        // $html .= "<td id=\"searchoptions\" class=\"pm-searchoptions\" style=\"padding:0px 8px\"></td>";  
-        // if ($style == "block") $html .= "</tr><tr>";    
-        // $html .= "<td id=\"searchitems\" class=\"pm_search_$style\"></td>";
-        // $html .= "</tr>";  
-        // $html .= "</table>";
-        // $html .= "</form>";
-        // $html .= "</div>";
-/****************************/
+				</div>";
+		
 		// Devolver código HTML
 		return $js . $html;
 	}

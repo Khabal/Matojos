@@ -44,23 +44,32 @@ require_once("../query/suggest.php");
 
 $searchGet  = isset($_REQUEST['q']) ? $_REQUEST['q'] : '';
 $searchitem = $_REQUEST['searchitem'];
-$fldname    = $_REQUEST['fldname'];
+$fldname1    = $_REQUEST['fldname1'];
+$fldname2    = isset($_REQUEST['fldname2']) ? $_REQUEST['fldname2'] : '';
 //error_log("$searchitem  $fldname  $searchGet ");
 pm_logDebug(3, $_REQUEST, "request");
-
 // initialize return value
 $ret = "";
+$ret2 = "";
 
 // Run suggest query
 if (isset($searchGet) && strlen($searchGet) > 0) {
+	$fldname = $fldname1;
     $search = addslashes($searchGet);
     $suggest = new Suggest($map, $search, $searchitem, $fldname, $_REQUEST);
     $ret = $suggest->returnJson();
+	
+	$fldname = $fldname2;
+    $search = addslashes($searchGet);
+    $suggest = new Suggest($map, $search, $searchitem, $fldname, $_REQUEST);
+    $ret2 = $suggest->returnJson();
 }
 
 //error_log("return: " . $ret);
 //echo "{searchGet:'$searchGet', retvalue:$ret, fldname:'$fldname'}";
-
-if ($ret) echo $ret;
+if ($ret && $ret2) $final = $ret ."\n". $ret2;
+else if ($ret) $final = $ret;
+else $final = $ret2;
+if ($final) echo $final;
 
 ?>

@@ -27,4 +27,5 @@ $searchJson = str_replace("\\'", "'", $searchJson);
 
 // return JS object literals "{}" for XMLHTTP request 
 echo "{\"searchJson\":$searchJson, \"action\":\"$action\", \"divelem\":\"$divelem\"}";
+
 ?>

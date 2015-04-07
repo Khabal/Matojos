@@ -450,7 +450,7 @@ menudown.gif*/
                     </div>
 					<div id=\"img-logo-secundario\">
 						<a href=\"$pmLogoUrl\" title=\"$pmLogoTitle\" onclick=\"this.target = '_blank';\">
-						<img class=\"pm-logo-img\" src=\"images/logos/Agricultura.png\" alt=\"logo\" height=\"30\" width=\"100\" /></a>    
+						<img class=\"pm-logo-img\" src=\"images/logos/agricultura-motril-logo.png\" alt=\"logo\" height=\"30\" width=\"100\" /></a>    
                     </div>
                     		<a id=\"textoClosePanelLateral\" href=\"javascript:CerrarPanelLateral();\">
 <span id=\"iconClosePanelLateral\" title=\"Ocultar panel\"></span>
@@ -476,7 +476,7 @@ menudown.gif*/
 		$LSAHref = "http://www.motril.es";
 		$LSATitle = "Ayuntamiento de Motril";
 		$LSAOnclick = "this.target = '_blank';";
-		$LSImgSrc = "images/logos/agricultura.png";
+		$LSImgSrc = "images/logos/agricultura-motril-logo.png";
 		$LSImgAlt = "Ayuntamiento de Motril - Área de Agricultura";
 		
 		// Datos del botón para ocultar el panel lateral

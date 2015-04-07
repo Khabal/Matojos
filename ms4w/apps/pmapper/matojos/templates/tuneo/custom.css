@@ -110,9 +110,9 @@ text-align:center;
 
 #logo-secundario img{
 	border:medium none;
-	height:30px;
+	height:36px;
 	vertical-align:middle;
-	width:95px;
+	width:110px;
 }
 
 #ocultar-panel-lateral{
@@ -275,9 +275,9 @@ text-align:center;
 
 /* B.2. BOTÓN PARA MOSTRAR PANEL LATERAL */
 #mostrar-panel-lateral{
-	left:120px;
+	left:40px;
 	position:absolute;
-	top:20px;
+	top:10px;
 	visibility:hidden;
 	z-index:99;
 }

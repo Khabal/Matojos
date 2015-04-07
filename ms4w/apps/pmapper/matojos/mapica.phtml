@@ -305,15 +305,13 @@ header("Content-type: text/html; charset=$defCharset");
 			suggesturl_ext = '&fldname2=CIENTIFICO';
 		}
 		
-		//$( "#TextoBuscar" ).remove();
-		//$("#zona-texto-buscar").append("<input id=\"TextoBuscar\" class=\"ac_input\" type=\"text\" name=\"\" placeholder=\"Introduzca el término de búsqueda\" value=\"\" autocomplete=\"off\">");
-		
 		var url = PM_XAJAX_LOCATION + 'x_search.php?' + SID +'&action=searchitem&searchitem=' + searchitem;
 		PM.Query.createSearchItems(url);
 		$('.ac_results').remove();
 		var suggesturl = PM_XAJAX_LOCATION + 'x_suggest.php?' + SID + '&searchitem=' + searchitem + '&fldname1=' + $('#TextoBuscar').attr('name') + suggesturl_ext;
 		var xParamsParts = {};
 		var xParams = xParamsParts ? xParamsParts : false;
+		$('#TextoBuscar').unbind();
 		$('#TextoBuscar').autocomplete(suggesturl, PM.Query.suggestOptions).setOptions({ minChars: 1, extraParams: xParams });
 		$('#TextoBuscar').result(function(event, data, formatted) {
                             if (data) PM.Query.submitSearch();

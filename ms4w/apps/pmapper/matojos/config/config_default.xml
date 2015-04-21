@@ -24,7 +24,7 @@
                 <category name="Parques y jardines públicos">
 					<group>jardines</group>
 					<group>zonas</group>
-					<group>albero</group>
+					<group>alberos</group>
 					<group>masas_arbustos</group>
 					<group>flores</group>
 					<group>setos</group>
@@ -37,14 +37,13 @@
             </categories>
             <allGroups>
 				<group>distritos</group>
-                <group>rivers</group>
 				<group>arboles</group>
 				<group>palmeras</group>
 				<group>arbustos</group>
 				<group>setos</group>
 				<group>jardines</group>
 				<group>zonas</group>
-				<group>albero</group>
+				<group>alberos</group>
 				<group>flores</group>
 				<group>masas_arbustos</group>
             </allGroups>
@@ -56,7 +55,7 @@
 				<group>setos</group>
 				<group>jardines</group>
 				<group>zonas</group>
-				<group>albero</group>
+				<group>alberos</group>
 				<group>flores</group>
 				<group>masas_arbustos</group>
             </defGroups>

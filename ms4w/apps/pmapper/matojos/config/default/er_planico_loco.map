@@ -129,13 +129,13 @@ MAP
     END
     METADATA
       "DESCRIPTION" "Distritos"
-      "RESULT_FIELDS" "N1"
+      "RESULT_FIELDS" "NUMB_DISTR"
       "RESULT_HEADERS" "Distrito"
       "ows_title" "Distritos"
     END
     CLASS
       NAME "Distrito 1"
-	  EXPRESSION ('[N1]' = "1")
+	  EXPRESSION ('[NUMB_DISTR]' = "1")
       STYLE
         COLOR 120 0 0
         OPACITY 10
@@ -148,7 +148,7 @@ MAP
     END
     CLASS
       NAME "Distrito 2"
-	  EXPRESSION ('[N1]' = "2")
+	  EXPRESSION ('[NUMB_DISTR]' = "2")
       STYLE
         COLOR 120 120 0
         OPACITY 10
@@ -161,7 +161,7 @@ MAP
     END
     CLASS
       NAME "Distrito 3"
-	  EXPRESSION ('[N1]' = "3")
+	  EXPRESSION ('[NUMB_DISTR]' = "3")
       STYLE
         COLOR 0 120 120
         OPACITY 10
@@ -174,7 +174,7 @@ MAP
     END
     CLASS
       NAME "Distrito 4"
-	  EXPRESSION ('[N1]' = "4")
+	  EXPRESSION ('[NUMB_DISTR]' = "4")
       STYLE
         COLOR 0 0 120
         OPACITY 10
@@ -187,7 +187,7 @@ MAP
     END
     CLASS
       NAME "Distrito 5"
-	  EXPRESSION ('[N1]' = "5")
+	  EXPRESSION ('[NUMB_DISTR]' = "5")
       STYLE
         COLOR 120 0 120
         OPACITY 10
@@ -214,8 +214,8 @@ MAP
     END
     METADATA
       "DESCRIPTION" "Zonas verdes"
-      "RESULT_FIELDS" "COD_ZONA, NOMB_ZONA, NOMB_JARD, VIA, SUPERF, TIPOLO_SUP, TELECONTRO, TIPO_RIEGO"
-      "RESULT_HEADERS" "Código de la zona, Nombre de la zona, Nombre del jardín, Lugar, Superficie, Tipología de superficie, Telecontrol, Tipo de riego"
+      "RESULT_FIELDS" "COD_ZONA, NOMB_ZONA, COD_JARD, NOMB_JARD, VIA, DISTRITO, SUPERF, TIPOLO_SUP, TELECONTRO, TIPO_RIEGO"
+      "RESULT_HEADERS" "Código de la zona, Nombre de la zona, Código del jardín, Nombre del jardín, Lugar, Distrito, Superficie, Tipología de superficie, Telecontrol, Tipo de riego"
       "ows_title" "Zonas verdes"
     END
     CLASS
@@ -232,18 +232,18 @@ MAP
   # DEFINICIÓN DE CAPA - ZONAS DE ALBERO DE LOS JARDINES EN FORMATO 'SHP'
   # *****************************************************************************
   LAYER
-    NAME "albero"
+    NAME "alberos"
     TYPE POLYGON
     STATUS ON
-    DATA "ALVEROS.shp"
+    DATA "ALBEROS.shp"
     TEMPLATE VOID
     PROJECTION
       "init=epsg:3042"
     END
     METADATA
       "DESCRIPTION" "Zona de albero"
-      "RESULT_FIELDS" "COD_ZONA, NOMB_ZONA, NOMB_JARD, VIA, SUPERF"
-      "RESULT_HEADERS" "Código de la zona, Nombre de la zona, Nombre del jardín, Lugar, Superficie"
+      "RESULT_FIELDS" "COD_ZONA, NOMB_ZONA, COD_JARD, NOMB_JARD, VIA, DISTRITO, SUPERF"
+      "RESULT_HEADERS" "Código de la zona, Nombre de la zona, Código del jardín, Nombre del jardín, Lugar, Distrito, Superficie"
 	  "ows_title" "Zona de albero"
     END
     CLASS
@@ -263,15 +263,15 @@ MAP
     NAME "flores"
     TYPE POLYGON
     STATUS ON
-    DATA "FLOR TEMPORADA.shp"
+    DATA "FLORES.shp"
     TEMPLATE VOID
     PROJECTION
       "init=epsg:3042"
     END
     METADATA
       "DESCRIPTION" "Macizos florales"
-      "RESULT_FIELDS" "COD_ZONA, SUP, FLOR_TEMP"
-      "RESULT_HEADERS" "Código de la zona, Superficie, Flor de temporada"
+      "RESULT_FIELDS" "CIENTIFICO, COMUN, COD_ZONA, COD_JARDIN, VIA, FECHA_PLAN, SUPERF"
+      "RESULT_HEADERS" "Nombre científico, Nombre común, Código de zona, Código de jardín, Lugar, Fecha de plantación, Superficie"
 	  "ows_title" "Macizos florales"
     END
     CLASS
@@ -291,15 +291,15 @@ MAP
     NAME "masas_arbustos"
     TYPE POLYGON
     STATUS ON
-    DATA "MASA ARBUSTIVA.shp"
+    DATA "MASAS_ARBUSTIVAS.shp"
     TEMPLATE VOID
     PROJECTION
       "init=epsg:3042"
     END
     METADATA
       "DESCRIPTION" "Masas arbustivas"
-      "RESULT_FIELDS" "CIENTIFICO, NOM_COMUN, FECHA_PLAN, COD_ZONA, VIA"
-      "RESULT_HEADERS" "Nombre científico, Nombre común, Fecha de plantación, Código de la zona, Lugar"
+      "RESULT_FIELDS" "CIENTIFICO, COMUN, COD_ZONA, COD_JARDIN, VIA, FECHA_PLAN"
+      "RESULT_HEADERS" "Nombre científico, Nombre común, Código de zona, Código de jardín, Lugar, Fecha de plantación"
 	  "ows_title" "Masas arbustivas"
     END
     CLASS
@@ -319,15 +319,15 @@ MAP
     NAME "jardines"
     TYPE POLYGON
     STATUS ON
-    DATA "JARDIN.shp"
+    DATA "JARDINES.shp"
     TEMPLATE VOID
     PROJECTION
       "init=epsg:3042"
     END
     METADATA
       "DESCRIPTION" "Jardines"
-      "RESULT_FIELDS" "NOMB_JARD, SUP_JARD, SUP_TOT_ZO, DISTRITO, TIPO_JARD, VIA"
-      "RESULT_HEADERS" "Nombre del jardín, Superficie del jardín, Superficie total de las zonas, Distrito, Tipo de jardín, Lugar"
+      "RESULT_FIELDS" "COD_JARD, NOMB_JARD, VIA, DISTRITO, SUP_JARD, TIPO_JARD, SUP_TOT_ZO"
+      "RESULT_HEADERS" "Código del jardín, Nombre del jardín, Lugar, Distrito, Superficie del jardín, Tipo de jardín, Superficie total de las zonas"
       "ows_title" "Jardines"
     END
     CLASS
@@ -355,15 +355,15 @@ MAP
     NAME "setos"
     TYPE LINE
     STATUS ON
-    DATA "SETO.shp"
+    DATA "SETOS.shp"
     TEMPLATE VOID
     PROJECTION
       "init=epsg:3042"
     END
     METADATA
       "DESCRIPTION" "Setos"
-      "RESULT_FIELDS" "CIENTIFICO, COMUN, COD_ZONA, FECHA_PLAN, LONGITUD, VIA"
-      "RESULT_HEADERS" "Nombre científico, Nombre común, Código de la zona, Fecha de plantación, Longitud del seto, Lugar"
+      "RESULT_FIELDS" "CIENTIFICO, COMUN, COD_ZONA, COD_JARD, FECHA_PLAN, VIA, LONGITUD"
+      "RESULT_HEADERS" "Nombre científico, Nombre común, Código de la zona, Código del jardín, Fecha de plantación, Lugar, Longitud del seto"
       "ows_title" "Setos"
     END
     CLASS
@@ -395,9 +395,9 @@ MAP
     END
     METADATA
       "DESCRIPTION" "Árboles"
-      "RESULT_FIELDS" "CIENTIFICO, COMUN, FENLOGIA, EJEMPLAR, ENFERMO, COD_ZONA, FECHA_PLAN, VIA"
-      "RESULT_HEADERS" "Nombre científico, Nombre común, Fenología, Ejemplar, Enfermo, Código de la zona, Fecha de plantación, Lugar"
-      "RESULT_HYPERLINK" "COMUN"
+      "RESULT_FIELDS" "CIENTIFICO, COMUN, FENLOGIA, EJEMPLAR, ENFERMO, COD_ZONA, COD_JARD, VIA, FECHA_PLAN"
+      "RESULT_HEADERS" "Nombre científico, Nombre común, Fenología, Ejemplar, Enfermo, Código de la zona, Código del jardín, Lugar, Fecha de plantación"
+      #"RESULT_HYPERLINK" "COMUN"
       "LAYER_ENCODING" "UTF-8"
       "ows_title" "Árboles"
     END
@@ -424,8 +424,8 @@ MAP
     END
     METADATA
       "DESCRIPTION" "Palmeras"
-      "RESULT_FIELDS" "CIENTIFICO, COMUN, FENLOGIA, EJEMPLAR, ENFERMO, COD_ZONA, FECHA_PLAN, VIA"
-      "RESULT_HEADERS" "Nombre científico, Nombre común, Fenología, Ejemplar, Enfermo, Código de la zona, Fecha de plantación, Lugar"
+      "RESULT_FIELDS" "CIENTIFICO, COMUN, FENLOGIA, EJEMPLAR, ENFERMO, COD_ZONA, COD_JARD, VIA, FECHA_PLAN"
+      "RESULT_HEADERS" "Nombre científico, Nombre común, Fenología, Ejemplar, Enfermo, Código de la zona, Código del jardín, Lugar, Fecha de plantación"
       "ows_title" "Palmeras"
     END
     CLASS
@@ -451,8 +451,8 @@ MAP
     END
     METADATA
       "DESCRIPTION" "Arbustos"
-      "RESULT_FIELDS" "CIENTIFICO, COMUN, FENLOGIA, EJEMPLAR, ENFERMO, COD_ZONA, FECHA_PLAN, VIA"
-      "RESULT_HEADERS" "Nombre científico, Nombre común, Fenología, Ejemplar, Enfermo, Código de la zona, Fecha de plantación, Lugar"
+      "RESULT_FIELDS" "CIENTIFICO, COMUN, FENLOGIA, EJEMPLAR, ENFERMO, COD_ZONA, COD_JARD, VIA, FECHA_PLAN"
+      "RESULT_HEADERS" "Nombre científico, Nombre común, Fenología, Ejemplar, Enfermo, Código de la zona, Código del jardín, Lugar, Fecha de plantación"
       "ows_title" "Arbustos"
     END
     CLASS

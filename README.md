@@ -215,3 +215,9 @@ Versión 0.3.5 - 07/04/2015
 * Correción de la posición donde se mostraba el elemento de ver panel lateral.
 * Nueva imagen animada para "Cargando".
 * Optimizados todos los tamaños de las imágenes.
+
+Versión 1.0.0 - 23/04/2015
+* Fin de ciclo.
+* Publicación de la versión 1 por terminación de tiempo de desarrollo del proyecto.
+* Camibado el archivo de definición de las capas para adecuarla a las nuevas capas.
+* Cambios en la funcionalidad de búsqueda.

@@ -74,10 +74,21 @@
                 </field>
             </layer>
         </searchitem>
+		<searchitem name="flores" description="Flores">
+            <layer type="shape" name="flores">
+                <field type="s" name="COMUN" description="Flores Común"  wildcard="0" operator="OR"/>
+				<field type="s" name="CIENTIFICO" description="Flores Científico" wildcard="0" operator="OR"/>
+            </layer>
+        </searchitem>
         <searchitem name="sugerir_flores" description="Flores">
             <layer type="ms" name="flores">
-                <field type="s" name="FLOR_TEMP" description="Flores" wildcard="2">
+                <field type="s" name="COMUN" description="Flores Común" wildcard="2" operator="OR">
                     <definition type="suggest" connectiontype="ms" minlength="1" sort="asc">
+                        <mslayer encoding="ISO-8859-1"/>
+                    </definition>
+                </field>
+				<field type="s" name="CIENTIFICO" description="Flores Científico" wildcard="2" operator="OR">
+				    <definition type="suggest" connectiontype="ms" minlength="1" sort="asc">
                         <mslayer encoding="ISO-8859-1"/>
                     </definition>
                 </field>
